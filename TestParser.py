@@ -2,7 +2,7 @@ import os
 
 for i in range(1, 19):
 	i = str(i)
-	command = "java Main < tests/T"+i+"/input > tests/T"+i+"/myOut ";
+	command = "java Code/Main < tests/T"+i+"/input > tests/T"+i+"/myOut ";
 	code1 = os.system(command)
 	command = "diff tests/T"+i+"/output tests/T"+i+"/myOut"
 	code2 = os.system(command)
