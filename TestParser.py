@@ -19,4 +19,4 @@ for i in range(1, 19):
 		print("    Failed Test: "+i)
 		print("----------!!!----------")
 		print("")
-		exit(0)
+		break
