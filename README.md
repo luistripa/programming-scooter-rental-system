@@ -1,2 +1,2 @@
 # IP_TP2
-Second programming project for the IP subject
+<h1>Second programming project for the IP subject</h1>
