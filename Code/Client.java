@@ -1,5 +1,8 @@
 public class Client {
 
+    // Constants
+	private static final int INITIAL_BALANCE = 200;
+
     String clientNIF;
     String clientEmail;
     String clientPhone;
