@@ -1,0 +1,6 @@
+
+# Binaries
+bin/
+
+# Classes and executables
+*.class
