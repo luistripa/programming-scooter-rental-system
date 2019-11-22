@@ -2,5 +2,8 @@
 # Binaries
 bin/
 
+# Test files
+test/
+
 # Classes and executables
 *.class
