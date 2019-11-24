@@ -12,17 +12,17 @@ public class Client {
 	private int moneySpent;
 	private String scooterInUse; // ID of the scooter being used by the client
 
-    public Client(String nif, String email, String phone, String name) {
-        this.nif = nif;
-        this.email = email;
-        this.phone = phone;
+	public Client(String nif, String email, String phone, String name) {
+		this.nif = nif;
+		this.email = email;
+		this.phone = phone;
 		this.name = name;
 		balance = DEFAULT_BALANCE;
 		totalMinutes = 0;
 		numberRentals = 0;
 		maxTime = 0;
 		moneySpent = 0;
-    }
+	}
 
 	/**
 	* Method that updates all client's variables when a scooter is released
