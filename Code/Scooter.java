@@ -14,6 +14,20 @@ public class Scooter {
     }
 
     /**
+     * @return the totalRentals
+     */
+    public int getTotalRentals() {
+        return totalRentals;
+    }
+
+    /**
+     * @return the clientInUse
+     */
+    public String getClientInUse() {
+        return clientInUse;
+    }
+
+    /**
      *
      * @param minutes Amount of minutes that the scooter was rented for.
      * @pre minutes >= 0 && isMoving == true
