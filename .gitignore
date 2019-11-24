@@ -3,7 +3,7 @@
 bin/
 
 # Test files
-test/
+tests/
 
 # Classes and executables
 *.class
@@ -11,3 +11,6 @@ test/
 # Unecessary Code folders
 Luis_Code/
 Antonio_Code/
+
+# .DS_Store files
+.DS_Store
