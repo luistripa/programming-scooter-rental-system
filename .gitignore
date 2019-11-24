@@ -7,3 +7,7 @@ test/
 
 # Classes and executables
 *.class
+
+# Unecessary Code folders
+Luis_Code/
+Antonio_Code/
