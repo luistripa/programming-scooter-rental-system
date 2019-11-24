@@ -3,7 +3,7 @@
 bin/
 
 # Test files
-test/
+tests/
 
 # Classes and executables
 *.class
