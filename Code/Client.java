@@ -22,6 +22,7 @@ public class Client {
 		numberRentals = 0;
 		maxTime = 0;
 		moneySpent = 0;
+		scooterInUse = ""
 	}
 
 	/**
