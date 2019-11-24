@@ -1,17 +1,26 @@
 public class Client {
 
     // Constants
-	private static final int INITIAL_BALANCE = 200;
+	private static final int DEFAULT_BALANCE = 200;
 
-    String clientNIF;
-    String clientEmail;
-    String clientPhone;
-    String clientName;
+	// Instance variables
+    private String nif, email, phone, name;
+	private int balance;
+	private int totalMinutes;
+	private int numberRentals;
+	private int maxTime;
+	private int moneySpent;
+	private String scooterInUse; // ID of the scooter being used by the client
 
-    public Client(String clientNIF, String clientEmail, String clientPhone, String clientName) {
-        this.clientNIF = clientNIF;
-        this.clientEmail = clientEmail;
-        this.clientPhone = clientPhone;
-        this.clientName = clientName;
+    public Client(String nif, String email, String phone, String name) {
+        this.nif = nif;
+        this.email = email;
+        this.phone = phone;
+        this.name = name;
+		balance = DEFAULT_BALANCE;
+		totalMinutes = 0;
+		numberRentals = 0;
+		maxTime = 0;
+		moneySpent = 0;
     }
 }
