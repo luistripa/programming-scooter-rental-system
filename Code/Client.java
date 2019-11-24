@@ -1,10 +1,10 @@
 public class Client {
 
-    // Constants
+	// Constants
 	private static final int DEFAULT_BALANCE = 200;
 
 	// Instance variables
-    private String nif, email, phone, name;
+	private String nif, email, phone, name;
 	private int balance;
 	private int totalMinutes;
 	private int numberRentals;
