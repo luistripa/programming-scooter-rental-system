@@ -76,8 +76,17 @@ public class Client {
 	*
 	* PRE: amount > 0
 	*/
-	public addMoneySpent(int amount) {
+	public void addMoneySpent(int amount) {
 		moneySpent += amount;
+	}
+
+	/**
+	* Sets scooterInUse to the id of the scooter the client is going to use
+	*
+	* @param id The id of the scooter the client is going to use
+	*/
+	public void setScooterInUse(String id) {
+		scooterInUse = id;
 	}
 
 	/**
