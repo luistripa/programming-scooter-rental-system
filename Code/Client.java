@@ -10,6 +10,7 @@ public class Client {
 	private int numberRentals;
 	private int maxTime;
 	private int moneySpent;
+	private int minutes;
 	private String scooterInUse; // ID of the scooter being used by the client
 
 	public Client(String nif, String email, String phone, String name) {
@@ -22,7 +23,7 @@ public class Client {
 		numberRentals = 0;
 		maxTime = 0;
 		moneySpent = 0;
-		scooterInUse = ""
+		scooterInUse = "";
 	}
 
 	/**
@@ -174,8 +175,4 @@ public class Client {
 			averageMinutes = getTotalMinutes() / getNumberRentals();
 		return averageMinutes;
 	}
-
-
-
-
 }

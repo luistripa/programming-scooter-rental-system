@@ -154,18 +154,6 @@ public class Scooter {
 	public int getMinutesMoving() {
 		return minutesMoving;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
