@@ -164,6 +164,13 @@ public class Client {
 	}
 
 	/**
+	 * @return the scooterInUse
+	 */
+	public String getScooterInUse() {
+		return scooterInUse;
+	}
+
+	/**
 	*
 	* @return The client average minutes per rental
 	*/
