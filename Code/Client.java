@@ -5,13 +5,8 @@ public class Client {
 
 	// Instance variables
 	private String nif, email, phone, name;
-	private int balance;
-	private int totalMinutes;
-	private int numberRentals;
-	private int maxTime;
-	private int moneySpent;
-	private int minutes;
-	private String scooterInUse; // ID of the scooter being used by the client
+	private int balance, totalMinutes, numberRentals, maxTime, moneySpent, minutes;
+	private Scooter scooterInUse; // ID of the scooter being used by the client
 
 	public Client(String nif, String email, String phone, String name) {
 		this.nif = nif;
@@ -23,7 +18,7 @@ public class Client {
 		numberRentals = 0;
 		maxTime = 0;
 		moneySpent = 0;
-		scooterInUse = "";
+		scooterInUse = null; // No scooter being used
 	}
 
 	/**
@@ -38,7 +33,7 @@ public class Client {
 			maxTime = minutes;
 		incrementNumberRentals();
 		addMinutes(minutes);
-		setScooterInUse("");
+		setScooterInUse(null);
 	}
 
 	/**
@@ -87,8 +82,8 @@ public class Client {
 	*
 	* @param id The id of the scooter the client is going to use
 	*/
-	public void setScooterInUse(String id) {
-		scooterInUse = id;
+	public void setScooterInUse(Scooter scooter) {
+		scooterInUse = scooter;
 	}
 
 	/**
@@ -164,8 +159,9 @@ public class Client {
 	}
 
 	/**
-	 * @return the scooterInUse
-	 */
+	*
+	* @return the scooterInUse
+	*/
 	public String getScooterInUse() {
 		return scooterInUse;
 	}
