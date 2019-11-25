@@ -81,6 +81,7 @@ public class RentalSystem {
         for (int i=pos ; i<clientCounter-1 ; i++) {
             clients[i] = clients[i+1];
         }
+        clientCounter--;
     }
 
     /**
