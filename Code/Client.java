@@ -5,7 +5,7 @@ public class Client {
 
 	// Instance variables
 	private String nif, email, phone, name;
-	private int balance, totalMinutes, numberRentals, maxTime, moneySpent, minutes;
+	private int balance, totalMinutes, numberRentals, maxTime, moneySpent;
 	private Scooter scooterInUse;
 
 	public Client(String nif, String email, String phone, String name) {
@@ -28,7 +28,7 @@ public class Client {
 	*
 	* PRE: minutes > 0
 	*/
-	public void releaseScooter() {
+	public void releaseScooter(int minutes) {
 		if (minutes > maxTime)
 			maxTime = minutes;
 		incrementNumberRentals();

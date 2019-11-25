@@ -380,25 +380,4 @@ public class RentalSystem {
             return false;
         }
     }
-
-    /**
-     * Method that applies a promotion to the last rental performed by the client
-     * by reverting the Client, Scooter and System variables to the state that they were at
-     * previous to the last rental.
-     */
-    public void promotion() {
-        if (!client.hasRented()) {
-            client.addBalance(lastRentalCost);
-            client.addMinutes(-lastRentalMinutes);
-            client.setMax(lastRentalMax);
-            client.decrementNumberRentals();
-            client.addMoneySpent(-lastRentalCost);
-            scooter.decrementUsageAmount();
-            scooter.setTotalMinutes(-lastRentalMinutes);
-            totalNumberRentals--;
-            totalMoneyPaid -= lastRentalCost;
-            totalLateMinutes -= lastLateMinutes;
-            promotionApplied = true;
-        }
-    }
 }
