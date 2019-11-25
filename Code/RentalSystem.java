@@ -28,8 +28,8 @@ public class RentalSystem {
      * The class constructor
      */
     public RentalSystem() {
-        client = new Client[DEFAULT_VECTOR_SIZE];
-        scooter = new Scooter[DEFAULT_VECTOR_SIZE];
+        clients = new Client[DEFAULT_VECTOR_SIZE];
+        scooters = new Scooter[DEFAULT_VECTOR_SIZE];
         totalRentals = 0;
         systemBalance = 0;
         totalDelayMinutes = 0;
@@ -56,7 +56,7 @@ public class RentalSystem {
     public int searchIndexOfClient(String nif) {
         int pos=-1;
         for (int i=0 ; i<clientCounter&&pos==-1 ; i++) {
-            if (clients[i].getNif.equalsIgnoreCase(nif))
+            if (clients[i].getNif().equalsIgnoreCase(nif))
                 pos=i;
         }
         return pos;
@@ -90,7 +90,7 @@ public class RentalSystem {
      * PRE: searchIndexOfClient(nif)!=-1
      */
     public String getClientNif(String nif) {
-        return clients[searchIndexOfClient].getNif();
+        return clients[searchIndexOfClient(nif)].getNif();
     }
 
     /**
@@ -109,7 +109,7 @@ public class RentalSystem {
      * @return The client phone
      * PRE: searchIndexOfClient(nif)!=-1
      */
-    public String getClientPhone(String nif) {
+    public int getClientPhone(String nif) {
         return clients[searchIndexOfClient(nif)].getPhone();
     }
 
@@ -129,7 +129,7 @@ public class RentalSystem {
      * @return The client balance
      * PRE: searchIndexOfClient(nif)!=-1
      */
-    public int getClientBalance(int nif) {
+    public int getClientBalance(String nif) {
         return clients[searchIndexOfClient(nif)].getBalance();
     }
 
@@ -254,7 +254,7 @@ public class RentalSystem {
      * @return The object of the client that is using the scooter
      * PRE: searchIndexOfScooter(id)!=-1
      */
-    public String getScooterClientInUse(String id) {
+    public Client getScooterClientInUse(String id) {
         return scooters[searchIndexOfScooter(id)].getClientInUse();
     }
 
@@ -303,7 +303,7 @@ public class RentalSystem {
      * @return Boolean stating whether the scooter is or not active
      */
     public boolean isScooterActivated(String id) {
-        return scooters[searchIndexOfScooter(id)].getstate() != DEACTIVATED;
+        return scooters[searchIndexOfScooter(id)].getState() != DEACTIVATED;
     }
 
     /**
@@ -343,8 +343,8 @@ public class RentalSystem {
         Client client = clients[searchIndexOfClient(nif)];
         Scooter scooter = scooters[searchIndexOfScooter(id)];
 
-        client.setScooterInUse(scooter.getID);
-        scooter.rent(client.getNif());
+        client.setScooterInUse(scooter);
+        scooter.rent(client);
     }
 
     /**
@@ -358,8 +358,8 @@ public class RentalSystem {
      */
     public void releaseScooter(String nif, String id, int minutes) {
 
-        Client client;
-        Scooter scooter;
+        Client client = clients[searchIndexOfClient(nif)];
+        Scooter scooter = scooters[searchIndexOfScooter(id)];
 
         int expense = 0;
         int delay = 0;
@@ -389,7 +389,7 @@ public class RentalSystem {
         systemBalance += amount;
     }
 
-    public addTotalDelayMinutes(int minutes) {
+    public void addTotalDelayMinutes(int minutes) {
         totalDelayMinutes += minutes;
     }
 

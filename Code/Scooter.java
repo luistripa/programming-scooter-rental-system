@@ -37,9 +37,9 @@ public class Scooter {
      * Rents the scooter
      * @param nif The nif of the client renting the scooter
      */
-    public void rent(String nif) {
+    public void rent(Client client) {
         setState(MOVING);
-        setClientInUse(nif);
+        setClientInUse(client);
     }
 
     /**

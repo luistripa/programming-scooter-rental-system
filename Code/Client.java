@@ -4,11 +4,11 @@ public class Client {
 	private static final int DEFAULT_BALANCE = 200;
 
 	// Instance variables
-	private String nif, email, phone, name;
-	private int balance, totalMinutes, numberRentals, maxTime, moneySpent;
+	private String nif, email, name;
+	private int phone, balance, totalMinutes, numberRentals, maxTime, moneySpent;
 	private Scooter scooterInUse;
 
-	public Client(String nif, String email, String phone, String name) {
+	public Client(String nif, String email, int phone, String name) {
 		this.nif = nif;
 		this.email = email;
 		this.phone = phone;
@@ -28,12 +28,13 @@ public class Client {
 	*
 	* PRE: minutes > 0
 	*/
-	public void releaseScooter(int minutes) {
+	public void releaseScooter(int minutes, int expense) {
 		if (minutes > maxTime)
 			maxTime = minutes;
 		incrementNumberRentals();
 		addMinutes(minutes);
 		setScooterInUse(null);
+		remBalance(expense);
 	}
 
 	/**
@@ -115,7 +116,7 @@ public class Client {
 	*
 	* @return The client phone
 	*/
-	public String getPhone() {
+	public int getPhone() {
 		return phone;
 	}
 
