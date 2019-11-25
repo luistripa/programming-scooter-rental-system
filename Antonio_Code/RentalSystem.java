@@ -15,7 +15,7 @@ public class RentalSystem {
 
     public Scooter scooter;
     public Client client;
-    private int totalNumberRentals, totalMoneyPaid, totalLateMinutes, lastRentalMinutes, lastRentalCost, lastRentalMax, lastLateMinutes;
+    private int totalNumberRentals, totalMoneyPaid, totalLateMinutes, lastRentalCost;
     private boolean clientExists, scooterExists, promotionApplied;
 
     // Constructor.
