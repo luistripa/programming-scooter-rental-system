@@ -184,13 +184,6 @@ public class RentalSystem {
     }
 
     /**
-     * Inserts a scooter in the system
-     * @param id           [description]
-     * @param registration [description]
-     * PRE: searchIndexOfScooter(id)==-1
-     */
-
-    /**
      * Get the scooter the client is using
      * @param  nif The client nif
      * @return The scooter object which the client is using
