@@ -1,0 +1,621 @@
+Comando invalido.
+Comando invalido.
+Comando invalido.
+Comando invalido.
+Comando invalido.
+Comando invalido.
+Comando invalido.
+Comando invalido.
+Comando invalido.
+Comando invalido.
+Insercao de trotinete com sucesso.
+Trotinete existente.
+Trotinete existente.
+Trotinete existente.
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa0, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa0, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa0, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 1, 200, 1
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa1, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa1, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa1, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 2, 400, 2
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa2, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa2, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa2, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 3, 600, 3
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa3, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa3, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa3, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 4, 800, 4
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa4, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa4, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa4, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 5, 1000, 5
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa5, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa5, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa5, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 6, 1200, 6
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa6, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa6, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa6, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 7, 1400, 7
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa7, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa7, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa7, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 8, 1600, 8
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa8, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa8, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa8, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 9, 1800, 9
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa9, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa9, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa9, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 10, 2000, 10
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa10, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa10, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa10, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 11, 2200, 11
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa11, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa11, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa11, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 12, 2400, 12
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa12, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa12, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa12, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 13, 2600, 13
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa13, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa13, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa13, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 14, 2800, 14
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa14, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa14, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa14, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 15, 3000, 15
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa15, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa15, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa15, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 16, 3200, 16
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa16, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa16, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa16, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 17, 3400, 17
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa17, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa17, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa17, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 18, 3600, 18
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa18, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa18, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa18, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 19, 3800, 19
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa19, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa19, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa19, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 20, 4000, 20
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa20, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa20, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa20, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 21, 4200, 21
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa21, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa21, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa21, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 22, 4400, 22
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa22, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa22, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa22, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 23, 4600, 23
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa23, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa23, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa23, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 24, 4800, 24
+Insercao de cliente com sucesso.
+Cliente existente.
+Cliente existente.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Aluguer efectuado com sucesso.
+Trotinete nao pode ser alugada.
+Aluguer terminado.
+Trotinete inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente sem saldo suficiente.
+Cliente sem saldo suficiente.
+foo bar: 0aAa24, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa24, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+foo bar: 0aAa24, foo@foo.com, 1234567, 0, 61, 1, 61, 61, 200
+Cliente inexistente.
+Cliente inexistente.
+Cliente inexistente.
+Cliente removido com sucesso.
+Cliente inexistente.
+Cliente inexistente.
+Estado actual: 25, 5000, 25
+Comando invalido.
+Comando invalido.
+Comando invalido.
+Comando invalido.
+Comando invalido.
+Saindo...
+Estado actual: 25, 5000, 25
