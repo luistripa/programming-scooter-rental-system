@@ -2,59 +2,59 @@ import java.util.Scanner;
 
 public class Main {
 
-	// Constants
+    // Constants
     private static final String INSERT_CLIENT = "ADCLIENTE";
-	private static final String REMOVE_CLIENT = "REMCLIENTE";
-	private static final String INSERT_SCOOTER = "ADTROT";
-	private static final String CLIENT_DATA = "DADOSCLIENTE";
-	private static final String RENTED_SCOOTER = "TROT";
-	private static final String SCOOTER_DATA = "DADOSTROT";
-	private static final String RENTER = "CLIENTE";
-	private static final String ADD_BALANCE = "CARRSALDO";
-	private static final String RENT = "ALUGAR";
-	private static final String RELEASE = "LIBERTAR";
-	private static final String SYSTEM_STATE = "ESTADOSISTEMA";
-	private static final String EXIT = "SAIR";
-	private static final String DEACTIVATE = "DESTROT";
-	private static final String ACTIVATE = "REACTROT";
-	private static final String LIST_CLIENTS = "LISTCLIENTE";
-	private static final String LIST_SCOOTER = "LISTTROT";
-	private static final String LIST_NEGATIVE_BALANCE = "LISTDEV";
+    private static final String REMOVE_CLIENT = "REMCLIENTE";
+    private static final String INSERT_SCOOTER = "ADTROT";
+    private static final String CLIENT_DATA = "DADOSCLIENTE";
+    private static final String RENTED_SCOOTER = "TROT";
+    private static final String SCOOTER_DATA = "DADOSTROT";
+    private static final String RENTER = "CLIENTE";
+    private static final String ADD_BALANCE = "CARRSALDO";
+    private static final String RENT = "ALUGAR";
+    private static final String RELEASE = "LIBERTAR";
+    private static final String SYSTEM_STATE = "ESTADOSISTEMA";
+    private static final String EXIT = "SAIR";
+    private static final String DEACTIVATE = "DESTROT";
+    private static final String ACTIVATE = "REACTROT";
+    private static final String LIST_CLIENTS = "LISTCLIENTE";
+    private static final String LIST_SCOOTER = "LISTTROT";
+    private static final String LIST_NEGATIVE_BALANCE = "LISTDEV";
 
-	// Error messages
-	private static final String INVALID_COMMAND = "Comando invalido.";
-	private static final String CLIENT_WITHOUT_SCOOTER = "Cliente sem trotinete.";
-	private static final String CLIENT_DOESNT_EXIST = "Cliente inexistente.";
-	private static final String SCOOTER_NOT_RENTED = "Trotinete nao alugada.";
-	private static final String SCOOTER_DOESNT_EXIST = "Trotinete inexistente.";
-	private static final String LEAVING = "Saindo...";
-	private static final String BALANCE_ADDED = "Carregamento efectuado.";
-	private static final String INVALID_VALUE = "Valor invalido.";
-	private static final String CLIENT_REMOVED = "Cliente removido com sucesso.";
-	private static final String CLIENT_MOVING = "Cliente em movimento.";
-	private static final String RENTED = "Aluguer efectuado com sucesso.";
-	private static final String SCOOTER_CANT_BE_RENTED = "Trotinete nao pode ser alugada.";
-	private static final String NOT_ENOUGH_BALANCE = "Cliente sem saldo suficiente.";
-	private static final String RENTAL_FINISHED = "Aluguer terminado.";
-	private static final String CLIENT_EXISTS = "Cliente existente.";
-	private static final String SCOOTER_EXISTS = "Trotinete existente.";
-	private static final String SCOOTER_MOVING = "Trotinete em movimento.";
-	private static final String SCOOTER_DEACTIVATED = "Trotinete desactivada.";
-	private static final String CLIENT_INSERTED = "Insercao de cliente com sucesso.";
-	private static final String SCOOTER_INSERTED = "Insercao de trotinete com sucesso.";
-	private static final String SCOOTER_REACTIVATED = "Trotinete reactivada.";
-	private static final String SCOOTER_NOT_INACTIVE = "Trotinete nao inactiva.";
+    // Error messages
+    private static final String INVALID_COMMAND = "Comando invalido.";
+    private static final String CLIENT_WITHOUT_SCOOTER = "Cliente sem trotinete.";
+    private static final String CLIENT_DOESNT_EXIST = "Cliente inexistente.";
+    private static final String SCOOTER_NOT_RENTED = "Trotinete nao alugada.";
+    private static final String SCOOTER_DOESNT_EXIST = "Trotinete inexistente.";
+    private static final String LEAVING = "Saindo...";
+    private static final String BALANCE_ADDED = "Carregamento efectuado.";
+    private static final String INVALID_VALUE = "Valor invalido.";
+    private static final String CLIENT_REMOVED = "Cliente removido com sucesso.";
+    private static final String CLIENT_MOVING = "Cliente em movimento.";
+    private static final String RENTED = "Aluguer efectuado com sucesso.";
+    private static final String SCOOTER_CANT_BE_RENTED = "Trotinete nao pode ser alugada.";
+    private static final String NOT_ENOUGH_BALANCE = "Cliente sem saldo suficiente.";
+    private static final String RENTAL_FINISHED = "Aluguer terminado.";
+    private static final String CLIENT_EXISTS = "Cliente existente.";
+    private static final String SCOOTER_EXISTS = "Trotinete existente.";
+    private static final String SCOOTER_MOVING = "Trotinete em movimento.";
+    private static final String SCOOTER_DEACTIVATED = "Trotinete desactivada.";
+    private static final String CLIENT_INSERTED = "Insercao de cliente com sucesso.";
+    private static final String SCOOTER_INSERTED = "Insercao de trotinete com sucesso.";
+    private static final String SCOOTER_REACTIVATED = "Trotinete reactivada.";
+    private static final String SCOOTER_NOT_INACTIVE = "Trotinete nao inactiva.";
 
-	public static void main(String[] args) {
-		RentalSystem system = new RentalSystem();
-		Scanner scanner = new Scanner(System.in);
-		String option;
-		do {
-			option = readOption(scanner);
-			executeOption(scanner, system, option);
-		} while((!option.equalsIgnoreCase(EXIT)));
-		scanner.close();
-	}
+    public static void main(String[] args) {
+        RentalSystem system = new RentalSystem();
+        Scanner scanner = new Scanner(System.in);
+        String option;
+        do {
+            option = readOption(scanner);
+            executeOption(scanner, system, option);
+        } while((!option.equalsIgnoreCase(EXIT)));
+        scanner.close();
+    }
 
     /**
      * Reads the option that the user wishes to perform.
