@@ -16,7 +16,32 @@ public class Main {
 	private static final String SYSTEM_STATE = "ESTADOSISTEMA";
 	private static final String EXIT = "SAIR";
 	private static final String DEACTIVATE = "DESTROT";
-	private static final String ACTIVATE = "REACTROT";
+    private static final String ACTIVATE = "REACTROT";
+    
+    // Error messages
+    private static final String INVALID_COMMAND = "Comando invalido.";
+    private static final String CLIENT_WITHOUT_SCOOTER = "Cliente sem trotinete.";
+    private static final String CLIENT_DOESNT_EXIST = "Cliente inexistente.";
+    private static final String SCOOTER_NOT_RENTED = "Trotinete nao alugada.";
+    private static final String SCOOTER_DOESNT_EXIST = "Trotinete inexistente.";
+    private static final String LEAVING = "Saindo...";
+    private static final String BALANCE_ADDED = "Carregamento efectuado.";
+    private static final String INVALID_VALUE = "Valor invalido.";
+    private static final String CLIENT_REMOVED = "Cliente removido com sucesso.";
+    private static final String CLIENT_MOVING = "Cliente em movimento.";
+    private static final String RENTED = "Aluguer efectuado com sucesso.";
+    private static final String SCOOTER_CANT_BE_RENTED = "Trotinete nao pode ser alugada.";
+    private static final String NOT_ENOUGH_BALANCE = "Cliente sem saldo suficiente.";
+    private static final String RENTAL_FINISHED = "Aluguer terminado.";
+    private static final String CLIENT_EXISTS = "Cliente existente.";
+    private static final String SCOOTER_EXISTS = "Trotinete existente.";
+    private static final String SCOOTER_MOVING = "Trotinete em movimento.";
+    private static final String SCOOTER_DEACTIVATED = "Trotinete desactivada.";
+    private static final String CLIENT_INSERTED = "Insercao de cliente com sucesso.";
+    private static final String SCOOTER_INSERTED = "Insercao de trotinete com sucesso.";
+    private static final String SCOOTER_REACTIVATED = "Trotinete reactivada.";
+    private static final String SCOOTER_NOT_INACTIVE = "Trotinete nao inactiva.";
+
 
 	public static void main(String[] args) {
         RentalSystem system = new RentalSystem();
@@ -91,7 +116,7 @@ public class Main {
                 reactivateScooter(scanner, system);
                 break;
             default:
-                System.out.println("Comando invalido.");
+                System.out.println(INVALID_COMMAND);
         }
     }
 
@@ -107,9 +132,9 @@ public class Main {
             if (system.hasClientRented())
                 System.out.println(system.getIdRentedScooter() + ", " + system.getRegistrationRentedScooter());
             else
-                System.out.println("Cliente sem trotinete.");
+                System.out.println(CLIENT_WITHOUT_SCOOTER);
         } else
-            System.out.println("Cliente inexistente.");
+            System.out.println(CLIENT_DOESNT_EXIST);
     }
 
     /**
@@ -121,11 +146,11 @@ public class Main {
         String ScooterID = scanner.next();
         if (isScooterIDEqual(ScooterID, system)) {
             if (system.isScooterMoving())
-                System.out.println(system.getClienteWhoRentedNIF() + ", " + system.getClientWhoRentedName());
+                System.out.println(system.getClientWhoRentedNIF() + ", " + system.getClientWhoRentedName());
             else
-                System.out.println("Trotinete nao alugada.");
+                System.out.println(SCOOTER_NOT_RENTED);
         } else
-            System.out.println("Trotinete inexistente.");
+            System.out.println(SCOOTER_DOESNT_EXIST);
     }
 
     /**
@@ -134,7 +159,7 @@ public class Main {
      * @param system Rental system that is currently being used.
      */
     private static void exit(RentalSystem system) {
-        System.out.println("Saindo...");
+        System.out.println(LEAVING);
         systemState(system);
     }
 
@@ -159,11 +184,11 @@ public class Main {
         scanner.nextLine();
         if (isNIFEqual(nif, system) && amount > 0) {
             system.addBalance(amount);
-            System.out.println("Carregamento efectuado.");
+            System.out.println(BALANCE_ADDED);
         } else if (amount <= 0)
-            System.out.println("Valor invalido.");
+            System.out.println(INVALID_VALUE);
         if (!isNIFEqual(nif, system))
-            System.out.println("Cliente inexistente.");
+            System.out.println(CLIENT_DOESNT_EXIST);
     }
 
     /**
@@ -178,11 +203,11 @@ public class Main {
         if (isNIFEqual(nif, system)) {
             if (!system.hasClientRented()) {
                 system.removeClient();
-                System.out.println("Cliente removido com sucesso.");
+                System.out.println(CLIENT_REMOVED);
             } else
-                System.out.println("Cliente em movimento.");
+                System.out.println(CLIENT_MOVING);
         } else
-            System.out.println("Cliente inexistente.");
+            System.out.println(CLIENT_DOESNT_EXIST);
     }
 
     /**
@@ -197,15 +222,15 @@ public class Main {
         scanner.nextLine();
         if (isNIFEqual(nif, system) && isScooterIDEqual(scooterID, system) && system.getBalance() >= 100 && !system.isScooterMoving() && system.isScooterActivated()) {
             system.rentScooter();
-            System.out.println("Aluguer efectuado com sucesso.");
+            System.out.println(RENTED);
         } else if (!isNIFEqual(nif, system))
-            System.out.println("Cliente inexistente.");
+            System.out.println(CLIENT_DOESNT_EXIST);
         else if (!isScooterIDEqual(scooterID, system))
-            System.out.println("Trotinete inexistente.");
+            System.out.println(SCOOTER_DOESNT_EXIST);
         else if (system.isScooterMoving() || !system.isScooterActivated())
-            System.out.println("Trotinete nao pode ser alugada.");
+            System.out.println(SCOOTER_CANT_BE_RENTED);
         else if (system.getBalance() < 100)
-            System.out.println("Cliente sem saldo suficiente.");
+            System.out.println(NOT_ENOUGH_BALANCE);
     }
 
     /**
@@ -220,13 +245,13 @@ public class Main {
         scanner.nextLine();
         if (system.isScooterMoving() && minutes > 0 && isScooterIDEqual(scooterID, system)) {
             system.releaseScooter(minutes);
-            System.out.println("Aluguer terminado.");
+            System.out.println(RENTAL_FINISHED);
         } else if (minutes <= 0) {
-            System.out.println("Valor invalido.");
+            System.out.println(INVALID_VALUE);
         } else if (!isScooterIDEqual(scooterID, system)) {
-            System.out.println("Trotinete inexistente.");
+            System.out.println(SCOOTER_DOESNT_EXIST);
         } else if (!system.isScooterMoving()) {
-            System.out.println("Trotinete nao alugada.");
+            System.out.println(SCOOTER_NOT_RENTED);
         }
     }
 
@@ -242,10 +267,10 @@ public class Main {
         int phone = scanner.nextInt();
         String name = scanner.nextLine().trim();
         if (isNIFEqual(nif, system)) {
-            System.out.println("Cliente existente.");
+            System.out.println(CLIENT_EXISTS);
         } else {
             system.createClient(nif, email, phone, name);
-            System.out.println("Insercao de cliente com sucesso.");
+            System.out.println(CLIENT_INSERTED);
         }
     }
 
@@ -260,10 +285,10 @@ public class Main {
         String scooterRegistration = scanner.next();
         scanner.nextLine();
         if (isScooterIDEqual(scooterID, system)) {
-            System.out.println("Trotinete existente.");
+            System.out.println(SCOOTER_EXISTS);
         } else {
             system.createScooter(scooterID, scooterRegistration);
-            System.out.println("Insercao de trotinete com sucesso.");
+            System.out.println(SCOOTER_INSERTED);
         }
     }
 
@@ -283,7 +308,7 @@ public class Main {
                     + system.getNumberRentals() + ", " + system.getMax() + ", "
                     + system.getAverageMinutes() + ", " + system.getMoneySpent());
         } else {
-            System.out.println("Cliente inexistente.");
+            System.out.println(CLIENT_DOESNT_EXIST);
         }
     }
 
@@ -307,7 +332,7 @@ public class Main {
             System.out.println(system.getScooterRegistration() + ": " + state + ", " + system.getUsageAmount()
                     + ", " + system.getUsageMinutes());
         } else
-            System.out.println("Trotinete inexistente.");
+            System.out.println(SCOOTER_DOESNT_EXIST);
     }
 
     /**
@@ -321,11 +346,11 @@ public class Main {
         scanner.nextLine();
         if (isScooterIDEqual(scooterID, system) && !system.isScooterMoving()) {
             system.deactivateScooter();
-            System.out.println("Trotinete desactivada.");
+            System.out.println(SCOOTER_DEACTIVATED);
         } else if (!isScooterIDEqual(scooterID, system))
-            System.out.println("Trotinete inexistente.");
+            System.out.println(SCOOTER_DOESNT_EXIST);
         else if (system.isScooterMoving())
-            System.out.println("Trotinete em movimento.");
+            System.out.println(SCOOTER_MOVING);
     }
 
     /**
@@ -339,11 +364,11 @@ public class Main {
         scanner.nextLine();
         if (isScooterIDEqual(scooterID, system) && !system.isScooterActivated()) {
             system.reactivateScooter();
-            System.out.println("Trotinete reactivada.");
+            System.out.println(SCOOTER_REACTIVATED);
         } else if (!isScooterIDEqual(scooterID, system))
-            System.out.println("Trotinete inexistente.");
+            System.out.println(SCOOTER_DOESNT_EXIST);
         else if (system.isScooterActivated())
-            System.out.println("Trotinete nao inactiva.");
+            System.out.println(SCOOTER_NOT_INACTIVE);
     }
 
     /**

@@ -6,7 +6,7 @@ public class Client {
 	// Instance variables
 	private String nif, email, phone, name;
 	private int balance, totalMinutes, numberRentals, maxTime, moneySpent, minutes;
-	private Scooter scooterInUse; // ID of the scooter being used by the client
+	private Scooter scooterInUse;
 
 	public Client(String nif, String email, String phone, String name) {
 		this.nif = nif;
@@ -162,7 +162,7 @@ public class Client {
 	*
 	* @return the scooterInUse
 	*/
-	public String getScooterInUse() {
+	public Scooter getScooterInUse() {
 		return scooterInUse;
 	}
 
