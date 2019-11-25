@@ -410,8 +410,13 @@ public class RentalSystem {
         return totalDelayMinutes;
     }
 
+    public ScooterIterator initializeScooterIterator() {
+        return new ScooterIterator(scooterCounter, scooters);
+    }
 
-
+    public ClientIterator initializeClientIterator() {
+        return new ClientIterator(clientCounter, clients);
+    }
 
     private boolean isFull(Client[] vector, int counter) {
         return counter==vector.length;

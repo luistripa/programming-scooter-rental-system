@@ -371,7 +371,13 @@ public class Main {
             System.out.println(SCOOTER_NOT_INACTIVE);
     }
 
-    //
+    private static void listContacts() {
+
+    }
+
+    private static void listScooters() {
+        
+    }
 
     /**
      * Verifies if there is a client with the provided nif.

@@ -4,6 +4,11 @@ public class ClientIteratorDebtors {
     private int next;
     private Client[] clients;
     
+    /**
+     * 
+     * @param counter
+     * @param clients
+     */
     public ClientIteratorDebtors(int counter, Client[] clients) {
         this.clients = new Client[counter];
         this.counter = 0;
@@ -14,15 +19,26 @@ public class ClientIteratorDebtors {
         }
     }
 
+    /**
+     * 
+     * @return
+     */
     public boolean hasNext() {
         return next < counter;
     }
 
+    /**
+     * 
+     * @return
+     */
     public Client next() {
         return clients[next++];
     }
     
-    // TODO: Acabar isto basicamente.
+    /**
+     * 
+     * @param client
+     */
     private void insertSort(Client client) {
         int pos = -1;
         for (int i = 0; i < counter && pos == -1; i++) {
@@ -34,6 +50,11 @@ public class ClientIteratorDebtors {
         insertAt(pos,client);
     }
     
+    /**
+     * 
+     * @param pos
+     * @param client
+     */
     private void insertAt(int pos, Client client) {
         for (int i = counter - 1; i >= pos; i--)
             clients[i + 1] = clients[i];
