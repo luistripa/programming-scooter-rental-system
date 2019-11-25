@@ -17,6 +17,9 @@ public class Main {
 	private static final String EXIT = "SAIR";
 	private static final String DEACTIVATE = "DESTROT";
     private static final String ACTIVATE = "REACTROT";
+    private static final String LIST_CLIENTS = "LISTCLIENTE";
+    private static final String LIST_SCOOTER = "LISTTROT";
+    private static final String LIST_NEGATIVE_BALANCE = "LISTDEV";
     
     // Error messages
     private static final String INVALID_COMMAND = "Comando invalido.";
