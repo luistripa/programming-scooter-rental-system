@@ -1,7 +1,13 @@
 public class Scooter {
 
-    private String scooterID, registration, state, clientInUse;
+    private static final String MOVING = "alugada";
+    private static final String STOPPED = "parada";
+    private static final String DEACTIVATED = "inactiva";
+
+    private String scooterID, registration, state;
     private int totalRentals, usageMinutes, usageAmount;
+    private Client clientInUse;
+
 
     public Scooter(String scooterID, String registration) {
         this.scooterID = scooterID;
@@ -23,7 +29,7 @@ public class Scooter {
     /**
      * @return the clientInUse
      */
-    public String getClientInUse() {
+    public Client getClientInUse() {
         return clientInUse;
     }
 
@@ -35,7 +41,7 @@ public class Scooter {
     public void release(int minutes) {
         incrementUsageAmount();
         addTotalMinutes(minutes);
-        setState("parada");
+        setState(STOPPED);
     }
 
 	/**
@@ -54,8 +60,8 @@ public class Scooter {
 
 	* PRE: !scooterClientInUse.equals("")
 	*/
-	public void setClientInUse(String scooterClientInUse) {
-		clientInUse = scooterClientInUse;
+	public void setClientInUse(Client clientInUse) {
+		this.clientInUse = clientInUse;
     }
 
 	/**
