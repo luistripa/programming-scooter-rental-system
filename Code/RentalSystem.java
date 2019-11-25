@@ -30,6 +30,8 @@ public class RentalSystem {
     public RentalSystem() {
         clients = new Client[DEFAULT_VECTOR_SIZE];
         scooters = new Scooter[DEFAULT_VECTOR_SIZE];
+        scooterCounter = 0;
+        clientCounter = 0;
         totalRentals = 0;
         systemBalance = 0;
         totalDelayMinutes = 0;
@@ -44,6 +46,7 @@ public class RentalSystem {
      * PRE: searchIndexOfClient(nif)==-1
      */
     public void createClient(String nif, String email, int phone, String name) {
+        if (isFull(clients, clientCounter)) resize(clients);
         clients[clientCounter] = new Client(nif, email, phone, name);
         clientCounter++;
     }
@@ -201,6 +204,7 @@ public class RentalSystem {
      * PRE: searchIndexOfScooter(id)==-1
      */
     public void createScooter(String id, String registration) {
+        if (isFull(scooters, scooterCounter)) resize(scooters);
         scooters[scooterCounter] = new Scooter(id, registration);
         scooterCounter++;
     }
@@ -422,7 +426,7 @@ public class RentalSystem {
         for (int i=0 ; i<clientCounter ; i++) {
             aux[i] = vector[i];
         }
-        vector = aux;
+        clients = aux;
     }
 
     private void resize(Scooter[] vector) {
@@ -430,6 +434,6 @@ public class RentalSystem {
         for (int i=0 ; i<scooterCounter ; i++) {
             aux[i] = vector[i];
         }
-        vector = aux;
+        scooters = aux;
     }
 }

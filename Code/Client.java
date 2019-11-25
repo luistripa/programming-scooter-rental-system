@@ -34,6 +34,7 @@ public class Client {
 		incrementNumberRentals();
 		addMinutes(minutes);
 		setScooterInUse(null);
+		addMoneySpent(expense);
 		remBalance(expense);
 	}
 

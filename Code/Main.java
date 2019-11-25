@@ -301,10 +301,10 @@ public class Main {
      */
     private static void releaseScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
-        String nif = system.getScooterClientInUse(scooterID).getNif();
         int minutes = scanner.nextInt();
         scanner.nextLine();
-        if (system.isScooterMoving(scooterID) && minutes > 0 && scooterExists(scooterID, system)) {
+        if (scooterExists(scooterID, system) && system.isScooterMoving(scooterID) && minutes > 0) {
+            String nif = system.getScooterClientInUse(scooterID).getNif();
             system.releaseScooter(nif, scooterID, minutes);
             System.out.println(RENTAL_FINISHED);
         } else if (minutes <= 0) {
