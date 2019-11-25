@@ -371,6 +371,8 @@ public class Main {
             System.out.println(SCOOTER_NOT_INACTIVE);
     }
 
+    // 
+
     /**
      * Verifies if there is a client with the provided nif.
      * 
