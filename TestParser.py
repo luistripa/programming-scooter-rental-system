@@ -11,7 +11,7 @@ for i in listdir():
 	print(i)
 
 # Run the tests
-for i in range(1, 19):
+for i in range(1, 29):
 	i = str(i)
 	command = "cd bin/ ; java Main < ../tests/T"+i+"/input > ../tests/T"+i+"/myOut ";
 	code1 = system(command)
