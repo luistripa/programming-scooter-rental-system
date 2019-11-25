@@ -34,6 +34,15 @@ public class Scooter {
     }
 
     /**
+     * Rents the scooter
+     * @param nif The nif of the client renting the scooter
+     */
+    public void rent(String nif) {
+        setState(MOVING);
+        setClientInUse(nif);
+    }
+
+    /**
      *
      * @param minutes Amount of minutes that the scooter was rented for.
      * @pre minutes >= 0 && isMoving == true
@@ -42,6 +51,7 @@ public class Scooter {
         incrementUsageAmount();
         addTotalMinutes(minutes);
         setState(STOPPED);
+        setClientInUse(null);
     }
 
 	/**
@@ -58,7 +68,7 @@ public class Scooter {
 	*
 	* @param scooterClientInUse String which contains the name of the client riding the scooter
 
-	* PRE: !scooterClientInUse.equals("")
+	* PRE: getClientInUse() == null
 	*/
 	public void setClientInUse(Client clientInUse) {
 		this.clientInUse = clientInUse;
@@ -69,7 +79,7 @@ public class Scooter {
 	*
 	* @param status String. The status of the scooter (alugada, inactiva, parada)
 	*
-	* PRE: st.equals("parada") || st.equals("alugada") || st.equals("inactiva")
+	* PRE: state.equals(STOPPED) || state.equals(MOVING) || state.equals(DEACTIVATED)
 	*/
 	public void setState(String state) {
 		this.state = state;
@@ -116,6 +126,7 @@ public class Scooter {
     /**
      *
      * @param minutes Minutes to be added to the Scooter's total usage minutes.
+     * PRE: minutes > 0
      */
     public void addTotalMinutes(int minutes) {
         usageMinutes += minutes;
