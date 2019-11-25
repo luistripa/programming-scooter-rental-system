@@ -48,6 +48,15 @@ public class Client {
 	}
 
 	/**
+	 * Removes a specific amount from the client balance
+	 * @param amount The amount to be removed
+	 * PRE: amount > 0
+	 */
+	public void remBalance(int amount) {
+		balance -= amount;
+	}
+
+	/**
 	* Adds minutes to the total moving minutes
 	*
 	* @param minutes
@@ -164,6 +173,10 @@ public class Client {
 	*/
 	public Scooter getScooterInUse() {
 		return scooterInUse;
+	}
+
+	public boolean hasRented() {
+		return scooterInUse != null;
 	}
 
 	/**
