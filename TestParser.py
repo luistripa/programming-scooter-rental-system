@@ -1,4 +1,4 @@
-from os import system
+from os import system, listdir
 
 # Try to compile code
 if system("(cd Code ; javac Main.java ; mv *.class ../bin)")==0:
@@ -6,12 +6,16 @@ if system("(cd Code ; javac Main.java ; mv *.class ../bin)")==0:
 else:
 	print("Files failed to compile.")
 
+
+for i in listdir():
+	print(i)
+
 # Run the tests
 for i in range(1, 19):
 	i = str(i)
-	command = "java bin/Main < tests/T"+i+"/input > tests/T"+i+"/myOut ";
+	command = "cd bin/ ; java Main < ../tests/T"+i+"/input > ../tests/T"+i+"/myOut ";
 	code1 = system(command)
-	command = "diff tests/T"+i+"/output tests/T"+i+"/myOut"
+	command = "cd bin/ ; diff ../tests/T"+i+"/output ../tests/T"+i+"/myOut"
 	code2 = system(command)
 
 	if code1 == 0 and code2 == 0:
