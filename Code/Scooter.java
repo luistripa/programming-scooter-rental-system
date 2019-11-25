@@ -12,7 +12,7 @@ public class Scooter {
     public Scooter(String scooterID, String registration) {
         this.scooterID = scooterID;
         this.registration = registration;
-        state = "parada";
+        state = STOPPED;
         clientInUse = null;
         totalRentals = 0;
         usageMinutes = 0;
@@ -68,7 +68,7 @@ public class Scooter {
 	* Activates or deactivates the scooter
 	*
 	* @param status String. The status of the scooter (alugada, inactiva, parada)
-	* 
+	*
 	* PRE: st.equals("parada") || st.equals("alugada") || st.equals("inactiva")
 	*/
 	public void setState(String state) {
@@ -92,7 +92,7 @@ public class Scooter {
     }
 
     /**
-     * 
+     *
      * @return Amount of times that the scooter was used.
      */
     public int getUsageAmount() {
@@ -122,7 +122,7 @@ public class Scooter {
     }
 
     /**
-     * 
+     *
      * @return Amount of minutes that the scooter was used for.
      */
     public int getUsageMinutes() {

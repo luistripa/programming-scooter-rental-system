@@ -177,11 +177,33 @@ public class RentalSystem {
      * @param registration [description]
      * PRE: searchIndexOfScooter(id)==-1
      */
+
+    /**
+     * Get the scooter the client is using
+     * @param  nif The client nif
+     * @return The scooter object which the client is using
+     * PRE: searchIndexOfClient(nif)!=-1
+     */
+    public Scooter getClientScooterInUse(String nif) {
+        return clients[searchIndexOfClient(nif)].getScooterInUse();
+    }
+
+    /**
+     * Inserts a scooter into the system
+     * @param id The scooter id
+     * @param registration The scooter registration
+     * PRE: searchIndexOfScooter(id)==-1
+     */
     public void insertScooter(String id, String registration) {
         scooters[scooterCounter] = new Scooter(id, registration);
         scooterCounter++;
     }
 
+    /**
+     * Search scooter by id. Returns -1 if not found
+     * @param  id The scooter id to be searched
+     * @return The position of the scooter object in the vector
+     */
     public int searchIndexOfScooter(String id) {
         int pos=-1;
         for (int i=0 ; i<scooterCounter&&pos==-1 ; i++) {
@@ -192,7 +214,93 @@ public class RentalSystem {
         return pos;
     }
 
+    /**
+     * Get the scooter id stored in the system
+     * @param  id The scooter id
+     * @return The scooter id as it is stored in the system
+     * PRE: searchIndexOfScooter(id)!=-1
+     */
+    public String getScooterID(String id) {
+        return scooters[searchIndexOfScooter(id)].getScooterID();
+    }
 
+    /**
+     * Gets the scooter registration
+     * @param  id The scooter id
+     * @return The scooter registration number
+     * PRE: searchIndexOfScooter(id)!=-1
+     */
+    public String getScooterRegistration(String id) {
+        return scooters[searchIndexOfScooter(id)].getScooterRegistration();
+    }
+    /**
+     * Gets the scooter state
+     * @param  id The scooter id
+     * @return The scooter state
+     * PRE: searchIndexOfScooter(id)!=-1
+     */
+    public String getScooterState(String id) {
+        return scooters[searchIndexOfScooter(id)].getState();
+    }
+
+    /**
+     * Gets the client that is using the scooter
+     * @param  id The scooter id
+     * @return The object of the client that is using the scooter
+     * PRE: searchIndexOfScooter(id)!=-1
+     */
+    public String getScooterClientInUse(String id) {
+        return scooters[searchIndexOfScooter(id)].getClientInUse();
+    }
+
+    /**
+     * Gets the scooter total amount of rentals
+     * @param  id The scooter id
+     * @return The scooter total amount of rentals
+     * PRE: searchIndexOfScooter(id)!=-1
+     */
+    public int getScooterTotalRentals(String id) {
+        return scooters[searchIndexOfScooter(id)].getTotalRentals();
+    }
+
+    /**
+     * Gets the total amount of minutes scooter was used for
+     * @param  id The scooter id
+     * @return The total amount of minutes scooter was used for
+     * PRE: searchIndexOfScooter(id)!=-1
+     */
+    public int getScooterUsageMinutes(String id) {
+        return scooters[searchIndexOfScooter(id)].getUsageMinutes();
+    }
+
+    /**
+     * Gets the amount of time the scooter has been used
+     * @param  id The scooter id
+     * @return The amount of times the scooter has been used
+     * PRE: searchIndexOfScooter(id)!=-1
+     */
+    public int getScooterUsageAmount(String id) {
+        return scooters[searchIndexOfScooter(id)].getUsageAmount();
+    }
+
+    /**
+     * Deactivates a scooter
+     * @param id The scooter id
+     * PRE: searchIndexOfScooter(id)!=-1
+     */
+    public void deactivateScooter(String id) {
+        scooters[searchIndexOfScooter(id)].setState("inactiva");
+    }
+
+    /**
+     * Reactivates a scooter
+     * @param id The scooter id
+     * PRE: searchIndexOfScooter(id)!=-1 && scooters[searchIndexOfScooter(id)].getstate()!="parada" || scooters[searchIndexOfScooter(id)].getstate()!="alugada"
+     */
+    public void reactivateScooter(String id) {
+        scooters[searchIndexOfScooter(id)].setState("parada");
+    }
+    
 
 
 
