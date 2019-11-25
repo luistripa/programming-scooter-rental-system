@@ -178,4 +178,8 @@ public class Client {
 			averageMinutes = getTotalMinutes() / getNumberRentals();
 		return averageMinutes;
 	}
+
+	public boolean balanceGreaterThan(Client otherClient) {
+		return getBalance() > otherClient.getBalance();
+	}
 }
