@@ -222,7 +222,7 @@ public class Main {
         scanner.nextLine();
         if (isNIFEqual(nif, system) && isScooterIDEqual(scooterID, system) && system.getBalance() >= 100 && !system.isScooterMoving() && system.isScooterActivated()) {
             system.rentScooter();
-            System.out.println(RENT);
+            System.out.println(RENTED);
         } else if (!isNIFEqual(nif, system))
             System.out.println(CLIENT_DOESNT_EXIST);
         else if (!isScooterIDEqual(scooterID, system))
@@ -267,7 +267,7 @@ public class Main {
         int phone = scanner.nextInt();
         String name = scanner.nextLine().trim();
         if (isNIFEqual(nif, system)) {
-            System.out.println(CLIENT_DOESNT_EXIST);
+            System.out.println(CLIENT_EXISTS);
         } else {
             system.createClient(nif, email, phone, name);
             System.out.println(CLIENT_INSERTED);
