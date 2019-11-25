@@ -3,6 +3,9 @@ import java.util.Scanner;
 public class Main {
 
     // Constants
+    private static final int MINIMUM_BALANCE = 100;
+
+    // Command Constants
     private static final String INSERT_CLIENT = "ADCLIENTE";
     private static final String REMOVE_CLIENT = "REMCLIENTE";
     private static final String INSERT_SCOOTER = "ADTROT";
@@ -49,10 +52,10 @@ public class Main {
         RentalSystem system = new RentalSystem();
         Scanner scanner = new Scanner(System.in);
         String option;
-        do {
+        while (!option.equals(EXIT)) {
             option = readOption(scanner);
             executeOption(scanner, system, option);
-        } while((!option.equalsIgnoreCase(EXIT)));
+        }
         scanner.close();
     }
 
@@ -276,7 +279,7 @@ public class Main {
         String nif = scanner.next();
         String scooterID = scanner.next();
         scanner.nextLine();
-        if (clientExists(nif, system) && scooterExists(scooterID, system) && system.getBalance() >= 100 && !system.isScooterMoving() && system.isScooterActivated()) {
+        if (clientExists(nif, system) && scooterExists(scooterID, system) && system.getBalance() >= MINIMUM_BALANCE && !system.isScooterMoving() && system.isScooterActivated()) {
             system.rentScooter(nif, id);
             System.out.println(RENTED);
         } else if (!clientExists(nif, system))
