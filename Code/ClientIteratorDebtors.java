@@ -10,8 +10,7 @@ public class ClientIteratorDebtors {
         next = 0;
         for (int i = 0; i < counter; i++) {
             if (clients[i].getBalance() < 0)
-                this.clients[i] = clients[i];
-                counter++;
+                insertSort(clients[i]);
         }
     }
 
@@ -28,14 +27,17 @@ public class ClientIteratorDebtors {
         int pos = -1;
         for (int i = 0; i < counter && pos == -1; i++) {
             if (clients[i].balanceGreaterThan(client))
-
+                pos = i;
         }
-
+        if (pos == -1)
+            pos = counter;
+        insertAt(pos,client);
     }
     
     private void insertAt(int pos, Client client) {
         for (int i = counter - 1; i >= pos; i--)
             clients[i + 1] = clients[i];
         clients[pos] = client;
+        counter++;
     }
 }
