@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Locale;
 
 public class Main {
 
@@ -23,6 +24,8 @@ public class Main {
     private static final String LIST_CLIENTS = "LISTCLIENTE";
     private static final String LIST_SCOOTER = "LISTTROT";
     private static final String LIST_NEGATIVE_BALANCE = "LISTDEV";
+    private static final String RELEASE_WITH_LOCATION = "LIBLOC";
+    private static final String LOCATE_CLOSER = "LOCTROT";
 
     // Error messages
     private static final String INVALID_COMMAND = "Comando invalido.";
@@ -47,8 +50,11 @@ public class Main {
     private static final String SCOOTER_INSERTED = "Insercao de trotinete com sucesso.";
     private static final String SCOOTER_REACTIVATED = "Trotinete reactivada.";
     private static final String SCOOTER_NOT_INACTIVE = "Trotinete nao inactiva.";
+    private static final String INVALID_LOCATION = "Localizacao invalida.";
+    private static final String NO_SCOOTER_LOCATED = "Nao existem trotinestes localizadas.";
 
     public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
         RentalSystem system = new RentalSystem();
         Scanner scanner = new Scanner(System.in);
         String option = "";
@@ -128,6 +134,12 @@ public class Main {
                 break;
             case LIST_NEGATIVE_BALANCE:
                 listDebtors(system, scanner);
+                break;
+            case RELEASE_WITH_LOCATION:
+                releaseLocation(system, scanner);
+                break;
+            case LOCATE_CLOSER:
+                locateCloserScooters(system, scanner);
                 break;
             default:
                 scanner.nextLine();
@@ -317,8 +329,7 @@ public class Main {
         int minutes = scanner.nextInt();
         scanner.nextLine();
         if (system.scooterExists(scooterID) && system.isScooterMoving(scooterID) && minutes > 0) {
-            String nif = system.getScooterClientInUse(scooterID).getNif();
-            system.releaseScooter(nif, scooterID, minutes);
+            system.releaseScooter(scooterID, minutes);
             System.out.println(RENTAL_FINISHED);
         } else if (minutes <= 0) {
             System.out.println(INVALID_VALUE);
@@ -400,6 +411,39 @@ public class Main {
         if (!list.equals("")) {
             System.out.println(list);
         }
+    }
 
+    private static void releaseLocation(RentalSystem system, Scanner scanner) {
+
+        String scooterID = scanner.next();
+        int minutes = scanner.nextInt();
+        double latitude = scanner.nextDouble();
+        double longitude = scanner.nextDouble();
+        scanner.nextLine();
+
+        if (system.scooterExists(scooterID) && minutes > 0 && system.isScooterMoving(scooterID) && system.isScooterInBoundaries(latitude, longitude)) {
+            system.releaseScooter(scooterID, minutes, latitude, longitude);
+            System.out.println(RENTAL_FINISHED);
+        } else if (!system.isScooterInBoundaries(latitude, longitude)) {
+            System.out.println(INVALID_LOCATION);
+        } else if (minutes < 0) {
+            System.out.println(INVALID_VALUE);
+        } else if (!system.scooterExists(scooterID)) {
+            System.out.println(SCOOTER_DOESNT_EXIST);
+        } else if (!system.isScooterMoving(scooterID)) {
+            System.out.println(SCOOTER_NOT_RENTED);
+        }
+    }
+
+    private static void locateCloserScooters(RentalSystem system, Scanner scanner) {
+        double latitude = scanner.nextDouble();
+        double longitude = scanner.nextDouble();
+        scanner.nextLine();
+        String list = system.listCloserScooters(latitude, longitude);
+        if (list.equals("")) {
+            System.out.println(NO_SCOOTER_LOCATED);
+        } else {
+            System.out.println(list);
+        }
     }
 }

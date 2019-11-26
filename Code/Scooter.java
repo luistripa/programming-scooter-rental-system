@@ -7,6 +7,7 @@ public class Scooter {
     private String scooterID, registration, state;
     private int totalRentals, usageMinutes, usageAmount;
     private Client clientInUse;
+    private double latitude, longitude;
 
 
     public Scooter(String scooterID, String registration) {
@@ -17,6 +18,8 @@ public class Scooter {
         totalRentals = 0;
         usageMinutes = 0;
         usageAmount = 0;
+        latitude = 0;
+        longitude = 0;
     }
 
     /**
@@ -52,6 +55,15 @@ public class Scooter {
         addTotalMinutes(minutes);
         setState(STOPPED);
         setClientInUse(null);
+    }
+
+    public void release(int minutes, double latitude, double longitude) {
+        incrementUsageAmount();
+        addTotalMinutes(minutes);
+        setState(STOPPED);
+        setClientInUse(null);
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
 	/**
@@ -110,6 +122,22 @@ public class Scooter {
     }
 
     /**
+     *
+     * @return Scooter latitude
+     */
+    public double getLatitude() {
+        return latitude;
+    }
+
+    /**
+     *
+     * @return Scooter longitude
+     */
+    public double getLongitude() {
+        return longitude;
+    }
+
+    /**
      * Increments the amount of times that the scooter was used.
      */
     public void incrementUsageAmount() {
@@ -138,5 +166,21 @@ public class Scooter {
      */
     public int getUsageMinutes() {
         return usageMinutes;
+    }
+
+    /**
+     * Calculates distance between two points (The client and this scooter)
+     * @param  lat1  The client latitude
+     * @param  long1 the client longitude
+     * @return       The distance between client and scooter
+     */
+    public double calculateDistance(double lat1, double long1) {
+        double lat2 = getLatitude();
+        double long2 = getLongitude();
+        return Math.sqrt(Math.pow(lat2-lat1, 2) + Math.pow(long2-long1, 2));
+    }
+
+    public boolean distanceGreaterThan(Scooter other, double latitude, double longitude) {
+        return this.calculateDistance(latitude, longitude) > other.calculateDistance(latitude, longitude);
     }
 }

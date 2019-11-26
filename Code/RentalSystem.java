@@ -12,6 +12,10 @@ public class RentalSystem {
     private static final String MOVING = "alugada";
     private static final String STOPPED = "parada";
     private static final String DEACTIVATED = "inactiva";
+    private static final double NORTH_BOUNDARY = 38.663964;
+    private static final double SOUTH_BOUNDARY = 38.658475;
+    private static final double WEST_BOUNDARY = -9.209269;
+    private static final double EAST_BOUNDARY = -9.201978;
 
     // Instance Variables
     private ClientCollection clients;
@@ -350,13 +354,12 @@ public class RentalSystem {
      *
      * Calculates the amount of delay since the max rental time and cimputes the total expense (fines included)
      *
-     * @param nif     The client nif using the scooter
      * @param id      The scooteid of the scooter being used
      * @param minutes The minutes client used the scooter for
      */
-    public void releaseScooter(String nif, String id, int minutes) {
+    public void releaseScooter(String id, int minutes) {
 
-        Client client = getClientObject(nif);
+        Client client = getScooterClientInUse(id);
         Scooter scooter = getScooterObject(id);
 
         int expense = 0;
@@ -378,6 +381,41 @@ public class RentalSystem {
 
     }
 
+    /**
+     * Same as release scooter but with latitude and longitude options
+     * @param id        The scooter ID
+     * @param minutes   The minutes client used the scooter for
+     * @param latitude  The scooter latitude
+     * @param longitude The scooter longitude
+     */
+    public void releaseScooter(String id, int minutes, double latitude, double longitude) {
+
+        Client client = getScooterClientInUse(id);
+        Scooter scooter = getScooterObject(id);
+
+        int expense = 0;
+        int delay = 0;
+
+        expense += COST_PER_RENTAL;
+        delay = minutes - MAX_MINUTES;
+        if (delay > 0) {
+            expense += (delay / MINUTES_PER_FINE) * COST_PER_RENTAL;
+            if (delay % MINUTES_PER_FINE > 0)
+                expense += COST_PER_RENTAL;
+        } else
+            delay = 0;
+
+        client.releaseScooter(minutes, expense);
+        scooter.release(minutes, latitude, longitude);
+        incTotalRentals();
+        addSystemBalance(expense);
+        addTotalDelayMinutes(delay);
+    }
+
+    /**
+     * Lists all scooters in the system
+     * @return A string with all scooters in the system
+     */
     public String listScooter() {
         String list = "";
         ScooterIterator iterator = scooters.initializeScooterIterator();
@@ -390,6 +428,10 @@ public class RentalSystem {
         return list;
     }
 
+    /**
+     * Lists all clients in the system organized by their nif
+     * @return A string with all clients
+     */
     public String listClient() {
         String list = "";
         ClientIterator iterator = clients.initializeIterator();
@@ -406,6 +448,10 @@ public class RentalSystem {
         return list;
     }
 
+    /**
+     * Lists all clients that have a negative balance. Ascending order of balance
+     * @return A tring with all clients
+     */
     public String listDebtors() {
         String list = "";
         ClientIteratorDebtors iterator = clients.initializeIteratorDebtors();
@@ -416,6 +462,24 @@ public class RentalSystem {
             + client.getBalance() + ", " + client.getTotalMinutes() + ", "
             + client.getNumberRentals() + ", " + client.getMaxTime() + ", "
             + client.getAverageMinutes() + ", " + client.getMoneySpent());
+            if (iterator.hasNext())
+                list += "\n";
+        }
+        return list;
+    }
+
+    public boolean isScooterInBoundaries(double latitude, double longitude) {
+        return longitude<NORTH_BOUNDARY && longitude>SOUTH_BOUNDARY &&
+                latitude<WEST_BOUNDARY && latitude>EAST_BOUNDARY;
+    }
+
+    public String listCloserScooters(double latitude, double longitude) {
+        String list = "";
+        ScooterIteratorCloser iterator = scooters.initializeIteratorCloser(latitude, longitude);
+        while (iterator.hasNext()) {
+            Scooter scooter = iterator.next();
+            list += String.format("Distancia: %.6f\n", scooter.calculateDistance(latitude, longitude));
+            list += String.format("%s; %s, %d, %d, %.6f, %.6f", scooter.getScooterRegistration(), scooter.getState(), scooter.getTotalRentals(), scooter.getUsageMinutes(), scooter.getLatitude(), scooter.getLongitude());
             if (iterator.hasNext())
                 list += "\n";
         }

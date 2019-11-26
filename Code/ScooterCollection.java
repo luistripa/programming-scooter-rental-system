@@ -83,4 +83,8 @@ public class ScooterCollection {
     public ScooterIterator initializeScooterIterator() {
         return new ScooterIterator(counter, scooters);
     }
+
+    public ScooterIteratorCloser initializeIteratorCloser(double latitude, double longitude) {
+        return new ScooterIteratorCloser(counter, scooters, latitude, longitude);
+    }
 }
