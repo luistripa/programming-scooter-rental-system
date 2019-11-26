@@ -6,6 +6,7 @@
 public class ScooterCollection {
 
     // Constants
+    private static final int DEFAULT_SIZE = 100;
     private static final int GROWTH_FACTOR = 2;
 
     // Instance variables
@@ -17,6 +18,7 @@ public class ScooterCollection {
      */
     public ScooterCollection() {
         counter = 0;
+        scooters = new Scooter[DEFAULT_SIZE];
     }
 
     /**
@@ -25,7 +27,7 @@ public class ScooterCollection {
      * @param registration The scooter registration
      * PRE: searchIndexOfScooter(id)==-1
      */
-    public void createScooter(String id, String registration) {
+    public void addScooter(String id, String registration) {
         if (isFull()) resize();
         scooters[counter] = new Scooter(id, registration);
         counter++;

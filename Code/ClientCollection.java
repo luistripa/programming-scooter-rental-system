@@ -16,7 +16,7 @@ public class ClientCollection {
      * @param nif The nif to be searched
      * @return The position of the client in the vector
      */
-    private int searchIndex(String nif) {
+    public int searchIndex(String nif) {
         int pos = -1;
         for (int i = 0; i < counter && pos == -1; i++) {
             if (clients[i].getNif().equalsIgnoreCase(nif))

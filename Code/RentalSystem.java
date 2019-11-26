@@ -6,8 +6,6 @@
 public class RentalSystem {
 
     // Constants
-    private final int DEFAULT_VECTOR_SIZE = 100;
-    private final int VECTOR_GROWTH_FACTOR = 2;
     private final int MAX_MINUTES = 60;
     private final int COST_PER_RENTAL = 100;
     private final int MINUTES_PER_FINE = 30;
@@ -42,7 +40,7 @@ public class RentalSystem {
      * PRE: clients.searchIndex(nif)==-1
      */
     public void createClient(String nif, String email, int phone, String name) {
-        clients.createClient(nif, email, phone, name);
+        clients.addClient(nif, email, phone, name);
     }
 
     /**
@@ -84,7 +82,7 @@ public class RentalSystem {
      * PRE: clientExists(nif)
      */
     public String getClientNif(String nif) {
-        return getClientObject().getNif();
+        return getClientObject(nif).getNif();
     }
 
     /**
@@ -94,7 +92,7 @@ public class RentalSystem {
      * PRE: clientExists(nif)
      */
     public String getClientEmail(String nif) {
-        return getClientObject().getEmail();
+        return getClientObject(nif).getEmail();
     }
 
     /**
@@ -104,7 +102,7 @@ public class RentalSystem {
      * PRE: clientExists(nif)
      */
     public int getClientPhone(String nif) {
-        return getClientObject().getPhone();
+        return getClientObject(nif).getPhone();
     }
 
     /**
@@ -114,7 +112,7 @@ public class RentalSystem {
      * PRE: clientExists(nif)
      */
     public String getClientName(String nif) {
-        return getClientObject().getName();
+        return getClientObject(nif).getName();
     }
 
     /**
@@ -124,7 +122,7 @@ public class RentalSystem {
      * PRE: clientExists(nif)
      */
     public int getClientBalance(String nif) {
-        return getClientObject().getBalance();
+        return getClientObject(nif).getBalance();
     }
 
     /**
@@ -134,7 +132,7 @@ public class RentalSystem {
      * PRE: clientExists(nif)
      */
     public int getClientTotalMinutes(String nif) {
-        return getClientObject().getTotalMinutes();
+        return getClientObject(nif).getTotalMinutes();
     }
 
     /**
@@ -144,7 +142,7 @@ public class RentalSystem {
      * PRE: clientExists(nif)
      */
     public int getClientNumberRentals(String nif) {
-        return getClientObject().getNumberRentals();
+        return getClientObject(nif).getNumberRentals();
     }
 
     /**
@@ -154,7 +152,7 @@ public class RentalSystem {
      * PRE: clientExists(nif)
      */
     public int getClientMaxTime(String nif) {
-        return getClientObject().getMaxTime();
+        return getClientObject(nif).getMaxTime();
     }
 
     /**
@@ -164,7 +162,7 @@ public class RentalSystem {
      * PRE: clientExists(nif)
      */
     public int getClientAverageRentalTime(String nif) {
-        return getClientObject().getAverageMinutes();
+        return getClientObject(nif).getAverageMinutes();
     }
 
     /**
@@ -174,7 +172,7 @@ public class RentalSystem {
      * PRE: clientExists(nif)
      */
     public int getClientMoneySpent(String nif) {
-        return getClientObject().getMoneySpent();
+        return getClientObject(nif).getMoneySpent();
     }
 
     /**
@@ -184,7 +182,7 @@ public class RentalSystem {
      * PRE: clientExists(nif)
      */
     public Scooter getClientScooterInUse(String nif) {
-        return getClientObject().getScooterInUse();
+        return getClientObject(nif).getScooterInUse();
     }
 
     /**
@@ -194,9 +192,7 @@ public class RentalSystem {
      * PRE: searchIndexOfScooter(id)==-1
      */
     public void createScooter(String id, String registration) {
-        if (isFull(scooters, scooterCounter)) resize(scooters);
-        scooters[scooterCounter] = new Scooter(id, registration);
-        scooterCounter++;
+        scooters.addScooter(id, registration);
     }
 
     /**
@@ -205,7 +201,7 @@ public class RentalSystem {
      * @return Boolean representing if scooter exists
      */
     public boolean scooterExists(String id) {
-        scooters.searchIndex() != -1;
+        return scooters.searchIndex(id) != -1;
     }
 
     /**
@@ -344,7 +340,7 @@ public class RentalSystem {
     public void rentScooter(String nif, String id) {
 
         Client client = getClientObject(nif);
-        Scooter scooter = getclientObject(id);
+        Scooter scooter = getScooterObject(id);
 
         client.setScooterInUse(scooter);
         scooter.rent(client);
