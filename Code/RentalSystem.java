@@ -479,7 +479,7 @@ public class RentalSystem {
         while (iterator.hasNext()) {
             Scooter scooter = iterator.next();
             list += String.format("Distancia: %.6f\n", scooter.calculateDistance(latitude, longitude));
-            list += String.format("%s; %s, %d, %d, %.6f, %.6f", scooter.getScooterRegistration(), scooter.getState(), scooter.getTotalRentals(), scooter.getUsageMinutes(), scooter.getLatitude(), scooter.getLongitude());
+            list += String.format("%s: %s, %d, %d, %.6f, %.6f", scooter.getScooterRegistration(), scooter.getState(), scooter.getTotalRentals(), scooter.getUsageMinutes(), scooter.getLatitude(), scooter.getLongitude());
             if (iterator.hasNext())
                 list += "\n";
         }
