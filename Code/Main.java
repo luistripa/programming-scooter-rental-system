@@ -396,6 +396,10 @@ public class Main {
 
     private static void listDebtors(RentalSystem system, Scanner scanner) {
         scanner.nextLine();
-        System.out.println(system.listDebtors());
+        String list = system.listDebtors();
+        if (!list.equals("")) {
+            System.out.println(list);
+        }
+
     }
 }
