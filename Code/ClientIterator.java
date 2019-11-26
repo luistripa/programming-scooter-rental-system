@@ -1,11 +1,17 @@
+/**
+ * Handles client interation
+ * @author Antonio Duarte
+ * @author Luis Tripa
+ */
 public class ClientIterator {
 
+    // Instance Variables
     private int counter;
     private int next;
     private Client[] clients;
-    
+
     /**
-     * 
+     * The class constructor
      * @param counter
      * @param clients
      */
@@ -16,16 +22,16 @@ public class ClientIterator {
     }
 
     /**
-     * 
-     * @return
+     *
+     * @return Boolean representing if there is a client in the next position
      */
     public boolean hasNext() {
         return next < counter;
     }
 
     /**
-     * 
-     * @return
+     *
+     * @return The client object in the next position
      */
     public Client next() {
         return clients[next++];
