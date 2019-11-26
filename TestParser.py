@@ -5,10 +5,7 @@ if system("(cd Code ; javac Main.java ; mv *.class ../bin)")==0:
 	print("Files successfully compiled.")
 else:
 	print("Files failed to compile.")
-
-
-for i in listdir():
-	print(i)
+	exit(0)
 
 # Run the tests
 for i in range(1, 29):

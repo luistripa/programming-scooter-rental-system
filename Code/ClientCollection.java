@@ -18,9 +18,10 @@ public class ClientCollection {
      */
     public int searchIndex(String nif) {
         int pos = -1;
-        for (int i = 0; i < counter && pos == -1; i++) {
-            if (clients[i].getNif().equalsIgnoreCase(nif))
+        for (int i = 0; i < counter && pos==-1; i++) {
+            if (clients[i].getNif().equalsIgnoreCase(nif)) {
                 pos=i;
+            }
         }
         return pos;
     }
@@ -40,7 +41,6 @@ public class ClientCollection {
     public void addClient(String nif, String email, int phone, String name) {
         if (isFull()) resize();
         insertSort(new Client(nif, email, phone, name));
-        counter++;
     }
 
     public void remClient(String nif) {
