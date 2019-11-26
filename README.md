@@ -1,4 +1,4 @@
-# IP_TP2 - Passing 24 of 28 tests
+# IP_TP2 - Passing 26 of 28 tests
 
 ## Second programming project for the IP subject
 
