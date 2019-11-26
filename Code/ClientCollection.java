@@ -16,14 +16,14 @@ public class ClientCollection {
      * @param nif The nif to be searched
      * @return The position of the client in the vector
      */
-    public int searchIndex(String nif) {
+    private int searchIndex(String nif) {
         int pos = -1;
         for (int i = 0; i < counter && pos == -1; i++) {
             if (clients[i].getNif().equalsIgnoreCase(nif))
                 pos=i;
         }
         return pos;
-	}
+    }
 
     private boolean isFull() {
         return counter == clients.length;
@@ -37,16 +37,9 @@ public class ClientCollection {
         clients = aux;
     }
 
-	/**
-	 * 
-	 * @param nif
-	 * @param email
-	 * @param phone
-	 * @param name
-	 */
-    public void addClient(String nif, String email, int phone, String name) {
+    private void addClient(String nif, String email, int phone, String name) {
         if (isFull()) resize();
-        insertSort(new Client(nif, email, phone, name));
+        client[]
     }
 
     /**
@@ -160,7 +153,16 @@ public class ClientCollection {
     }
 
     /**
-     * 
+     * Gets the client object from the client collection
+     * @param  nif The client nif
+     * @return The client object
+     */
+    public Client getClientObject(String nif) {
+        return clients[searchIndex(nif)];
+    }
+
+    /**
+     *
      * @param pos
      * @param client
      */
@@ -173,7 +175,7 @@ public class ClientCollection {
 
 	/**
 	 * Inserting a new client with the lexicographic order
-	 * @param client 
+	 * @param client
 	 */
     private void insertSort(Client client) {
         int pos = -1;
