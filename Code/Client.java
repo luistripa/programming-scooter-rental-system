@@ -194,7 +194,21 @@ public class Client {
 		return averageMinutes;
 	}
 
-	public boolean balanceGreaterThan(Client otherClient) {
-		return getBalance() > otherClient.getBalance();
+	/**
+	 * 
+	 * @param otherClient
+	 * @return
+	 */
+	public boolean balanceGreaterThan(Client other) {
+		return this.getBalance() > other.getBalance();
+	}
+
+	/**
+	 * 
+	 * @param other
+	 * @return
+	 */
+	public boolean nifGreaterThan(Client other) {
+		return this.getNif().compareTo(other.getNif()) > 0;
 	}
 }
