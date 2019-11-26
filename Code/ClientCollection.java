@@ -37,9 +37,17 @@ public class ClientCollection {
         clients = aux;
     }
 
-    private void addClient(String nif, String email, int phone, String name) {
+    public void addClient(String nif, String email, int phone, String name) {
         if (isFull()) resize();
         client[]
+    }
+
+    public void remClient(String nif) {
+        int pos = searchIndex(nif);
+        for (int i=pos ; i<counter-1 ; i++) {
+            clients[i] = clients[i+1];
+        }
+        counter--;
     }
 
     /**
