@@ -123,7 +123,14 @@ public class Main {
             case LIST_SCOOTER:
                 listScooter(system, scanner);
                 break;
+            case LIST_CLIENTS:
+                listClient(system, scanner);
+                break;
+            case LIST_NEGATIVE_BALANCE:
+                listDebtors(system, scanner);
+                break;
             default:
+                scanner.nextLine();
                 System.out.println(INVALID_COMMAND);
         }
     }
@@ -283,7 +290,7 @@ public class Main {
         String nif = scanner.next();
         String scooterID = scanner.next();
         scanner.nextLine();
-        if (system.clientExists(nif) && system.scooterExists(scooterID) && system.getClientBalance(nif) >= MINIMUM_BALANCE && !system.isScooterMoving(scooterID) && system.isScooterActivated(scooterID)) {
+        if (system.clientExists(nif) && system.scooterExists(scooterID) && system.getClientBalance(nif) >= MINIMUM_BALANCE && !system.isScooterMoving(scooterID) && system.isScooterActivated(scooterID) && !system.hasClientRented(nif)) {
             system.rentScooter(nif, scooterID);
             System.out.println(RENTED);
         } else if (!system.clientExists(nif))
@@ -292,6 +299,9 @@ public class Main {
             System.out.println(SCOOTER_DOESNT_EXIST);
         else if (system.isScooterMoving(scooterID) || !system.isScooterActivated(scooterID))
             System.out.println(SCOOTER_CANT_BE_RENTED);
+        else if (system.hasClientRented(nif)) {
+            System.out.println(CLIENT_MOVING);
+        }
         else if (system.getClientBalance(nif) < MINIMUM_BALANCE)
             System.out.println(NOT_ENOUGH_BALANCE);
     }
@@ -374,8 +384,9 @@ public class Main {
             System.out.println(SCOOTER_NOT_INACTIVE);
     }
 
-    private static void listContacts() {
-
+    private static void listClient(RentalSystem system, Scanner scanner) {
+        scanner.nextLine();
+        System.out.println(system.listClient());
     }
 
     private static void listScooter(RentalSystem system, Scanner scanner) {
@@ -383,7 +394,8 @@ public class Main {
         System.out.println(system.listScooter());
     }
 
-    private static void listDebtors() {
-
+    private static void listDebtors(RentalSystem system, Scanner scanner) {
+        scanner.nextLine();
+        System.out.println(system.listDebtors());
     }
 }

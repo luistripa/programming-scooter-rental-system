@@ -446,7 +446,7 @@ public class RentalSystem {
     }
 
     /**
-     * 
+     *
      * @return Total Rentals performed by the system
      */
     public int getTotalRentals() {
@@ -454,7 +454,7 @@ public class RentalSystem {
     }
 
     /**
-     * 
+     *
      * @return Total Money spent in the System
      */
     public int getSystemBalance() {
@@ -462,7 +462,7 @@ public class RentalSystem {
     }
 
     /**
-     * 
+     *
      * @return Total delay minutes performed in the system
      */
     public int getTotalDelayMinutes() {
