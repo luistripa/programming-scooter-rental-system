@@ -5,9 +5,12 @@
  */
 public class ScooterCollection {
 
+    // Constants
+    private static final int GROWTH_FACTOR = 2;
+
     // Instance variables
     private Scooter[] scooters;
-    private counter;
+    private int counter;
 
     /**
      * The class constructor
@@ -33,7 +36,7 @@ public class ScooterCollection {
      * @param  id The scooter id to be searched
      * @return The position of the scooter object in the vector
      */
-    public int searchIndexOfScooter(String id) {
+    public int searchIndex(String id) {
         int pos=-1;
         for (int i=0 ; i<counter&&pos==-1 ; i++) {
             if (scooters[i].getScooterID().equalsIgnoreCase(id)) {
@@ -49,7 +52,7 @@ public class ScooterCollection {
      * @return The scooter object
      */
     public Scooter getScooterObject(String id) {
-        return scooters[searchIndexOfScooter(id)];
+        return scooters[searchIndex(id)];
     }
 
     /**
@@ -57,17 +60,25 @@ public class ScooterCollection {
      * @return A boolean representing if the vector is full
      */
     private boolean isFull() {
-        return counter == scooters.length
+        return counter == scooters.length;
     }
 
     /**
      * Resizes the scooters vector in order to add more available spaces
      */
     private void resize() {
-        Scooter[] aux = new Scooter[scooters.length*VECTOR_GROWTH_FACTOR];
+        Scooter[] aux = new Scooter[scooters.length * GROWTH_FACTOR];
         for (int i=0 ; i<counter ; i++) {
             aux[i] = scooters[i];
         }
         scooters = aux;
+    }
+
+    /**
+     * Initializes the scooter iterator. This iterator is based on the inserted order
+     * @return The iterator object
+     */
+    public ScooterIterator initializeScooterIterator() {
+        return new ScooterIterator(counter, scooters);
     }
 }
