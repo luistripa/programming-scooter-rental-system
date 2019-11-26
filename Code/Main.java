@@ -153,7 +153,7 @@ public class Main {
     private static void removeClient(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
         scanner.nextLine();
-        if (system.clientExists(nif, system)) {
+        if (system.clientExists(nif)) {
             if (!system.hasClientRented(nif)) {
                 system.removeClient(nif);
                 System.out.println(CLIENT_REMOVED);

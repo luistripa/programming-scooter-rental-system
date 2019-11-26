@@ -178,7 +178,7 @@ public class RentalSystem {
     }
 
     /**
-     * Get the scooter the client is using
+     * Gets the scooter the client is using
      * @param  nif The client nif
      * @return The scooter object which the client is using
      * PRE: clientExists(nif)
