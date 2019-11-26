@@ -171,13 +171,11 @@ public class ClientCollection {
             clients[i + 1] = clients[i];
         clients[pos] = client;
         counter++;
-<<<<<<< HEAD
-=======
 	}
 
 	/**
 	 * Inserting a new client with the lexicographic order
-	 * @param client 
+	 * @param client
 	 */
     private void insertSort(Client client) {
         int pos = -1;
@@ -188,6 +186,5 @@ public class ClientCollection {
         if (pos == -1)
             pos = counter;
         insertAt(pos,client);
->>>>>>> d13a0f345faeafb78db2b7826b7445013b80ff70
     }
 }
