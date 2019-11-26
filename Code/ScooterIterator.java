@@ -5,7 +5,7 @@ public class ScooterIterator {
     private Scooter[] scooters;
 
     /**
-     * 
+     *
      * @param counter
      * @param scooters
      */
@@ -16,16 +16,16 @@ public class ScooterIterator {
     }
 
     /**
-     * 
-     * @return
+     *
+     * @return A boolean representing if there is a client in the next position
      */
     public boolean hasNext() {
         return next < counter;
     }
 
     /**
-     * 
-     * @return
+     *
+     * @return The next client object
      */
     public Scooter next() {
         return scooters[next++];
