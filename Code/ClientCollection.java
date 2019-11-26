@@ -201,7 +201,7 @@ public class ClientCollection {
      * Client iterator that iterates in ascending lexicographic order of nif
      * @return Client Iterator
      */
-    public ClientIterator InitializeIterator() {
+    public ClientIterator initializeIterator() {
         return new ClientIterator(counter, clients);
     }
 

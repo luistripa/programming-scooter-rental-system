@@ -390,6 +390,38 @@ public class RentalSystem {
         return list;
     }
 
+    public String listClient() {
+        String list = "";
+        ClientIterator iterator = clients.initializeIterator();
+        while (iterator.hasNext()) {
+            Client client = iterator.next();
+            list += (client.getName() + ": " + client.getNif() + ", "
+            + client.getEmail() + ", " + client.getPhone() + ", "
+            + client.getBalance() + ", " + client.getTotalMinutes() + ", "
+            + client.getNumberRentals() + ", " + client.getMaxTime() + ", "
+            + client.getAverageMinutes() + ", " + client.getMoneySpent());
+            if (iterator.hasNext())
+                list += "\n";
+        }
+        return list;
+    }
+
+    public String listDebtors() {
+        String list = "";
+        ClientIteratorDebtors iterator = clients.initializeIteratorDebtors();
+        while (iterator.hasNext()) {
+            Client client = iterator.next();
+            list += (client.getName() + ": " + client.getNif() + ", "
+            + client.getEmail() + ", " + client.getPhone() + ", "
+            + client.getBalance() + ", " + client.getTotalMinutes() + ", "
+            + client.getNumberRentals() + ", " + client.getMaxTime() + ", "
+            + client.getAverageMinutes() + ", " + client.getMoneySpent());
+            if (iterator.hasNext())
+                list += "\n";
+        }
+        return list;
+    }
+
     /**
      * Increments the system's total rentals
      */
