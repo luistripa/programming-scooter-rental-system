@@ -16,9 +16,8 @@ public class RentalSystem {
     // Instance Variables
     private ClientCollection clients;
     private ScooterCollection scooters;
-    private int totalRentals;
-    private int systemBalance;
-    private int totalDelayMinutes;
+    private int totalRentals, systemBalance, totalDelayMinutes;
+
 
     /**
      * The class constructor
@@ -364,14 +363,13 @@ public class RentalSystem {
         int delay = 0;
 
         expense += COST_PER_RENTAL;
-        delay = minutes-MAX_MINUTES;
+        delay = minutes - MAX_MINUTES;
         if (delay > 0) {
-            expense += (delay/MINUTES_PER_FINE)*COST_PER_RENTAL;
-            if (delay%MINUTES_PER_FINE > 0)
+            expense += (delay / MINUTES_PER_FINE) * COST_PER_RENTAL;
+            if (delay % MINUTES_PER_FINE > 0)
                 expense += COST_PER_RENTAL;
-        } else {
+        } else
             delay = 0;
-        }
         client.releaseScooter(minutes, expense);
         scooter.release(minutes);
         incTotalRentals();
@@ -380,26 +378,61 @@ public class RentalSystem {
 
     }
 
+    public String listScooter() {
+        String list = "";
+        ScooterIterator iterator = scooters.initializeScooterIterator();
+        while (iterator.hasNext()) {
+            Scooter scooter = iterator.next();
+            list += (scooter.getScooterRegistration() + ": " + scooter.getState() + ", " + scooter.getUsageAmount() + ", " + scooter.getUsageMinutes());
+            if (iterator.hasNext())
+                list += "\n";
+        }
+        return list;
+    }
+
+    /**
+     * Increments the system's total rentals
+     */
     public void incTotalRentals() {
         totalRentals++;
     }
 
+    /**
+     * Adds balance to the total money spent by clients on the system
+     * @param amount Amount to add to the System Balance
+     */
     public void addSystemBalance(int amount) {
         systemBalance += amount;
     }
 
+    /**
+     * Adds minutes to the total delay minutes of the system
+     * @param minutes Minutes to add to the total delay minutes of the system
+     */
     public void addTotalDelayMinutes(int minutes) {
         totalDelayMinutes += minutes;
     }
 
+    /**
+     * 
+     * @return Total Rentals performed by the system
+     */
     public int getTotalRentals() {
         return totalRentals;
     }
 
+    /**
+     * 
+     * @return Total Money spent in the System
+     */
     public int getSystemBalance() {
         return systemBalance;
     }
 
+    /**
+     * 
+     * @return Total delay minutes performed in the system
+     */
     public int getTotalDelayMinutes() {
         return totalDelayMinutes;
     }
