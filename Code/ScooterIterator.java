@@ -30,4 +30,12 @@ public class ScooterIterator {
     public Scooter next() {
         return scooters[next++];
     }
+
+    /**
+     * Initializes the scooter iterator. This iterator is based on the inserted order
+     * @return The iterator object
+     */
+    public ScooterIterator initializeScooterIterator() {
+        return new ScooterIterator(scooterCounter, scooters);
+    }
 }
