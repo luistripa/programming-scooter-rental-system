@@ -1,13 +1,25 @@
+/**
+ * Handles everything related with the client (balance, rentals, etc...)
+ * @author Antonio Duarte
+ * @author Luis Tripa
+ */
 public class Client {
 
 	// Constants
 	private static final int DEFAULT_BALANCE = 200;
 
-	// Instance variables
+	// Instance Variables
 	private String nif, email, name;
 	private int phone, balance, totalMinutes, numberRentals, maxTime, moneySpent;
 	private Scooter scooterInUse;
 
+	/**
+	 * The class constructor
+	 * @param nif  	The client nif
+	 * @param email The client email
+	 * @param phone The client phone
+	 * @param name  The client name
+	 */
 	public Client(String nif, String email, int phone, String name) {
 		this.nif = nif;
 		this.email = email;
@@ -177,6 +189,10 @@ public class Client {
 		return scooterInUse;
 	}
 
+	/**
+	 * Checks whnether client has or has not rented a scooter
+	 * @return Boolean representing if the client has rented a scooter
+	 */
 	public boolean hasRented() {
 		return scooterInUse != null;
 	}
@@ -195,18 +211,18 @@ public class Client {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param otherClient
-	 * @return
+	 * @return If balance of this client is greater than the other client
 	 */
 	public boolean balanceGreaterThan(Client other) {
 		return this.getBalance() > other.getBalance();
 	}
 
 	/**
-	 * 
+	 *
 	 * @param other
-	 * @return
+	 * @return Boolean. If this client balance is smaller than the other client
 	 */
 	public boolean nifSmallerThan(Client other) {
 		return this.getNif().compareTo(other.getNif()) < 0;
