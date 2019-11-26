@@ -39,7 +39,8 @@ public class ClientCollection {
 
     public void addClient(String nif, String email, int phone, String name) {
         if (isFull()) resize();
-        client[]
+        insertSort(new Client(nif, email, phone, name));
+        counter++;
     }
 
     public void remClient(String nif) {
@@ -194,5 +195,22 @@ public class ClientCollection {
         if (pos == -1)
             pos = counter;
         insertAt(pos,client);
+    }
+
+    /**
+     * Client iterator that iterates in ascending lexicographic order of nif
+     * @return Client Iterator
+     */
+    public ClientIterator InitializeIterator() {
+        return new ClientIterator(counter, clients);
+    }
+
+    /**
+     * Initializes the debtors client iterator, that iterates the client with negative balance
+     * in ascending order of balance.
+     * @return Client Iterator of debtors
+     */
+    public ClientIteratorDebtors initializeIteratorDebtors() {
+        return new ClientIteratorDebtors(counter, clients);
     }
 }
