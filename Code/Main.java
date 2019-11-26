@@ -378,4 +378,8 @@ public class Main {
     private static void listScooters() {
 
     }
+
+    private static void listDebtors() {
+        
+    }
 }
