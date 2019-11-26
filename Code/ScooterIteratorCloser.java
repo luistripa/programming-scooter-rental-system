@@ -12,7 +12,7 @@ public class ScooterIteratorCloser {
      */
     public ScooterIteratorCloser(int counter, Scooter[] scooters, double latitude, double longitude) {
         this.scooters = new Scooter[counter];
-        this.counter = counter;
+        this.counter = 0;
         this.latitude = latitude;
         this.longitude = longitude;
         next = 0;

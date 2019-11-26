@@ -469,8 +469,8 @@ public class RentalSystem {
     }
 
     public boolean isScooterInBoundaries(double latitude, double longitude) {
-        return longitude<NORTH_BOUNDARY && longitude>SOUTH_BOUNDARY &&
-                latitude<WEST_BOUNDARY && latitude>EAST_BOUNDARY;
+        return latitude<=NORTH_BOUNDARY && latitude>=SOUTH_BOUNDARY &&
+                longitude>=WEST_BOUNDARY && longitude<=EAST_BOUNDARY;
     }
 
     public String listCloserScooters(double latitude, double longitude) {
