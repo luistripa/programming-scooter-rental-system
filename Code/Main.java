@@ -136,7 +136,7 @@ public class Main {
         String email = scanner.next();
         int phone = scanner.nextInt();
         String name = scanner.nextLine().trim();
-        if (clientExists(nif, system)) {
+        if (system.clientExists(nif, system)) {
             System.out.println(CLIENT_EXISTS);
         } else {
             system.createClient(nif, email, phone, name);
@@ -153,7 +153,7 @@ public class Main {
     private static void removeClient(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
         scanner.nextLine();
-        if (clientExists(nif, system)) {
+        if (system.clientExists(nif, system)) {
             if (!system.hasClientRented(nif)) {
                 system.removeClient(nif);
                 System.out.println(CLIENT_REMOVED);
@@ -173,7 +173,7 @@ public class Main {
         String scooterID = scanner.next();
         String scooterRegistration = scanner.next();
         scanner.nextLine();
-        if (scooterExists(scooterID, system)) {
+        if (system.scooterExists(scooterID, system)) {
             System.out.println(SCOOTER_EXISTS);
         } else {
             system.createScooter(scooterID, scooterRegistration);
@@ -190,7 +190,7 @@ public class Main {
     private static void showClientData(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
         scanner.nextLine();
-        if (clientExists(nif, system)) {
+        if (system.clientExists(nif, system)) {
             System.out.println(system.getClientName(nif) + ": " + system.getClientNif(nif) + ", "
                     + system.getClientEmail(nif) + ", " + system.getClientPhone(nif) + ", "
                     + system.getClientBalance(nif) + ", " + system.getClientTotalMinutes(nif) + ", "
@@ -209,7 +209,7 @@ public class Main {
      */
     private static void scooterRentedByClient(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
-        if (clientExists(nif, system)) {
+        if (system.clientExists(nif, system)) {
             if (system.hasClientRented(nif)) {
                 String scooterID = system.getClientScooterInUse(nif).getScooterID();
                 System.out.println(system.getScooterID(scooterID) + ", " + system.getScooterRegistration(scooterID));
@@ -228,7 +228,7 @@ public class Main {
     private static void showScooterData(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
         scanner.nextLine();
-        if (scooterExists(scooterID, system)) {
+        if (system.scooterExists(scooterID, system)) {
             System.out.println(system.getScooterRegistration(scooterID) + ": " + system.getScooterState(scooterID) + ", " + system.getScooterUsageAmount(scooterID)
                     + ", " + system.getScooterUsageMinutes(scooterID));
         } else
@@ -242,7 +242,7 @@ public class Main {
      */
     private static void clientRentedScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
-        if (scooterExists(scooterID, system)) {
+        if (system.scooterExists(scooterID, system)) {
             if (system.isScooterMoving(scooterID))
                 System.out.println(system.getScooterClientInUse(scooterID).getNif() + ", " + system.getClientName(system.getScooterClientInUse(scooterID).getNif()));
             else
@@ -261,12 +261,12 @@ public class Main {
         String nif = scanner.next();
         int amount = scanner.nextInt();
         scanner.nextLine();
-        if (clientExists(nif, system) && amount > 0) {
+        if (system.clientExists(nif, system) && amount > 0) {
             system.addBalance(nif, amount);
             System.out.println(BALANCE_ADDED);
         } else if (amount <= 0)
             System.out.println(INVALID_VALUE);
-        if (!clientExists(nif, system))
+        if (!system.clientExists(nif, system))
             System.out.println(CLIENT_DOESNT_EXIST);
     }
 
@@ -280,12 +280,12 @@ public class Main {
         String nif = scanner.next();
         String scooterID = scanner.next();
         scanner.nextLine();
-        if (clientExists(nif, system) && scooterExists(scooterID, system) && system.getClientBalance(nif) >= MINIMUM_BALANCE && !system.isScooterMoving(scooterID) && system.isScooterActivated(scooterID)) {
+        if (system.clientExists(nif, system) && system.scooterExists(scooterID, system) && system.getClientBalance(nif) >= MINIMUM_BALANCE && !system.isScooterMoving(scooterID) && system.isScooterActivated(scooterID)) {
             system.rentScooter(nif, scooterID);
             System.out.println(RENTED);
-        } else if (!clientExists(nif, system))
+        } else if (!system.clientExists(nif, system))
             System.out.println(CLIENT_DOESNT_EXIST);
-        else if (!scooterExists(scooterID, system))
+        else if (!system.scooterExists(scooterID, system))
             System.out.println(SCOOTER_DOESNT_EXIST);
         else if (system.isScooterMoving(scooterID) || !system.isScooterActivated(scooterID))
             System.out.println(SCOOTER_CANT_BE_RENTED);
@@ -303,13 +303,13 @@ public class Main {
         String scooterID = scanner.next();
         int minutes = scanner.nextInt();
         scanner.nextLine();
-        if (scooterExists(scooterID, system) && system.isScooterMoving(scooterID) && minutes > 0) {
+        if (system.scooterExists(scooterID, system) && system.isScooterMoving(scooterID) && minutes > 0) {
             String nif = system.getScooterClientInUse(scooterID).getNif();
             system.releaseScooter(nif, scooterID, minutes);
             System.out.println(RENTAL_FINISHED);
         } else if (minutes <= 0) {
             System.out.println(INVALID_VALUE);
-        } else if (!scooterExists(scooterID, system)) {
+        } else if (!system.scooterExists(scooterID, system)) {
             System.out.println(SCOOTER_DOESNT_EXIST);
         } else if (!system.isScooterMoving(scooterID)) {
             System.out.println(SCOOTER_NOT_RENTED);
@@ -344,10 +344,10 @@ public class Main {
     private static void deactivateScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
         scanner.nextLine();
-        if (scooterExists(scooterID, system) && !system.isScooterMoving(scooterID)) {
+        if (system.scooterExists(scooterID, system) && !system.isScooterMoving(scooterID)) {
             system.deactivateScooter(scooterID);
             System.out.println(SCOOTER_DEACTIVATED);
-        } else if (!scooterExists(scooterID, system))
+        } else if (!system.scooterExists(scooterID, system))
             System.out.println(SCOOTER_DOESNT_EXIST);
         else if (system.isScooterMoving(scooterID))
             System.out.println(SCOOTER_MOVING);
@@ -362,10 +362,10 @@ public class Main {
     private static void reactivateScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
         scanner.nextLine();
-        if (scooterExists(scooterID, system) && !system.isScooterActivated(scooterID)) {
+        if (system.scooterExists(scooterID, system) && !system.isScooterActivated(scooterID)) {
             system.reactivateScooter(scooterID);
             System.out.println(SCOOTER_REACTIVATED);
-        } else if (!scooterExists(scooterID, system))
+        } else if (!system.scooterExists(scooterID, system))
             System.out.println(SCOOTER_DOESNT_EXIST);
         else if (system.isScooterActivated(scooterID))
             System.out.println(SCOOTER_NOT_INACTIVE);
@@ -377,27 +377,5 @@ public class Main {
 
     private static void listScooters() {
         
-    }
-
-    /**
-     * Verifies if there is a client with the provided nif.
-     *
-     * @param nif NIF that is being compared.
-     * @param system Rental system that is currently being used.
-     * @return If the NIF is or isn't equal to the one introduced.
-     */
-    private static boolean clientExists(String nif, RentalSystem system) {
-        return system.searchIndexOfClient(nif) != -1;
-    }
-
-    /**
-     * Verifies if there is a scooter with the provided scooterID.
-     *
-     * @param scooterID ScooterID that is being compared.
-     * @param system Rental system that is currently being used.
-     * @return If the ScooterID is or isn't equal to the one introduced.
-     */
-    private static boolean scooterExists(String scooterID, RentalSystem system) {
-        return system.searchIndexOfScooter(scooterID) != -1;
     }
 }
