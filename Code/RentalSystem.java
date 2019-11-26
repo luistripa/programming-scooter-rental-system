@@ -16,10 +16,8 @@ public class RentalSystem {
     private static final String DEACTIVATED = "inactiva";
 
     // Instance Variables
-    private Client[] clients;
-    private Scooter[] scooters;
-    private int scooterCounter;
-    private int clientCounter;
+    private ClientCollection clients;
+    private ScooterCollection scooters;
     private int totalRentals;
     private int systemBalance;
     private int totalDelayMinutes;
@@ -28,10 +26,8 @@ public class RentalSystem {
      * The class constructor
      */
     public RentalSystem() {
-        clients = new Client[DEFAULT_VECTOR_SIZE];
-        scooters = new Scooter[DEFAULT_VECTOR_SIZE];
-        scooterCounter = 0;
-        clientCounter = 0;
+        clients = new ClientCollection();
+        scooters = new ScooterCollection();
         totalRentals = 0;
         systemBalance = 0;
         totalDelayMinutes = 0;
@@ -43,12 +39,10 @@ public class RentalSystem {
      * @param email The client email
      * @param phone The client phone
      * @param name The client name
-     * PRE: searchIndexOfClient(nif)==-1
+     * PRE: clients.searchIndex(nif)==-1
      */
     public void createClient(String nif, String email, int phone, String name) {
-        if (isFull(clients, clientCounter)) resize(clients);
-        clients[clientCounter] = new Client(nif, email, phone, name);
-        clientCounter++;
+        clients.createClient(nif, email, phone, name);
     }
 
     /**
@@ -56,13 +50,13 @@ public class RentalSystem {
      * @param nif The nif to be searched
      * @return The position of the client in the vector
      */
-    public int searchIndexOfClient(String nif) {
-        int pos=-1;
-        for (int i=0 ; i<clientCounter&&pos==-1 ; i++) {
-            if (clients[i].getNif().equalsIgnoreCase(nif))
-                pos=i;
-        }
-        return pos;
+    public boolean clientExists(String nif) {
+        return clients.searchIndex(nif)!=-1;
+    }
+
+
+    private Client getClientObject(String nif) {
+        return clients.getClientObject(nif);
     }
 
     /**
@@ -71,130 +65,126 @@ public class RentalSystem {
      * @return A boolean stating whether client has or has not rented a scooter
      */
     public boolean hasClientRented(String nif) {
-        return clients[searchIndexOfClient(nif)].hasRented();
+        return getClientObject(nif).hasRented();
     }
 
     /**
      * Removes the client with given nif
      * @param nif The client nif
-     * PRE: searchIndexOfClient(nif)!=-1
+     * PRE: clientExists(nif)
      */
     public void removeClient(String nif) {
-        int pos = searchIndexOfClient(nif);
-        for (int i=pos ; i<clientCounter-1 ; i++) {
-            clients[i] = clients[i+1];
-        }
-        clientCounter--;
+        clients.remClient(nif);
     }
 
     /**
      * Gets the client nif as it is stored in the system
      * @param nif The client nif
      * @return The client nif as it is stored in the system
-     * PRE: searchIndexOfClient(nif)!=-1
+     * PRE: clientExists(nif)
      */
     public String getClientNif(String nif) {
-        return clients[searchIndexOfClient(nif)].getNif();
+        return getClientObject().getNif();
     }
 
     /**
      * Gets the client email stored in the system
      * @param nif The client nif
      * @return The client email
-     * PRE: searchIndexOfClient(nif)!=-1
+     * PRE: clientExists(nif)
      */
     public String getClientEmail(String nif) {
-        return clients[searchIndexOfClient(nif)].getEmail();
+        return getClientObject().getEmail();
     }
 
     /**
      * Gets the client phone stored in the system
      * @param  nif The client nif
      * @return The client phone
-     * PRE: searchIndexOfClient(nif)!=-1
+     * PRE: clientExists(nif)
      */
     public int getClientPhone(String nif) {
-        return clients[searchIndexOfClient(nif)].getPhone();
+        return getClientObject().getPhone();
     }
 
     /**
      * Gets the client name stored in the system
      * @param  nif The client nif
      * @return The client name
-     * PRE: searchIndexOfClient(nif)!=-1
+     * PRE: clientExists(nif)
      */
     public String getClientName(String nif) {
-        return clients[searchIndexOfClient(nif)].getName();
+        return getClientObject().getName();
     }
 
     /**
      * Gets the client balance stored in the system
      * @param  nif Thge client nif
      * @return The client balance
-     * PRE: searchIndexOfClient(nif)!=-1
+     * PRE: clientExists(nif)
      */
     public int getClientBalance(String nif) {
-        return clients[searchIndexOfClient(nif)].getBalance();
+        return getClientObject().getBalance();
     }
 
     /**
      * Gets the client total moving minutes
      * @param  nif The client nif
      * @return The client total moving minutes
-     * PRE: searchIndexOfClient(nif)!=-1
+     * PRE: clientExists(nif)
      */
     public int getClientTotalMinutes(String nif) {
-        return clients[searchIndexOfClient(nif)].getTotalMinutes();
+        return getClientObject().getTotalMinutes();
     }
 
     /**
      * Gets the client total number of rentals
      * @param  nif The client nif
      * @return The client total number of rentals
-     * PRE: searchIndexOfClient(nif)!=-1
+     * PRE: clientExists(nif)
      */
     public int getClientNumberRentals(String nif) {
-        return clients[searchIndexOfClient(nif)].getNumberRentals();
+        return getClientObject().getNumberRentals();
     }
 
     /**
      * Gets the client max time in a rental
      * @param  nif The client nif
      * @return The client max time in a rental
-     * PRE: searchIndexOfClient(nif)!=-1
+     * PRE: clientExists(nif)
      */
     public int getClientMaxTime(String nif) {
-        return clients[searchIndexOfClient(nif)].getMaxTime();
+        return getClientObject().getMaxTime();
     }
 
     /**
      * Gets the client average rental minutes
      * @param  nif The client nif
      * @return The client average rental minutes
-     * PRE: searchIndexOfClient(nif)!=-1
+     * PRE: clientExists(nif)
      */
     public int getClientAverageRentalTime(String nif) {
-        return clients[searchIndexOfClient(nif)].getAverageMinutes();
+        return getClientObject().getAverageMinutes();
     }
 
     /**
      * Gets the client total money spent
      * @param  nif The client nif
      * @return The client total money spent
-     * PRE: searchIndexOfClient(nif)!=-1
+     * PRE: clientExists(nif)
      */
     public int getClientMoneySpent(String nif) {
-        return clients[searchIndexOfClient(nif)].getMoneySpent();
+        return getClientObject().getMoneySpent();
     }
 
     /**
      * Get the scooter the client is using
      * @param  nif The client nif
      * @return The scooter object which the client is using
-     * PRE: searchIndexOfClient(nif)!=-1
+     * PRE: clientExists(nif)
      */
     public Scooter getClientScooterInUse(String nif) {
-        return clients[searchIndexOfClient(nif)].getScooterInUse();
+        return getClientObject().getScooterInUse();
     }
 
     /**
@@ -210,143 +200,151 @@ public class RentalSystem {
     }
 
     /**
-     * Search scooter by id. Returns -1 if not found
-     * @param  id The scooter id to be searched
-     * @return The position of the scooter object in the vector
+     * Check if the scooter with the specified id exists
+     * @param  id Scooter id
+     * @return Boolean representing if scooter exists
      */
-    public int searchIndexOfScooter(String id) {
-        int pos=-1;
-        for (int i=0 ; i<scooterCounter&&pos==-1 ; i++) {
-            if (scooters[i].getScooterID().equalsIgnoreCase(id)) {
-                pos = i;
-            }
-        }
-        return pos;
+    public boolean scooterExists(String id) {
+        scooters.searchIndex() != -1;
+    }
+
+    /**
+     * Gets the scooter object from the collection
+     * @param  id The scooter id
+     * @return The scooter object
+     * PRE: scooterExists(id)
+     */
+    private Scooter getScooterObject(String id) {
+        return scooters.getScooterObject(id);
     }
 
     /**
      * Get the scooter id stored in the system
      * @param  id The scooter id
      * @return The scooter id as it is stored in the system
-     * PRE: searchIndexOfScooter(id)!=-1
+     * PRE: scooterExists(id)
      */
     public String getScooterID(String id) {
-        return scooters[searchIndexOfScooter(id)].getScooterID();
+        return getScooterObject(id).getScooterID();
     }
 
     /**
      * Gets the scooter registration
      * @param  id The scooter id
      * @return The scooter registration number
-     * PRE: searchIndexOfScooter(id)!=-1
+     * PRE: scooterExists(id)
      */
     public String getScooterRegistration(String id) {
-        return scooters[searchIndexOfScooter(id)].getScooterRegistration();
+        return getScooterObject(id).getScooterRegistration();
     }
     /**
      * Gets the scooter state
      * @param  id The scooter id
      * @return The scooter state
-     * PRE: searchIndexOfScooter(id)!=-1
+     * PRE: scooterExists(id)
      */
     public String getScooterState(String id) {
-        return scooters[searchIndexOfScooter(id)].getState();
+        return getScooterObject(id).getState();
     }
 
     /**
      * Gets the client that is using the scooter
      * @param  id The scooter id
      * @return The object of the client that is using the scooter
-     * PRE: searchIndexOfScooter(id)!=-1
+     * PRE: scooterExists(id)
      */
     public Client getScooterClientInUse(String id) {
-        return scooters[searchIndexOfScooter(id)].getClientInUse();
+        return getScooterObject(id).getClientInUse();
     }
 
     /**
      * Gets the scooter total amount of rentals
      * @param  id The scooter id
      * @return The scooter total amount of rentals
-     * PRE: searchIndexOfScooter(id)!=-1
+     * PRE: scooterExists(id)
      */
     public int getScooterTotalRentals(String id) {
-        return scooters[searchIndexOfScooter(id)].getTotalRentals();
+        return getScooterObject(id).getTotalRentals();
     }
 
     /**
      * Gets the total amount of minutes scooter was used for
      * @param  id The scooter id
      * @return The total amount of minutes scooter was used for
-     * PRE: searchIndexOfScooter(id)!=-1
+     * PRE: scooterExists(id)
      */
     public int getScooterUsageMinutes(String id) {
-        return scooters[searchIndexOfScooter(id)].getUsageMinutes();
+        return getScooterObject(id).getUsageMinutes();
     }
 
     /**
      * Gets the amount of time the scooter has been used
      * @param  id The scooter id
      * @return The amount of times the scooter has been used
-     * PRE: searchIndexOfScooter(id)!=-1
+     * PRE: scooterExists(id)
      */
     public int getScooterUsageAmount(String id) {
-        return scooters[searchIndexOfScooter(id)].getUsageAmount();
+        return getScooterObject(id).getUsageAmount();
     }
 
     /**
      * Checks if scooter is moving
      * @param  id The scooter id
      * @return A boolean stating whether the scooter is or not moving
+     * PRE: scooterExists(id)
      */
     public boolean isScooterMoving(String id) {
-        return scooters[searchIndexOfScooter(id)].getState() == MOVING;
+        return getScooterObject(id).getState() == MOVING;
     }
 
     /**
      * Checks if scooter is active
      * @param  id The scooter id
      * @return Boolean stating whether the scooter is or not active
+     * PRE: scooterExists(id)
      */
     public boolean isScooterActivated(String id) {
-        return scooters[searchIndexOfScooter(id)].getState() != DEACTIVATED;
+        return getScooterObject(id).getState() != DEACTIVATED;
     }
 
     /**
      * Deactivates a scooter
      * @param id The scooter id
-     * PRE: searchIndexOfScooter(id)!=-1
+     * PRE: scooterExists(id)
      */
     public void deactivateScooter(String id) {
-        scooters[searchIndexOfScooter(id)].setState(DEACTIVATED);
+        getScooterObject(id).setState(DEACTIVATED);
     }
 
     /**
      * Reactivates a scooter
      * @param id The scooter id
-     * PRE: searchIndexOfScooter(id)!=-1 && scooters[searchIndexOfScooter(id)].getstate()!="parada" || scooters[searchIndexOfScooter(id)].getstate()!="alugada"
+     * PRE: scooterExists(id) && scooters[searchIndexOfScooter(id)].getstate()!="parada" || scooters[searchIndexOfScooter(id)].getstate()!="alugada"
      */
     public void reactivateScooter(String id) {
-        scooters[searchIndexOfScooter(id)].setState(STOPPED);
+        getScooterObject(id).setState(STOPPED);
     }
 
     /**
      * Adds a specific amount to a client balance
      * @param nif The nif of the client
      * @param amount The amount to be added
+     * PRE: clientExists(nif) && amount > 0
      */
     public void addBalance(String nif, int amount) {
-        clients[searchIndexOfClient(nif)].addBalance(amount);
+        getClientObject(nif).addBalance(amount);
     }
 
     /**
      * Rents the scooter with given id
      * @param nif The client renting the scooter nif
      * @param id  The scooter id
+     * PRE: clientExists(nif) && scooterExists(id)
      */
     public void rentScooter(String nif, String id) {
 
-        Client client = clients[searchIndexOfClient(nif)];
-        Scooter scooter = scooters[searchIndexOfScooter(id)];
+        Client client = getClientObject(nif);
+        Scooter scooter = getclientObject(id);
 
         client.setScooterInUse(scooter);
         scooter.rent(client);
@@ -363,8 +361,8 @@ public class RentalSystem {
      */
     public void releaseScooter(String nif, String id, int minutes) {
 
-        Client client = clients[searchIndexOfClient(nif)];
-        Scooter scooter = scooters[searchIndexOfScooter(id)];
+        Client client = getClientObject(nif);
+        Scooter scooter = getScooterObject(id);
 
         int expense = 0;
         int delay = 0;
@@ -410,35 +408,5 @@ public class RentalSystem {
         return totalDelayMinutes;
     }
 
-    public ScooterIterator initializeScooterIterator() {
-        return new ScooterIterator(scooterCounter, scooters);
-    }
 
-    public ClientIterator initializeClientIterator() {
-        return new ClientIterator(clientCounter, clients);
-    }
-
-    private boolean isFull(Client[] vector, int counter) {
-        return counter==vector.length;
-    }
-
-    private boolean isFull(Scooter[] vector, int counter) {
-        return counter==vector.length;
-    }
-
-    private void resize(Client[] vector) {
-        Client[] aux = new Client[vector.length*VECTOR_GROWTH_FACTOR];
-        for (int i=0 ; i<clientCounter ; i++) {
-            aux[i] = vector[i];
-        }
-        clients = aux;
-    }
-
-    private void resize(Scooter[] vector) {
-        Scooter[] aux = new Scooter[vector.length*VECTOR_GROWTH_FACTOR];
-        for (int i=0 ; i<scooterCounter ; i++) {
-            aux[i] = vector[i];
-        }
-        scooters = aux;
-    }
 }
