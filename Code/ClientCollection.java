@@ -16,14 +16,14 @@ public class ClientCollection {
      * @param nif The nif to be searched
      * @return The position of the client in the vector
      */
-    private int searchIndex(String nif) {
+    public int searchIndex(String nif) {
         int pos = -1;
         for (int i = 0; i < counter && pos == -1; i++) {
             if (clients[i].getNif().equalsIgnoreCase(nif))
                 pos=i;
         }
         return pos;
-    }
+	}
 
     private boolean isFull() {
         return counter == clients.length;
@@ -37,9 +37,16 @@ public class ClientCollection {
         clients = aux;
     }
 
-    private void addClient(String nif, String email, int phone, String name) {
+	/**
+	 * 
+	 * @param nif
+	 * @param email
+	 * @param phone
+	 * @param name
+	 */
+    public void addClient(String nif, String email, int phone, String name) {
         if (isFull()) resize();
-        client[]
+        insertSort(new Client(nif, email, phone, name));
     }
 
     /**
@@ -162,5 +169,16 @@ public class ClientCollection {
             clients[i + 1] = clients[i];
         clients[pos] = client;
         counter++;
+	}
+
+    private void insertSort(Client client) {
+        int pos = -1;
+        for (int i = 0; i < counter && pos == -1; i++) {
+            if (clients[i].nifGreaterThan(client))
+                pos = i;
+        }
+        if (pos == -1)
+            pos = counter;
+        insertAt(pos,client);
     }
 }
