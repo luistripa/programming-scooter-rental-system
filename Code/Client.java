@@ -208,7 +208,7 @@ public class Client {
 	 * @param other
 	 * @return
 	 */
-	public boolean nifGreaterThan(Client other) {
-		return this.getNif().compareTo(other.getNif()) > 0;
+	public boolean nifSmallerThan(Client other) {
+		return this.getNif().compareTo(other.getNif()) < 0;
 	}
 }

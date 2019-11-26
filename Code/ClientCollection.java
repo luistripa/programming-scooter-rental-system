@@ -171,10 +171,14 @@ public class ClientCollection {
         counter++;
 	}
 
+	/**
+	 * Inserting a new client with the lexicographic order
+	 * @param client 
+	 */
     private void insertSort(Client client) {
         int pos = -1;
         for (int i = 0; i < counter && pos == -1; i++) {
-            if (clients[i].nifGreaterThan(client))
+            if (clients[i].nifSmallerThan(client))
                 pos = i;
         }
         if (pos == -1)
