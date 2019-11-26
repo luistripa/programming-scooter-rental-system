@@ -22,7 +22,7 @@ public class ClientIteratorDebtors {
 
     /**
      * 
-     * @return if there is or isn't a next Client in the iterator
+     * @return If there is or isn't a next Client in the iterator
      */
     public boolean hasNext() {
         return next < counter;
@@ -30,7 +30,7 @@ public class ClientIteratorDebtors {
 
     /**
      * 
-     * @return next Client in the iterator
+     * @return Next Client in the iterator
      */
     public Client next() {
         return clients[next++];
@@ -38,7 +38,7 @@ public class ClientIteratorDebtors {
     
     /**
      * Inserts a client in ascending order of balance in the array
-     * @param client
+     * @param client Client that is going to be inserted in the array
      */
     private void insertSort(Client client) {
         int pos = -1;
@@ -53,8 +53,8 @@ public class ClientIteratorDebtors {
     
     /**
      * Inserts a client in the array, opening a space for the new client to be inserted
-     * @param pos position of the array
-     * @param client client that is going to be inserted in the array
+     * @param pos Position of the array
+     * @param client Client that is going to be inserted in the array
      */
     private void insertAt(int pos, Client client) {
         for (int i = counter - 1; i >= pos; i--)
