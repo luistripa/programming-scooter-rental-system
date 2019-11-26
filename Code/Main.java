@@ -120,6 +120,9 @@ public class Main {
             case ACTIVATE:
                 reactivateScooter(scanner, system);
                 break;
+            case LIST_SCOOTER:
+                listScooter(system, scanner);
+                break;
             default:
                 System.out.println(INVALID_COMMAND);
         }
@@ -375,11 +378,12 @@ public class Main {
 
     }
 
-    private static void listScooters() {
-
+    private static void listScooter(RentalSystem system, Scanner scanner) {
+        scanner.nextLine();
+        System.out.println(system.listScooter());
     }
 
     private static void listDebtors() {
-        
+
     }
 }
