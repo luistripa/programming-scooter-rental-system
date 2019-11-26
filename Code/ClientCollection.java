@@ -189,7 +189,7 @@ public class ClientCollection {
     private void insertSort(Client client) {
         int pos = -1;
         for (int i = 0; i < counter && pos == -1; i++) {
-            if (clients[i].nifSmallerThan(client))
+            if (clients[i].nifGreaterThan(client))
                 pos = i;
         }
         if (pos == -1)

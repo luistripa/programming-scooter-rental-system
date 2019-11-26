@@ -224,7 +224,7 @@ public class Client {
 	 * @param other
 	 * @return Boolean. If this client balance is smaller than the other client
 	 */
-	public boolean nifSmallerThan(Client other) {
-		return this.getNif().compareTo(other.getNif()) < 0;
+	public boolean nifGreaterThan(Client other) {
+		return this.getNif().compareTo(other.getNif()) > 0;
 	}
 }
