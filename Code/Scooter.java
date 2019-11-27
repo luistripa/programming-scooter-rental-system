@@ -15,18 +15,10 @@ public class Scooter {
         this.registration = registration;
         state = STOPPED;
         clientInUse = null;
-        totalRentals = 0;
         usageMinutes = 0;
         usageAmount = 0;
         latitude = 0;
         longitude = 0;
-    }
-
-    /**
-     * @return the totalRentals
-     */
-    public int getTotalRentals() {
-        return totalRentals;
     }
 
     /**

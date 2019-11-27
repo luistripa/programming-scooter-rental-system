@@ -17,7 +17,9 @@ public class ScooterIteratorCloser {
         this.longitude = longitude;
         next = 0;
         for (int i=0 ; i < counter ; i++) {
-            insertSort(scooters[i]);
+            if (scooters[i].getLatitude()!=0 && scooters[i].getLongitude()!=0) {
+                insertSort(scooters[i]);
+            }
         }
     }
 

@@ -8,7 +8,7 @@ else:
 	exit(0)
 
 # Run the tests
-for i in range(1, 29):
+for i in range(1, 30):
 	i = str(i)
 	command = "cd bin/ ; java Main < ../tests/T"+i+"/input > ../tests/T"+i+"/myOut ";
 	code1 = system(command)
