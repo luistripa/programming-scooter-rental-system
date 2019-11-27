@@ -1,3 +1,10 @@
+/**
+ * Handles everything related to the scooters (usage amount, usage minutes, location etc ...)
+ * 
+ * @author Antonio Duarte
+ * @author Luis Tripa
+ */
+
 public class Scooter {
 
     private static final String MOVING = "alugada";
@@ -40,7 +47,7 @@ public class Scooter {
     /**
      *
      * @param minutes Amount of minutes that the scooter was rented for.
-     * @pre minutes >= 0 && isMoving == true
+     * PRE: minutes >= 0 && isMoving == true
      */
     public void release(int minutes) {
         incrementUsageAmount();
@@ -72,8 +79,7 @@ public class Scooter {
      *
      * @param scooterClientInUse String which contains the name of the client riding
      *                           the scooter
-     * 
-     *                           PRE: getClientInUse() == null
+     * PRE: getClientInUse() == null
      */
     public void setClientInUse(Client clientInUse) {
         this.clientInUse = clientInUse;
@@ -84,8 +90,7 @@ public class Scooter {
      *
      * @param status String. The status of the scooter (alugada, inactiva, parada)
      *
-     *               PRE: state.equals(STOPPED) || state.equals(MOVING) ||
-     *               state.equals(DEACTIVATED)
+     * PRE: state.equals(STOPPED) || state.equals(MOVING) || state.equals(DEACTIVATED)
      */
     public void setState(String state) {
         this.state = state;
@@ -147,8 +152,8 @@ public class Scooter {
 
     /**
      *
-     * @param minutes Minutes to be added to the Scooter's total usage minutes. PRE:
-     *                minutes > 0
+     * @param minutes Minutes to be added to the Scooter's total usage minutes. 
+     * PRE: minutes > 0
      */
     public void addTotalMinutes(int minutes) {
         usageMinutes += minutes;

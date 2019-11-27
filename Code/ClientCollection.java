@@ -1,3 +1,10 @@
+/**
+ * Handles everything related to managing the array of Clients
+ * 
+ * @author Antonio Duarte
+ * @author Luis Tripa
+ */
+
 public class ClientCollection {
 
     private static final int DEFAULT_SIZE = 100;
@@ -54,8 +61,8 @@ public class ClientCollection {
      * Gets the client nif as it is stored in the system
      * 
      * @param nif The client nif
-     * @return The client nif as it is stored in the system PRE:
-     *         searchIndex(nif)!=-1
+     * @return The client nif as it is stored in the system 
+     * PRE: searchIndex(nif)!=-1
      */
     public String getClientNif(String nif) {
         return clients[searchIndex(nif)].getNif();
@@ -65,7 +72,8 @@ public class ClientCollection {
      * Gets the client email stored in the system
      * 
      * @param nif The client nif
-     * @return The client email PRE: searchIndex(nif)!=-1
+     * @return The client email
+     * PRE: searchIndex(nif)!=-1
      */
     public String getClientEmail(String nif) {
         return clients[searchIndex(nif)].getEmail();
@@ -75,7 +83,8 @@ public class ClientCollection {
      * Gets the client phone stored in the system
      * 
      * @param nif The client nif
-     * @return The client phone PRE: searchIndex(nif)!=-1
+     * @return The client phone
+     * PRE: searchIndex(nif)!=-1
      */
     public int getClientPhone(String nif) {
         return clients[searchIndex(nif)].getPhone();
@@ -85,7 +94,8 @@ public class ClientCollection {
      * Gets the client name stored in the system
      * 
      * @param nif The client nif
-     * @return The client name PRE: searchIndex(nif)!=-1
+     * @return The client name
+     * PRE: searchIndex(nif)!=-1
      */
     public String getClientName(String nif) {
         return clients[searchIndex(nif)].getName();
@@ -105,7 +115,8 @@ public class ClientCollection {
      * Gets the client total moving minutes
      * 
      * @param nif The client nif
-     * @return The client total moving minutes PRE: searchIndex(nif)!=-1
+     * @return The client total moving minutes
+     * PRE: searchIndex(nif)!=-1
      */
     public int getClientTotalMinutes(String nif) {
         return clients[searchIndex(nif)].getTotalMinutes();
@@ -115,7 +126,8 @@ public class ClientCollection {
      * Gets the client total number of rentals
      * 
      * @param nif The client nif
-     * @return The client total number of rentals PRE: searchIndex(nif)!=-1
+     * @return The client total number of rentals
+     * PRE: searchIndex(nif)!=-1
      */
     public int getClientNumberRentals(String nif) {
         return clients[searchIndex(nif)].getNumberRentals();
@@ -125,7 +137,8 @@ public class ClientCollection {
      * Gets the client max time in a rental
      * 
      * @param nif The client nif
-     * @return The client max time in a rental PRE: searchIndex(nif)!=-1
+     * @return The client max time in a rental
+     * PRE: searchIndex(nif)!=-1
      */
     public int getClientMaxTime(String nif) {
         return clients[searchIndex(nif)].getMaxTime();
@@ -135,7 +148,8 @@ public class ClientCollection {
      * Gets the client average rental minutes
      * 
      * @param nif The client nif
-     * @return The client average rental minutes PRE: searchIndex(nif)!=-1
+     * @return The client average rental minutes
+     * PRE: searchIndex(nif)!=-1
      */
     public int getClientAverageRentalTime(String nif) {
         return clients[searchIndex(nif)].getAverageMinutes();
@@ -145,7 +159,8 @@ public class ClientCollection {
      * Gets the client total money spent
      * 
      * @param nif The client nif
-     * @return The client total money spent PRE: searchIndex(nif)!=-1
+     * @return The client total money spent
+     * PRE: searchIndex(nif)!=-1
      */
     public int getClientMoneySpent(String nif) {
         return clients[searchIndex(nif)].getMoneySpent();

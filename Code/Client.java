@@ -39,8 +39,7 @@ public class Client {
 	 * Method that updates all client's variables when a scooter is released
 	 *
 	 * @param minutes The amount of minutes the client used the scooter for
-	 *
-	 *                PRE: minutes > 0
+	 * PRE: minutes > 0
 	 */
 	public void releaseScooter(int minutes, int expense) {
 		if (minutes > maxTime)
@@ -56,8 +55,7 @@ public class Client {
 	 * Adds a specific amount to the client's balance
 	 *
 	 * @param amount The amount to be added
-	 *
-	 *               PRE: amount > 0
+	 * PRE: amount > 0
 	 */
 	public void addBalance(int amount) {
 		balance += amount;
@@ -66,7 +64,8 @@ public class Client {
 	/**
 	 * Removes a specific amount from the client balance
 	 * 
-	 * @param amount The amount to be removed PRE: amount > 0
+	 * @param amount The amount to be removed 
+	 * PRE: amount > 0
 	 */
 	public void remBalance(int amount) {
 		balance -= amount;
@@ -76,8 +75,7 @@ public class Client {
 	 * Adds minutes to the total moving minutes
 	 *
 	 * @param minutes
-	 *
-	 *                PRE: minutes > 0
+	 * PRE: minutes > 0
 	 */
 	public void addMinutes(int minutes) {
 		totalMinutes += minutes;
@@ -95,8 +93,7 @@ public class Client {
 	 * Adds amount to the total money spent
 	 *
 	 * @param amount The amount to be added
-	 *
-	 *               PRE: amount > 0
+	 * PRE: amount > 0
 	 */
 	public void addMoneySpent(int amount) {
 		moneySpent += amount;

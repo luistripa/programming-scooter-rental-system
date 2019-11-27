@@ -1,3 +1,11 @@
+/**
+ * Handles everything related to the iteration of scooters closest to a given
+ * client location.
+ * 
+ * @author Antonio Duarte
+ * @author Luis Tripa
+ */
+
 public class ScooterIteratorCloser {
 
     private int counter;
@@ -7,7 +15,7 @@ public class ScooterIteratorCloser {
 
     /**
      *
-     * @param counter
+     * @param counter 
      * @param scooters
      */
     public ScooterIteratorCloser(int counter, Scooter[] scooters, double latitude, double longitude) {
@@ -17,9 +25,9 @@ public class ScooterIteratorCloser {
         this.longitude = longitude;
         next = 0;
         for (int i=0 ; i < counter ; i++) {
-            if (scooters[i].getLatitude()!=0 && scooters[i].getLongitude()!=0) {
+            if (scooters[i].getLatitude()!=0 && scooters[i].getLongitude()!=0)
                 insertSort(scooters[i]);
-        }
+            }
     }
 
     /**

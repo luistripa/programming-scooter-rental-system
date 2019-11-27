@@ -1,3 +1,10 @@
+/**
+ * Handles iteration of Scooters
+ * 
+ * @author Antonio Duarte
+ * @author Luis Tripa
+ */
+
 public class ScooterIterator {
 
     private int counter;

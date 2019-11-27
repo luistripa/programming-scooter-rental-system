@@ -1,3 +1,10 @@
+/**
+ * Handles iteration of clients with negative balance
+ * 
+ * @author Antonio Duarte
+ * @author Luis Tripa
+ */
+
 public class ClientIteratorDebtors {
 
     private int counter;

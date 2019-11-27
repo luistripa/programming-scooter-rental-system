@@ -26,8 +26,8 @@ public class ScooterCollection {
      * Inserts a scooter into the system
      * 
      * @param id           The scooter id
-     * @param registration The scooter registration PRE:
-     *                     searchIndexOfScooter(id)==-1
+     * @param registration The scooter registration 
+     * PRE: searchIndexOfScooter(id)==-1
      */
     public void addScooter(String id, String registration) {
         if (isFull())
