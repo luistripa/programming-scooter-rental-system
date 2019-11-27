@@ -79,71 +79,71 @@ public class Main {
      * This method executes the option that the user chose to do in the program.
      *
      * @param scanner Reads the user's input.
-     * @param system Rental system that is currently being used.
-     * @param option Option that the user chose to perform.
+     * @param system  Rental system that is currently being used.
+     * @param option  Option that the user chose to perform.
      */
     private static void executeOption(Scanner scanner, RentalSystem system, String option) {
         switch (option) {
-            case INSERT_CLIENT:
-                createClient(scanner, system);
-                break;
-            case REMOVE_CLIENT:
-                removeClient(scanner, system);
-                break;
-            case INSERT_SCOOTER:
-                createScooter(scanner, system);
-                break;
-            case CLIENT_DATA:
-                showClientData(scanner, system);
-                break;
-            case RENTED_SCOOTER:
-                scooterRentedByClient(scanner, system);
-                break;
-            case SCOOTER_DATA:
-                showScooterData(scanner, system);
-                break;
-            case RENTER:
-                clientRentedScooter(scanner, system);
-                break;
-            case ADD_BALANCE:
-                addBalance(scanner, system);
-                break;
-            case RENT:
-                rentScooter(scanner, system);
-                break;
-            case RELEASE:
-                releaseScooter(scanner, system);
-                break;
-            case SYSTEM_STATE:
-                systemState(system);
-                break;
-            case EXIT:
-                exit(system);
-                break;
-            case DEACTIVATE:
-                deactivateScooter(scanner, system);
-                break;
-            case ACTIVATE:
-                reactivateScooter(scanner, system);
-                break;
-            case LIST_SCOOTER:
-                listScooter(system, scanner);
-                break;
-            case LIST_CLIENTS:
-                listClient(system, scanner);
-                break;
-            case LIST_NEGATIVE_BALANCE:
-                listDebtors(system, scanner);
-                break;
-            case RELEASE_WITH_LOCATION:
-                releaseLocation(system, scanner);
-                break;
-            case LOCATE_CLOSER:
-                locateCloserScooters(system, scanner);
-                break;
-            default:
-                scanner.nextLine();
-                System.out.println(INVALID_COMMAND);
+        case INSERT_CLIENT:
+            createClient(scanner, system);
+            break;
+        case REMOVE_CLIENT:
+            removeClient(scanner, system);
+            break;
+        case INSERT_SCOOTER:
+            createScooter(scanner, system);
+            break;
+        case CLIENT_DATA:
+            showClientData(scanner, system);
+            break;
+        case RENTED_SCOOTER:
+            scooterRentedByClient(scanner, system);
+            break;
+        case SCOOTER_DATA:
+            showScooterData(scanner, system);
+            break;
+        case RENTER:
+            clientRentedScooter(scanner, system);
+            break;
+        case ADD_BALANCE:
+            addBalance(scanner, system);
+            break;
+        case RENT:
+            rentScooter(scanner, system);
+            break;
+        case RELEASE:
+            releaseScooter(scanner, system);
+            break;
+        case SYSTEM_STATE:
+            systemState(system);
+            break;
+        case EXIT:
+            exit(system);
+            break;
+        case DEACTIVATE:
+            deactivateScooter(scanner, system);
+            break;
+        case ACTIVATE:
+            reactivateScooter(scanner, system);
+            break;
+        case LIST_SCOOTER:
+            listScooter(system, scanner);
+            break;
+        case LIST_CLIENTS:
+            listClient(system, scanner);
+            break;
+        case LIST_NEGATIVE_BALANCE:
+            listDebtors(system, scanner);
+            break;
+        case RELEASE_WITH_LOCATION:
+            releaseLocation(system, scanner);
+            break;
+        case LOCATE_CLOSER:
+            locateCloserScooters(system, scanner);
+            break;
+        default:
+            scanner.nextLine();
+            System.out.println(INVALID_COMMAND);
         }
     }
 
@@ -151,7 +151,7 @@ public class Main {
      * Creates a client.
      *
      * @param scanner Reads the user's input.
-     * @param system Rental system that is currently being used.
+     * @param system  Rental system that is currently being used.
      */
     private static void createClient(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
@@ -170,7 +170,7 @@ public class Main {
      * Removes a client.
      *
      * @param scanner Reads the user's input.
-     * @param system Rental system that is currently being used.
+     * @param system  Rental system that is currently being used.
      */
     private static void removeClient(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
@@ -189,7 +189,7 @@ public class Main {
      * Creates a scooter.
      *
      * @param scanner Reads the user's input.
-     * @param system Rental system that is currently being used.
+     * @param system  Rental system that is currently being used.
      */
     private static void createScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
@@ -207,7 +207,7 @@ public class Main {
      * Shows the data regarding the client that matches the provided nif.
      *
      * @param scanner Reads the user's input.
-     * @param system Rental system that is currently being used.
+     * @param system  Rental system that is currently being used.
      */
     private static void showClientData(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
@@ -218,16 +218,15 @@ public class Main {
                     + system.getClientBalance(nif) + ", " + system.getClientTotalMinutes(nif) + ", "
                     + system.getClientNumberRentals(nif) + ", " + system.getClientMaxTime(nif) + ", "
                     + system.getClientAverageRentalTime(nif) + ", " + system.getClientMoneySpent(nif));
-        } else {
+        } else
             System.out.println(CLIENT_DOESNT_EXIST);
-        }
     }
 
     /**
      * Prints the information about the scooter that the Client rented.
      *
      * @param scanner Reads the user's input.
-     * @param system Rental system that is currently being used.
+     * @param system  Rental system that is currently being used.
      */
     private static void scooterRentedByClient(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
@@ -245,14 +244,14 @@ public class Main {
      * Shows the data regarding the scooter that matches the provided scooterID.
      *
      * @param scanner Reads the user's input.
-     * @param system Rental system that is currently being used.
+     * @param system  Rental system that is currently being used.
      */
     private static void showScooterData(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
         scanner.nextLine();
         if (system.scooterExists(scooterID)) {
-            System.out.println(system.getScooterRegistration(scooterID) + ": " + system.getScooterState(scooterID) + ", " + system.getScooterUsageAmount(scooterID)
-                    + ", " + system.getScooterUsageMinutes(scooterID));
+            System.out.println(system.getScooterRegistration(scooterID) + ": " + system.getScooterState(scooterID)
+                    + ", " + system.getScooterUsageAmount(scooterID) + ", " + system.getScooterUsageMinutes(scooterID));
         } else
             System.out.println(SCOOTER_DOESNT_EXIST);
     }
@@ -260,13 +259,14 @@ public class Main {
     /**
      *
      * @param scanner Reads the user's input.
-     * @param system Rental system that is currently being used.
+     * @param system  Rental system that is currently being used.
      */
     private static void clientRentedScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
         if (system.scooterExists(scooterID)) {
             if (system.isScooterMoving(scooterID))
-                System.out.println(system.getScooterClientInUse(scooterID).getNif() + ", " + system.getClientName(system.getScooterClientInUse(scooterID).getNif()));
+                System.out.println(system.getScooterClientInUse(scooterID).getNif() + ", "
+                        + system.getClientName(system.getScooterClientInUse(scooterID).getNif()));
             else
                 System.out.println(SCOOTER_NOT_RENTED);
         } else
@@ -277,7 +277,7 @@ public class Main {
      * Adds a specified amount to the client's balance.
      *
      * @param scanner Reads the user's input.
-     * @param system Rental system that is currently being used.
+     * @param system  Rental system that is currently being used.
      */
     private static void addBalance(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
@@ -296,13 +296,15 @@ public class Main {
      * Rents a scooter.
      *
      * @param scanner Reads the user's input.
-     * @param system Rental system that is currently being used.
+     * @param system  Rental system that is currently being used.
      */
     private static void rentScooter(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
         String scooterID = scanner.next();
         scanner.nextLine();
-        if (system.clientExists(nif) && system.scooterExists(scooterID) && system.getClientBalance(nif) >= MINIMUM_BALANCE && !system.isScooterMoving(scooterID) && system.isScooterActivated(scooterID) && !system.hasClientRented(nif)) {
+        if (system.clientExists(nif) && system.scooterExists(scooterID)
+                && system.getClientBalance(nif) >= MINIMUM_BALANCE && !system.isScooterMoving(scooterID)
+                && system.isScooterActivated(scooterID) && !system.hasClientRented(nif)) {
             system.rentScooter(nif, scooterID);
             System.out.println(RENTED);
         } else if (!system.clientExists(nif))
@@ -311,9 +313,8 @@ public class Main {
             System.out.println(SCOOTER_DOESNT_EXIST);
         else if (system.isScooterMoving(scooterID) || !system.isScooterActivated(scooterID))
             System.out.println(SCOOTER_CANT_BE_RENTED);
-        else if (system.hasClientRented(nif)) {
+        else if (system.hasClientRented(nif))
             System.out.println(CLIENT_MOVING);
-        }
         else if (system.getClientBalance(nif) < MINIMUM_BALANCE)
             System.out.println(NOT_ENOUGH_BALANCE);
     }
@@ -322,7 +323,7 @@ public class Main {
      * Releases the scooter.
      *
      * @param scanner Reads the user's input.
-     * @param system Rental system that is currently being used.
+     * @param system  Rental system that is currently being used.
      */
     private static void releaseScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
@@ -331,13 +332,12 @@ public class Main {
         if (system.scooterExists(scooterID) && system.isScooterMoving(scooterID) && minutes > 0) {
             system.releaseScooter(scooterID, minutes);
             System.out.println(RENTAL_FINISHED);
-        } else if (minutes <= 0) {
+        } else if (minutes <= 0)
             System.out.println(INVALID_VALUE);
-        } else if (!system.scooterExists(scooterID)) {
+        else if (!system.scooterExists(scooterID))
             System.out.println(SCOOTER_DOESNT_EXIST);
-        } else if (!system.isScooterMoving(scooterID)) {
+        else if (!system.isScooterMoving(scooterID))
             System.out.println(SCOOTER_NOT_RENTED);
-        }
     }
 
     /**
@@ -346,7 +346,8 @@ public class Main {
      * @param system
      */
     private static void systemState(RentalSystem system) {
-        System.out.println("Estado actual: " + system.getTotalRentals() + ", " + system.getSystemBalance() + ", " + system.getTotalDelayMinutes());
+        System.out.println("Estado actual: " + system.getTotalRentals() + ", " + system.getSystemBalance() + ", "
+                + system.getTotalDelayMinutes());
     }
 
     /**
@@ -363,7 +364,7 @@ public class Main {
      * Deactivates the scooter that matches the provided scooterID.
      *
      * @param scanner Reads the user's input.
-     * @param system Rental system that is currently being used.
+     * @param system  Rental system that is currently being used.
      */
     private static void deactivateScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
@@ -381,7 +382,7 @@ public class Main {
      * Reactivates the scooter that matches the provided scooterID.
      *
      * @param scanner Reads the user's input.
-     * @param system Rental system that is currently being used.
+     * @param system  Rental system that is currently being used.
      */
     private static void reactivateScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
@@ -408,9 +409,8 @@ public class Main {
     private static void listDebtors(RentalSystem system, Scanner scanner) {
         scanner.nextLine();
         String list = system.listDebtors();
-        if (!list.equals("")) {
+        if (!list.equals(""))
             System.out.println(list);
-        }
     }
 
     private static void releaseLocation(RentalSystem system, Scanner scanner) {
@@ -421,18 +421,18 @@ public class Main {
         double longitude = scanner.nextDouble();
         scanner.nextLine();
 
-        if (system.scooterExists(scooterID) && minutes > 0 && system.isScooterMoving(scooterID) && system.isScooterInBoundaries(latitude, longitude)) {
+        if (system.scooterExists(scooterID) && minutes > 0 && system.isScooterMoving(scooterID)
+                && system.isScooterInBoundaries(latitude, longitude)) {
             system.releaseScooter(scooterID, minutes, latitude, longitude);
             System.out.println(RENTAL_FINISHED);
-        } else if (!system.isScooterInBoundaries(latitude, longitude)) {
+        } else if (!system.isScooterInBoundaries(latitude, longitude))
             System.out.println(INVALID_LOCATION);
-        } else if (minutes < 0) {
+        else if (minutes < 0)
             System.out.println(INVALID_VALUE);
-        } else if (!system.scooterExists(scooterID)) {
+        else if (!system.scooterExists(scooterID))
             System.out.println(SCOOTER_DOESNT_EXIST);
-        } else if (!system.isScooterMoving(scooterID)) {
+        else if (!system.isScooterMoving(scooterID))
             System.out.println(SCOOTER_NOT_RENTED);
-        }
     }
 
     private static void locateCloserScooters(RentalSystem system, Scanner scanner) {
@@ -440,10 +440,9 @@ public class Main {
         double longitude = scanner.nextDouble();
         scanner.nextLine();
         String list = system.listCloserScooters(latitude, longitude);
-        if (list.equals("")) {
+        if (list.equals(""))
             System.out.println(NO_SCOOTER_LOCATED);
-        } else {
+        else
             System.out.println(list);
-        }
     }
 }
