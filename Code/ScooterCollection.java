@@ -1,5 +1,6 @@
 /**
  * Handles everything related with the scooter collection
+ * 
  * @author Antonio Duarte
  * @author Luis Tripa
  */
@@ -23,24 +24,27 @@ public class ScooterCollection {
 
     /**
      * Inserts a scooter into the system
-     * @param id The scooter id
-     * @param registration The scooter registration
-     * PRE: searchIndexOfScooter(id)==-1
+     * 
+     * @param id           The scooter id
+     * @param registration The scooter registration PRE:
+     *                     searchIndexOfScooter(id)==-1
      */
     public void addScooter(String id, String registration) {
-        if (isFull()) resize();
+        if (isFull())
+            resize();
         scooters[counter] = new Scooter(id, registration);
         counter++;
     }
 
     /**
      * Search scooter by id. Returns -1 if not found
-     * @param  id The scooter id to be searched
+     * 
+     * @param id The scooter id to be searched
      * @return The position of the scooter object in the vector
      */
     public int searchIndex(String id) {
-        int pos=-1;
-        for (int i=0 ; i<counter&&pos==-1 ; i++) {
+        int pos = -1;
+        for (int i = 0; i < counter && pos == -1; i++) {
             if (scooters[i].getScooterID().equalsIgnoreCase(id)) {
                 pos = i;
             }
@@ -50,7 +54,8 @@ public class ScooterCollection {
 
     /**
      * Gets the scooter object
-     * @param  id The scooter id
+     * 
+     * @param id The scooter id
      * @return The scooter object
      */
     public Scooter getScooterObject(String id) {
@@ -59,6 +64,7 @@ public class ScooterCollection {
 
     /**
      * Checks if scooters vector is full
+     * 
      * @return A boolean representing if the vector is full
      */
     private boolean isFull() {
@@ -70,14 +76,16 @@ public class ScooterCollection {
      */
     private void resize() {
         Scooter[] aux = new Scooter[scooters.length * GROWTH_FACTOR];
-        for (int i=0 ; i<counter ; i++) {
+        for (int i = 0; i < counter; i++) {
             aux[i] = scooters[i];
         }
         scooters = aux;
     }
 
     /**
-     * Initializes the scooter iterator. This iterator is based on the inserted order
+     * Initializes the scooter iterator. This iterator is based on the inserted
+     * order
+     * 
      * @return The iterator object
      */
     public ScooterIterator initializeScooterIterator() {

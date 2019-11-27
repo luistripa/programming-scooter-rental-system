@@ -13,15 +13,15 @@ public class ClientCollection {
 
     /**
      * Tries to find the given nif in the Client vector. Returns -1 if not found
+     * 
      * @param nif The nif to be searched
      * @return The position of the client in the vector
      */
     public int searchIndex(String nif) {
         int pos = -1;
-        for (int i = 0; i < counter && pos==-1; i++) {
-            if (clients[i].getNif().equalsIgnoreCase(nif)) {
-                pos=i;
-            }
+        for (int i = 0; i < counter && pos == -1; i++) {
+            if (clients[i].getNif().equalsIgnoreCase(nif))
+                pos = i;
         }
         return pos;
     }
@@ -32,30 +32,30 @@ public class ClientCollection {
 
     private void resize() {
         Client[] aux = new Client[clients.length * GROWTH_FACTOR];
-        for (int i = 0; i < counter; i++) {
+        for (int i = 0; i < counter; i++)
             aux[i] = clients[i];
-        }
         clients = aux;
     }
 
     public void addClient(String nif, String email, int phone, String name) {
-        if (isFull()) resize();
+        if (isFull())
+            resize();
         insertSort(new Client(nif, email, phone, name));
     }
 
     public void remClient(String nif) {
         int pos = searchIndex(nif);
-        for (int i=pos ; i<counter-1 ; i++) {
-            clients[i] = clients[i+1];
-        }
+        for (int i = pos; i < counter - 1; i++)
+            clients[i] = clients[i + 1];
         counter--;
     }
 
     /**
      * Gets the client nif as it is stored in the system
+     * 
      * @param nif The client nif
-     * @return The client nif as it is stored in the system
-     * PRE: searchIndex(nif)!=-1
+     * @return The client nif as it is stored in the system PRE:
+     *         searchIndex(nif)!=-1
      */
     public String getClientNif(String nif) {
         return clients[searchIndex(nif)].getNif();
@@ -63,9 +63,9 @@ public class ClientCollection {
 
     /**
      * Gets the client email stored in the system
+     * 
      * @param nif The client nif
-     * @return The client email
-     * PRE: searchIndex(nif)!=-1
+     * @return The client email PRE: searchIndex(nif)!=-1
      */
     public String getClientEmail(String nif) {
         return clients[searchIndex(nif)].getEmail();
@@ -73,9 +73,9 @@ public class ClientCollection {
 
     /**
      * Gets the client phone stored in the system
-     * @param  nif The client nif
-     * @return The client phone
-     * PRE: searchIndex(nif)!=-1
+     * 
+     * @param nif The client nif
+     * @return The client phone PRE: searchIndex(nif)!=-1
      */
     public int getClientPhone(String nif) {
         return clients[searchIndex(nif)].getPhone();
@@ -83,9 +83,9 @@ public class ClientCollection {
 
     /**
      * Gets the client name stored in the system
-     * @param  nif The client nif
-     * @return The client name
-     * PRE: searchIndex(nif)!=-1
+     * 
+     * @param nif The client nif
+     * @return The client name PRE: searchIndex(nif)!=-1
      */
     public String getClientName(String nif) {
         return clients[searchIndex(nif)].getName();
@@ -93,9 +93,9 @@ public class ClientCollection {
 
     /**
      * Gets the client balance stored in the system
-     * @param  nif Thge client nif
-     * @return The client balance
-     * PRE: searchIndex(nif)!=-1
+     * 
+     * @param nif Thge client nif
+     * @return The client balance PRE: searchIndex(nif)!=-1
      */
     public int getClientBalance(String nif) {
         return clients[searchIndex(nif)].getBalance();
@@ -103,9 +103,9 @@ public class ClientCollection {
 
     /**
      * Gets the client total moving minutes
-     * @param  nif The client nif
-     * @return The client total moving minutes
-     * PRE: searchIndex(nif)!=-1
+     * 
+     * @param nif The client nif
+     * @return The client total moving minutes PRE: searchIndex(nif)!=-1
      */
     public int getClientTotalMinutes(String nif) {
         return clients[searchIndex(nif)].getTotalMinutes();
@@ -113,9 +113,9 @@ public class ClientCollection {
 
     /**
      * Gets the client total number of rentals
-     * @param  nif The client nif
-     * @return The client total number of rentals
-     * PRE: searchIndex(nif)!=-1
+     * 
+     * @param nif The client nif
+     * @return The client total number of rentals PRE: searchIndex(nif)!=-1
      */
     public int getClientNumberRentals(String nif) {
         return clients[searchIndex(nif)].getNumberRentals();
@@ -123,9 +123,9 @@ public class ClientCollection {
 
     /**
      * Gets the client max time in a rental
-     * @param  nif The client nif
-     * @return The client max time in a rental
-     * PRE: searchIndex(nif)!=-1
+     * 
+     * @param nif The client nif
+     * @return The client max time in a rental PRE: searchIndex(nif)!=-1
      */
     public int getClientMaxTime(String nif) {
         return clients[searchIndex(nif)].getMaxTime();
@@ -133,9 +133,9 @@ public class ClientCollection {
 
     /**
      * Gets the client average rental minutes
-     * @param  nif The client nif
-     * @return The client average rental minutes
-     * PRE: searchIndex(nif)!=-1
+     * 
+     * @param nif The client nif
+     * @return The client average rental minutes PRE: searchIndex(nif)!=-1
      */
     public int getClientAverageRentalTime(String nif) {
         return clients[searchIndex(nif)].getAverageMinutes();
@@ -143,9 +143,9 @@ public class ClientCollection {
 
     /**
      * Gets the client total money spent
-     * @param  nif The client nif
-     * @return The client total money spent
-     * PRE: searchIndex(nif)!=-1
+     * 
+     * @param nif The client nif
+     * @return The client total money spent PRE: searchIndex(nif)!=-1
      */
     public int getClientMoneySpent(String nif) {
         return clients[searchIndex(nif)].getMoneySpent();
@@ -153,9 +153,10 @@ public class ClientCollection {
 
     /**
      * Get the scooter the client is using
-     * @param  nif The client nif
-     * @return The scooter object which the client is using
-     * PRE: searchIndex(nif)!=-1
+     * 
+     * @param nif The client nif
+     * @return The scooter object which the client is using PRE:
+     *         searchIndex(nif)!=-1
      */
     public Scooter getClientScooterInUse(String nif) {
         return clients[searchIndex(nif)].getScooterInUse();
@@ -163,7 +164,8 @@ public class ClientCollection {
 
     /**
      * Gets the client object from the client collection
-     * @param  nif The client nif
+     * 
+     * @param nif The client nif
      * @return The client object
      */
     public Client getClientObject(String nif) {
@@ -180,12 +182,13 @@ public class ClientCollection {
             clients[i + 1] = clients[i];
         clients[pos] = client;
         counter++;
-	}
+    }
 
-	/**
-	 * Inserting a new client with the lexicographic order
-	 * @param client
-	 */
+    /**
+     * Inserting a new client with the lexicographic order
+     * 
+     * @param client
+     */
     private void insertSort(Client client) {
         int pos = -1;
         for (int i = 0; i < counter && pos == -1; i++) {
@@ -194,11 +197,12 @@ public class ClientCollection {
         }
         if (pos == -1)
             pos = counter;
-        insertAt(pos,client);
+        insertAt(pos, client);
     }
 
     /**
      * Client iterator that iterates in ascending lexicographic order of nif
+     * 
      * @return Client Iterator
      */
     public ClientIterator initializeIterator() {
@@ -206,8 +210,9 @@ public class ClientCollection {
     }
 
     /**
-     * Initializes the debtors client iterator, that iterates the client with negative balance
-     * in ascending order of balance.
+     * Initializes the debtors client iterator, that iterates the client with
+     * negative balance in ascending order of balance.
+     * 
      * @return Client Iterator of debtors
      */
     public ClientIteratorDebtors initializeIteratorDebtors() {

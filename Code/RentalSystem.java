@@ -1,7 +1,7 @@
 /**
  * @author Antonio Duarte
- * @author Luis Tripa
- * Handles everything related to the system (rentals, releases, etc...)
+ * @author Luis Tripa Handles everything related to the system (rentals,
+ *         releases, etc...)
  */
 public class RentalSystem {
 
@@ -22,7 +22,6 @@ public class RentalSystem {
     private ScooterCollection scooters;
     private int totalRentals, systemBalance, totalDelayMinutes;
 
-
     /**
      * The class constructor
      */
@@ -36,11 +35,11 @@ public class RentalSystem {
 
     /**
      * Inserts a client into the system
-     * @param nif The client nif
+     * 
+     * @param nif   The client nif
      * @param email The client email
      * @param phone The client phone
-     * @param name The client name
-     * PRE: clients.searchIndex(nif)==-1
+     * @param name  The client name PRE: clients.searchIndex(nif)==-1
      */
     public void createClient(String nif, String email, int phone, String name) {
         clients.addClient(nif, email, phone, name);
@@ -48,13 +47,13 @@ public class RentalSystem {
 
     /**
      * Tries to find the given nif in the Client vector. Returns -1 if not found
+     * 
      * @param nif The nif to be searched
      * @return The position of the client in the vector
      */
     public boolean clientExists(String nif) {
-        return clients.searchIndex(nif)!=-1;
+        return clients.searchIndex(nif) != -1;
     }
-
 
     private Client getClientObject(String nif) {
         return clients.getClientObject(nif);
@@ -62,7 +61,8 @@ public class RentalSystem {
 
     /**
      * Check whether client has rented a scooter
-     * @param  nif The client nif
+     * 
+     * @param nif The client nif
      * @return A boolean stating whether client has or has not rented a scooter
      */
     public boolean hasClientRented(String nif) {
@@ -71,8 +71,8 @@ public class RentalSystem {
 
     /**
      * Removes the client with given nif
-     * @param nif The client nif
-     * PRE: clientExists(nif)
+     * 
+     * @param nif The client nif PRE: clientExists(nif)
      */
     public void removeClient(String nif) {
         clients.remClient(nif);
@@ -80,9 +80,9 @@ public class RentalSystem {
 
     /**
      * Gets the client nif as it is stored in the system
+     * 
      * @param nif The client nif
-     * @return The client nif as it is stored in the system
-     * PRE: clientExists(nif)
+     * @return The client nif as it is stored in the system PRE: clientExists(nif)
      */
     public String getClientNif(String nif) {
         return getClientObject(nif).getNif();
@@ -90,9 +90,9 @@ public class RentalSystem {
 
     /**
      * Gets the client email stored in the system
+     * 
      * @param nif The client nif
-     * @return The client email
-     * PRE: clientExists(nif)
+     * @return The client email PRE: clientExists(nif)
      */
     public String getClientEmail(String nif) {
         return getClientObject(nif).getEmail();
@@ -100,9 +100,9 @@ public class RentalSystem {
 
     /**
      * Gets the client phone stored in the system
-     * @param  nif The client nif
-     * @return The client phone
-     * PRE: clientExists(nif)
+     * 
+     * @param nif The client nif
+     * @return The client phone PRE: clientExists(nif)
      */
     public int getClientPhone(String nif) {
         return getClientObject(nif).getPhone();
@@ -110,9 +110,9 @@ public class RentalSystem {
 
     /**
      * Gets the client name stored in the system
-     * @param  nif The client nif
-     * @return The client name
-     * PRE: clientExists(nif)
+     * 
+     * @param nif The client nif
+     * @return The client name PRE: clientExists(nif)
      */
     public String getClientName(String nif) {
         return getClientObject(nif).getName();
@@ -120,9 +120,9 @@ public class RentalSystem {
 
     /**
      * Gets the client balance stored in the system
-     * @param  nif Thge client nif
-     * @return The client balance
-     * PRE: clientExists(nif)
+     * 
+     * @param nif Thge client nif
+     * @return The client balance PRE: clientExists(nif)
      */
     public int getClientBalance(String nif) {
         return getClientObject(nif).getBalance();
@@ -130,9 +130,9 @@ public class RentalSystem {
 
     /**
      * Gets the client total moving minutes
-     * @param  nif The client nif
-     * @return The client total moving minutes
-     * PRE: clientExists(nif)
+     * 
+     * @param nif The client nif
+     * @return The client total moving minutes PRE: clientExists(nif)
      */
     public int getClientTotalMinutes(String nif) {
         return getClientObject(nif).getTotalMinutes();
@@ -140,9 +140,9 @@ public class RentalSystem {
 
     /**
      * Gets the client total number of rentals
-     * @param  nif The client nif
-     * @return The client total number of rentals
-     * PRE: clientExists(nif)
+     * 
+     * @param nif The client nif
+     * @return The client total number of rentals PRE: clientExists(nif)
      */
     public int getClientNumberRentals(String nif) {
         return getClientObject(nif).getNumberRentals();
@@ -150,9 +150,9 @@ public class RentalSystem {
 
     /**
      * Gets the client max time in a rental
-     * @param  nif The client nif
-     * @return The client max time in a rental
-     * PRE: clientExists(nif)
+     * 
+     * @param nif The client nif
+     * @return The client max time in a rental PRE: clientExists(nif)
      */
     public int getClientMaxTime(String nif) {
         return getClientObject(nif).getMaxTime();
@@ -160,9 +160,9 @@ public class RentalSystem {
 
     /**
      * Gets the client average rental minutes
-     * @param  nif The client nif
-     * @return The client average rental minutes
-     * PRE: clientExists(nif)
+     * 
+     * @param nif The client nif
+     * @return The client average rental minutes PRE: clientExists(nif)
      */
     public int getClientAverageRentalTime(String nif) {
         return getClientObject(nif).getAverageMinutes();
@@ -170,9 +170,9 @@ public class RentalSystem {
 
     /**
      * Gets the client total money spent
-     * @param  nif The client nif
-     * @return The client total money spent
-     * PRE: clientExists(nif)
+     * 
+     * @param nif The client nif
+     * @return The client total money spent PRE: clientExists(nif)
      */
     public int getClientMoneySpent(String nif) {
         return getClientObject(nif).getMoneySpent();
@@ -180,9 +180,9 @@ public class RentalSystem {
 
     /**
      * Gets the scooter the client is using
-     * @param  nif The client nif
-     * @return The scooter object which the client is using
-     * PRE: clientExists(nif)
+     * 
+     * @param nif The client nif
+     * @return The scooter object which the client is using PRE: clientExists(nif)
      */
     public Scooter getClientScooterInUse(String nif) {
         return getClientObject(nif).getScooterInUse();
@@ -190,9 +190,10 @@ public class RentalSystem {
 
     /**
      * Inserts a scooter into the system
-     * @param id The scooter id
-     * @param registration The scooter registration
-     * PRE: searchIndexOfScooter(id)==-1
+     * 
+     * @param id           The scooter id
+     * @param registration The scooter registration PRE:
+     *                     searchIndexOfScooter(id)==-1
      */
     public void createScooter(String id, String registration) {
         scooters.addScooter(id, registration);
@@ -200,7 +201,8 @@ public class RentalSystem {
 
     /**
      * Check if the scooter with the specified id exists
-     * @param  id Scooter id
+     * 
+     * @param id Scooter id
      * @return Boolean representing if scooter exists
      */
     public boolean scooterExists(String id) {
@@ -209,9 +211,9 @@ public class RentalSystem {
 
     /**
      * Gets the scooter object from the collection
-     * @param  id The scooter id
-     * @return The scooter object
-     * PRE: scooterExists(id)
+     * 
+     * @param id The scooter id
+     * @return The scooter object PRE: scooterExists(id)
      */
     private Scooter getScooterObject(String id) {
         return scooters.getScooterObject(id);
@@ -219,9 +221,9 @@ public class RentalSystem {
 
     /**
      * Get the scooter id stored in the system
-     * @param  id The scooter id
-     * @return The scooter id as it is stored in the system
-     * PRE: scooterExists(id)
+     * 
+     * @param id The scooter id
+     * @return The scooter id as it is stored in the system PRE: scooterExists(id)
      */
     public String getScooterID(String id) {
         return getScooterObject(id).getScooterID();
@@ -229,18 +231,19 @@ public class RentalSystem {
 
     /**
      * Gets the scooter registration
-     * @param  id The scooter id
-     * @return The scooter registration number
-     * PRE: scooterExists(id)
+     * 
+     * @param id The scooter id
+     * @return The scooter registration number PRE: scooterExists(id)
      */
     public String getScooterRegistration(String id) {
         return getScooterObject(id).getScooterRegistration();
     }
+
     /**
      * Gets the scooter state
-     * @param  id The scooter id
-     * @return The scooter state
-     * PRE: scooterExists(id)
+     * 
+     * @param id The scooter id
+     * @return The scooter state PRE: scooterExists(id)
      */
     public String getScooterState(String id) {
         return getScooterObject(id).getState();
@@ -248,9 +251,10 @@ public class RentalSystem {
 
     /**
      * Gets the client that is using the scooter
-     * @param  id The scooter id
-     * @return The object of the client that is using the scooter
-     * PRE: scooterExists(id)
+     * 
+     * @param id The scooter id
+     * @return The object of the client that is using the scooter PRE:
+     *         scooterExists(id)
      */
     public Client getScooterClientInUse(String id) {
         return getScooterObject(id).getClientInUse();
@@ -258,9 +262,9 @@ public class RentalSystem {
 
     /**
      * Gets the scooter total amount of rentals
-     * @param  id The scooter id
-     * @return The scooter total amount of rentals
-     * PRE: scooterExists(id)
+     * 
+     * @param id The scooter id
+     * @return The scooter total amount of rentals PRE: scooterExists(id)
      */
     public int getScooterTotalRentals(String id) {
         return getScooterObject(id).getUsageAmount();
@@ -268,9 +272,10 @@ public class RentalSystem {
 
     /**
      * Gets the total amount of minutes scooter was used for
-     * @param  id The scooter id
-     * @return The total amount of minutes scooter was used for
-     * PRE: scooterExists(id)
+     * 
+     * @param id The scooter id
+     * @return The total amount of minutes scooter was used for PRE:
+     *         scooterExists(id)
      */
     public int getScooterUsageMinutes(String id) {
         return getScooterObject(id).getUsageMinutes();
@@ -278,9 +283,9 @@ public class RentalSystem {
 
     /**
      * Gets the amount of time the scooter has been used
-     * @param  id The scooter id
-     * @return The amount of times the scooter has been used
-     * PRE: scooterExists(id)
+     * 
+     * @param id The scooter id
+     * @return The amount of times the scooter has been used PRE: scooterExists(id)
      */
     public int getScooterUsageAmount(String id) {
         return getScooterObject(id).getUsageAmount();
@@ -288,9 +293,10 @@ public class RentalSystem {
 
     /**
      * Checks if scooter is moving
-     * @param  id The scooter id
-     * @return A boolean stating whether the scooter is or not moving
-     * PRE: scooterExists(id)
+     * 
+     * @param id The scooter id
+     * @return A boolean stating whether the scooter is or not moving PRE:
+     *         scooterExists(id)
      */
     public boolean isScooterMoving(String id) {
         return getScooterObject(id).getState() == MOVING;
@@ -298,9 +304,10 @@ public class RentalSystem {
 
     /**
      * Checks if scooter is active
-     * @param  id The scooter id
-     * @return Boolean stating whether the scooter is or not active
-     * PRE: scooterExists(id)
+     * 
+     * @param id The scooter id
+     * @return Boolean stating whether the scooter is or not active PRE:
+     *         scooterExists(id)
      */
     public boolean isScooterActivated(String id) {
         return getScooterObject(id).getState() != DEACTIVATED;
@@ -308,8 +315,8 @@ public class RentalSystem {
 
     /**
      * Deactivates a scooter
-     * @param id The scooter id
-     * PRE: scooterExists(id)
+     * 
+     * @param id The scooter id PRE: scooterExists(id)
      */
     public void deactivateScooter(String id) {
         getScooterObject(id).setState(DEACTIVATED);
@@ -317,8 +324,10 @@ public class RentalSystem {
 
     /**
      * Reactivates a scooter
-     * @param id The scooter id
-     * PRE: scooterExists(id) && scooters[searchIndexOfScooter(id)].getstate()!="parada" || scooters[searchIndexOfScooter(id)].getstate()!="alugada"
+     * 
+     * @param id The scooter id PRE: scooterExists(id) &&
+     *           scooters[searchIndexOfScooter(id)].getstate()!="parada" ||
+     *           scooters[searchIndexOfScooter(id)].getstate()!="alugada"
      */
     public void reactivateScooter(String id) {
         getScooterObject(id).setState(STOPPED);
@@ -326,9 +335,9 @@ public class RentalSystem {
 
     /**
      * Adds a specific amount to a client balance
-     * @param nif The nif of the client
-     * @param amount The amount to be added
-     * PRE: clientExists(nif) && amount > 0
+     * 
+     * @param nif    The nif of the client
+     * @param amount The amount to be added PRE: clientExists(nif) && amount > 0
      */
     public void addBalance(String nif, int amount) {
         getClientObject(nif).addBalance(amount);
@@ -336,9 +345,9 @@ public class RentalSystem {
 
     /**
      * Rents the scooter with given id
+     * 
      * @param nif The client renting the scooter nif
-     * @param id  The scooter id
-     * PRE: clientExists(nif) && scooterExists(id)
+     * @param id  The scooter id PRE: clientExists(nif) && scooterExists(id)
      */
     public void rentScooter(String nif, String id) {
 
@@ -352,7 +361,8 @@ public class RentalSystem {
     /**
      * Releases the scooter from the client
      *
-     * Calculates the amount of delay since the max rental time and cimputes the total expense (fines included)
+     * Calculates the amount of delay since the max rental time and cimputes the
+     * total expense (fines included)
      *
      * @param id      The scooteid of the scooter being used
      * @param minutes The minutes client used the scooter for
@@ -383,6 +393,7 @@ public class RentalSystem {
 
     /**
      * Same as release scooter but with latitude and longitude options
+     * 
      * @param id        The scooter ID
      * @param minutes   The minutes client used the scooter for
      * @param latitude  The scooter latitude
@@ -414,6 +425,7 @@ public class RentalSystem {
 
     /**
      * Lists all scooters in the system
+     * 
      * @return A string with all scooters in the system
      */
     public String listScooter() {
@@ -421,7 +433,8 @@ public class RentalSystem {
         ScooterIterator iterator = scooters.initializeScooterIterator();
         while (iterator.hasNext()) {
             Scooter scooter = iterator.next();
-            list += (scooter.getScooterRegistration() + ": " + scooter.getState() + ", " + scooter.getUsageAmount() + ", " + scooter.getUsageMinutes());
+            list += (scooter.getScooterRegistration() + ": " + scooter.getState() + ", " + scooter.getUsageAmount()
+                    + ", " + scooter.getUsageMinutes());
             if (iterator.hasNext())
                 list += "\n";
         }
@@ -430,6 +443,7 @@ public class RentalSystem {
 
     /**
      * Lists all clients in the system organized by their nif
+     * 
      * @return A string with all clients
      */
     public String listClient() {
@@ -437,11 +451,9 @@ public class RentalSystem {
         ClientIterator iterator = clients.initializeIterator();
         while (iterator.hasNext()) {
             Client client = iterator.next();
-            list += (client.getName() + ": " + client.getNif() + ", "
-            + client.getEmail() + ", " + client.getPhone() + ", "
-            + client.getBalance() + ", " + client.getTotalMinutes() + ", "
-            + client.getNumberRentals() + ", " + client.getMaxTime() + ", "
-            + client.getAverageMinutes() + ", " + client.getMoneySpent());
+            list += (client.getName() + ": " + client.getNif() + ", " + client.getEmail() + ", " + client.getPhone()
+                    + ", " + client.getBalance() + ", " + client.getTotalMinutes() + ", " + client.getNumberRentals()
+                    + ", " + client.getMaxTime() + ", " + client.getAverageMinutes() + ", " + client.getMoneySpent());
             if (iterator.hasNext())
                 list += "\n";
         }
@@ -450,6 +462,7 @@ public class RentalSystem {
 
     /**
      * Lists all clients that have a negative balance. Ascending order of balance
+     * 
      * @return A tring with all clients
      */
     public String listDebtors() {
@@ -457,11 +470,9 @@ public class RentalSystem {
         ClientIteratorDebtors iterator = clients.initializeIteratorDebtors();
         while (iterator.hasNext()) {
             Client client = iterator.next();
-            list += (client.getName() + ": " + client.getNif() + ", "
-            + client.getEmail() + ", " + client.getPhone() + ", "
-            + client.getBalance() + ", " + client.getTotalMinutes() + ", "
-            + client.getNumberRentals() + ", " + client.getMaxTime() + ", "
-            + client.getAverageMinutes() + ", " + client.getMoneySpent());
+            list += (client.getName() + ": " + client.getNif() + ", " + client.getEmail() + ", " + client.getPhone()
+                    + ", " + client.getBalance() + ", " + client.getTotalMinutes() + ", " + client.getNumberRentals()
+                    + ", " + client.getMaxTime() + ", " + client.getAverageMinutes() + ", " + client.getMoneySpent());
             if (iterator.hasNext())
                 list += "\n";
         }
@@ -469,8 +480,8 @@ public class RentalSystem {
     }
 
     public boolean isScooterInBoundaries(double latitude, double longitude) {
-        return latitude<=NORTH_BOUNDARY && latitude>=SOUTH_BOUNDARY &&
-                longitude>=WEST_BOUNDARY && longitude<=EAST_BOUNDARY;
+        return latitude <= NORTH_BOUNDARY && latitude >= SOUTH_BOUNDARY && longitude >= WEST_BOUNDARY
+                && longitude <= EAST_BOUNDARY;
     }
 
     public String listCloserScooters(double latitude, double longitude) {
@@ -479,7 +490,8 @@ public class RentalSystem {
         while (iterator.hasNext()) {
             Scooter scooter = iterator.next();
             list += String.format("Distancia: %.6f\n", scooter.calculateDistance(latitude, longitude));
-            list += String.format("%s: %s, %d, %d, %.6f, %.6f", scooter.getScooterRegistration(), scooter.getState(), scooter.getUsageAmount(), scooter.getUsageMinutes(), scooter.getLatitude(), scooter.getLongitude());
+            list += String.format("%s: %s, %d, %d, %.6f, %.6f", scooter.getScooterRegistration(), scooter.getState(),
+                    scooter.getUsageAmount(), scooter.getUsageMinutes(), scooter.getLatitude(), scooter.getLongitude());
             if (iterator.hasNext())
                 list += "\n";
         }
@@ -495,6 +507,7 @@ public class RentalSystem {
 
     /**
      * Adds balance to the total money spent by clients on the system
+     * 
      * @param amount Amount to add to the System Balance
      */
     public void addSystemBalance(int amount) {
@@ -503,6 +516,7 @@ public class RentalSystem {
 
     /**
      * Adds minutes to the total delay minutes of the system
+     * 
      * @param minutes Minutes to add to the total delay minutes of the system
      */
     public void addTotalDelayMinutes(int minutes) {
@@ -532,6 +546,5 @@ public class RentalSystem {
     public int getTotalDelayMinutes() {
         return totalDelayMinutes;
     }
-
 
 }

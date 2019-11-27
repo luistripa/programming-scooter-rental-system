@@ -19,7 +19,6 @@ public class ScooterIteratorCloser {
         for (int i=0 ; i < counter ; i++) {
             if (scooters[i].getLatitude()!=0 && scooters[i].getLongitude()!=0) {
                 insertSort(scooters[i]);
-            }
         }
     }
 
@@ -47,7 +46,7 @@ public class ScooterIteratorCloser {
         }
         if (pos == -1)
             pos = counter;
-        insertAt(pos,scooter);
+        insertAt(pos, scooter);
     }
 
     private void insertAt(int pos, Scooter scooter) {

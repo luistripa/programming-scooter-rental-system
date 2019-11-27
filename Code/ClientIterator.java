@@ -1,5 +1,6 @@
 /**
  * Handles client interation
+ * 
  * @author Antonio Duarte
  * @author Luis Tripa
  */
@@ -12,6 +13,7 @@ public class ClientIterator {
 
     /**
      * The class constructor
+     * 
      * @param counter
      * @param clients
      */

@@ -5,8 +5,9 @@ public class ClientIteratorDebtors {
     private Client[] clients;
 
     /**
-     * Constructor of the iterator that contains all the clients with negative balance
-     * and orders them in ascending order of balance.
+     * Constructor of the iterator that contains all the clients with negative
+     * balance and orders them in ascending order of balance.
+     * 
      * @param counter
      * @param clients
      */
@@ -38,6 +39,7 @@ public class ClientIteratorDebtors {
 
     /**
      * Inserts a client in ascending order of balance in the array
+     * 
      * @param client Client that is going to be inserted in the array
      */
     private void insertSort(Client client) {
@@ -48,12 +50,14 @@ public class ClientIteratorDebtors {
         }
         if (pos == -1)
             pos = counter;
-        insertAt(pos,client);
+        insertAt(pos, client);
     }
 
     /**
-     * Inserts a client in the array, opening a space for the new client to be inserted
-     * @param pos Position of the array
+     * Inserts a client in the array, opening a space for the new client to be
+     * inserted
+     * 
+     * @param pos    Position of the array
      * @param client Client that is going to be inserted in the array
      */
     private void insertAt(int pos, Client client) {

@@ -9,7 +9,6 @@ public class Scooter {
     private Client clientInUse;
     private double latitude, longitude;
 
-
     public Scooter(String scooterID, String registration) {
         this.scooterID = scooterID;
         this.registration = registration;
@@ -30,6 +29,7 @@ public class Scooter {
 
     /**
      * Rents the scooter
+     * 
      * @param nif The nif of the client renting the scooter
      */
     public void rent(Client client) {
@@ -58,36 +58,38 @@ public class Scooter {
         this.longitude = longitude;
     }
 
-	/**
-	* Returns scooter's current state
-	*
-	* @return String with the state of the scooter
-	*/
-	public String getState() {
-		return state;
-	}
-
-	/**
-	* Set which client is using the scooter
-	*
-	* @param scooterClientInUse String which contains the name of the client riding the scooter
-
-	* PRE: getClientInUse() == null
-	*/
-	public void setClientInUse(Client clientInUse) {
-		this.clientInUse = clientInUse;
+    /**
+     * Returns scooter's current state
+     *
+     * @return String with the state of the scooter
+     */
+    public String getState() {
+        return state;
     }
 
-	/**
-	* Activates or deactivates the scooter
-	*
-	* @param status String. The status of the scooter (alugada, inactiva, parada)
-	*
-	* PRE: state.equals(STOPPED) || state.equals(MOVING) || state.equals(DEACTIVATED)
-	*/
-	public void setState(String state) {
-		this.state = state;
-	}
+    /**
+     * Set which client is using the scooter
+     *
+     * @param scooterClientInUse String which contains the name of the client riding
+     *                           the scooter
+     * 
+     *                           PRE: getClientInUse() == null
+     */
+    public void setClientInUse(Client clientInUse) {
+        this.clientInUse = clientInUse;
+    }
+
+    /**
+     * Activates or deactivates the scooter
+     *
+     * @param status String. The status of the scooter (alugada, inactiva, parada)
+     *
+     *               PRE: state.equals(STOPPED) || state.equals(MOVING) ||
+     *               state.equals(DEACTIVATED)
+     */
+    public void setState(String state) {
+        this.state = state;
+    }
 
     /**
      *
@@ -145,8 +147,8 @@ public class Scooter {
 
     /**
      *
-     * @param minutes Minutes to be added to the Scooter's total usage minutes.
-     * PRE: minutes > 0
+     * @param minutes Minutes to be added to the Scooter's total usage minutes. PRE:
+     *                minutes > 0
      */
     public void addTotalMinutes(int minutes) {
         usageMinutes += minutes;
@@ -162,14 +164,15 @@ public class Scooter {
 
     /**
      * Calculates distance between two points (The client and this scooter)
-     * @param  lat1  The client latitude
-     * @param  long1 the client longitude
-     * @return       The distance between client and scooter
+     * 
+     * @param lat1  The client latitude
+     * @param long1 the client longitude
+     * @return The distance between client and scooter
      */
     public double calculateDistance(double lat1, double long1) {
         double lat2 = getLatitude();
         double long2 = getLongitude();
-        return Math.sqrt(Math.pow(lat2-lat1, 2) + Math.pow(long2-long1, 2));
+        return Math.sqrt(Math.pow(lat2 - lat1, 2) + Math.pow(long2 - long1, 2));
     }
 
     public boolean distanceGreaterThan(Scooter other, double latitude, double longitude) {

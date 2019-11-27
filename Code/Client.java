@@ -1,5 +1,6 @@
 /**
  * Handles everything related with the client (balance, rentals, etc...)
+ * 
  * @author Antonio Duarte
  * @author Luis Tripa
  */
@@ -15,7 +16,8 @@ public class Client {
 
 	/**
 	 * The class constructor
-	 * @param nif  	The client nif
+	 * 
+	 * @param nif   The client nif
 	 * @param email The client email
 	 * @param phone The client phone
 	 * @param name  The client name
@@ -34,12 +36,12 @@ public class Client {
 	}
 
 	/**
-	* Method that updates all client's variables when a scooter is released
-	*
-	* @param minutes The amount of minutes the client used the scooter for
-	*
-	* PRE: minutes > 0
-	*/
+	 * Method that updates all client's variables when a scooter is released
+	 *
+	 * @param minutes The amount of minutes the client used the scooter for
+	 *
+	 *                PRE: minutes > 0
+	 */
 	public void releaseScooter(int minutes, int expense) {
 		if (minutes > maxTime)
 			maxTime = minutes;
@@ -51,146 +53,147 @@ public class Client {
 	}
 
 	/**
-	* Adds a specific amount to the client's balance
-	*
-	* @param amount The amount to be added
-	*
-	* PRE: amount > 0
-	*/
+	 * Adds a specific amount to the client's balance
+	 *
+	 * @param amount The amount to be added
+	 *
+	 *               PRE: amount > 0
+	 */
 	public void addBalance(int amount) {
 		balance += amount;
 	}
 
 	/**
 	 * Removes a specific amount from the client balance
-	 * @param amount The amount to be removed
-	 * PRE: amount > 0
+	 * 
+	 * @param amount The amount to be removed PRE: amount > 0
 	 */
 	public void remBalance(int amount) {
 		balance -= amount;
 	}
 
 	/**
-	* Adds minutes to the total moving minutes
-	*
-	* @param minutes
-	*
-	* PRE: minutes > 0
-	*/
+	 * Adds minutes to the total moving minutes
+	 *
+	 * @param minutes
+	 *
+	 *                PRE: minutes > 0
+	 */
 	public void addMinutes(int minutes) {
 		totalMinutes += minutes;
 	}
 
 	/**
-	* Increments to the total number of rentals
-	*
-	*/
+	 * Increments to the total number of rentals
+	 *
+	 */
 	public void incrementNumberRentals() {
 		numberRentals++;
 	}
 
 	/**
-	* Adds amount to the total money spent
-	*
-	* @param amount The amount to be added
-	*
-	* PRE: amount > 0
-	*/
+	 * Adds amount to the total money spent
+	 *
+	 * @param amount The amount to be added
+	 *
+	 *               PRE: amount > 0
+	 */
 	public void addMoneySpent(int amount) {
 		moneySpent += amount;
 	}
 
 	/**
-	* Sets scooterInUse to the id of the scooter the client is going to use
-	*
-	* @param id The id of the scooter the client is going to use
-	*/
+	 * Sets scooterInUse to the id of the scooter the client is going to use
+	 *
+	 * @param id The id of the scooter the client is going to use
+	 */
 	public void setScooterInUse(Scooter scooter) {
 		scooterInUse = scooter;
 	}
 
 	/**
-	*
-	* @return The client nif
-	*/
+	 *
+	 * @return The client nif
+	 */
 	public String getNif() {
 		return nif;
 	}
 
 	/**
-	*
-	* @return The client email
-	*/
+	 *
+	 * @return The client email
+	 */
 	public String getEmail() {
 		return email;
 	}
 
 	/**
-	*
-	* @return The client phone
-	*/
+	 *
+	 * @return The client phone
+	 */
 	public int getPhone() {
 		return phone;
 	}
 
 	/**
-	*
-	* @return The client name
-	*/
+	 *
+	 * @return The client name
+	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	*
-	* @return The client balance
-	*/
+	 *
+	 * @return The client balance
+	 */
 	public int getBalance() {
 		return balance;
 	}
 
 	/**
-	*
-	* @return The client total minutes on the move
-	*/
+	 *
+	 * @return The client total minutes on the move
+	 */
 	public int getTotalMinutes() {
 		return totalMinutes;
 	}
 
 	/**
-	*
-	* @return The client total number of rentals
-	*/
+	 *
+	 * @return The client total number of rentals
+	 */
 	public int getNumberRentals() {
 		return numberRentals;
 	}
 
 	/**
-	*
-	* @return The client max time in a rental
-	*/
+	 *
+	 * @return The client max time in a rental
+	 */
 	public int getMaxTime() {
 		return maxTime;
 	}
 
 	/**
-	*
-	* @return The client total money spent on rentals
-	*/
+	 *
+	 * @return The client total money spent on rentals
+	 */
 	public int getMoneySpent() {
 		return moneySpent;
 	}
 
 	/**
-	*
-	* @return the scooterInUse
-	*/
+	 *
+	 * @return the scooterInUse
+	 */
 	public Scooter getScooterInUse() {
 		return scooterInUse;
 	}
 
 	/**
 	 * Checks whnether client has or has not rented a scooter
+	 * 
 	 * @return Boolean representing if the client has rented a scooter
 	 */
 	public boolean hasRented() {
@@ -198,9 +201,9 @@ public class Client {
 	}
 
 	/**
-	*
-	* @return The client average minutes per rental
-	*/
+	 *
+	 * @return The client average minutes per rental
+	 */
 	public int getAverageMinutes() {
 		int averageMinutes;
 		if (numberRentals == 0)
