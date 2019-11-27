@@ -51,7 +51,7 @@ public class Main {
     private static final String SCOOTER_REACTIVATED = "Trotinete reactivada.";
     private static final String SCOOTER_NOT_INACTIVE = "Trotinete nao inactiva.";
     private static final String INVALID_LOCATION = "Localizacao invalida.";
-    private static final String NO_SCOOTER_LOCATED = "Nao existem trotinestes localizadas.";
+    private static final String NO_SCOOTER_LOCATED = "Nao existem trotinetes localizadas.";
 
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
