@@ -399,10 +399,10 @@ public class Main {
     private static void listClient(RentalSystem system, Scanner scanner) {
         scanner.nextLine();
         while (system.listClient().hasNext()) {
-        Client client = system.listClient().next();
-        System.out.printf("%s: %s, %s, %d, %d, %d, %d, %d, %d, %d", client.getName(), client.getEmail(),
-                client.getPhone(), client.getBalance(), client.getTotalMinutes(), client.getNumberRentals(),
-                client.getMaxTime(), client.getAverageMinutes(), client.getMoneySpent());
+            Client client = system.listClient().next();
+            System.out.printf("%s: %s, %s, %d, %d, %d, %d, %d, %d, %d\n", client.getName(), client.getEmail(),
+                    client.getPhone(), client.getBalance(), client.getTotalMinutes(), client.getNumberRentals(),
+                    client.getMaxTime(), client.getAverageMinutes(), client.getMoneySpent());
         }
     }
 
@@ -410,7 +410,8 @@ public class Main {
         scanner.nextLine();
         while (system.listClient().hasNext()) {
             Scooter scooter = system.listScooter().next();
-            System.out.printf("%")
+            System.out.printf("%s: %s, %d, %d\n", scooter.getScooterRegistration(), scooter.getUsageAmount(),
+                    scooter.getUsageMinutes());
         }
     }
 
