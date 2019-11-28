@@ -499,7 +499,7 @@ public class RentalSystem {
     }
 
     public ScooterIteratorCloser listCloserScooters(double latitude, double longitude) {
-        return cooters.initializeIteratorCloser(latitude, longitude);
+        return scooters.initializeIteratorCloser(latitude, longitude);
     }
 
     /**
