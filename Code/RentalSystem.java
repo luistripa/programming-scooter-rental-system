@@ -128,7 +128,7 @@ public class RentalSystem {
     /**
      * Gets the client balance stored in the system
      *
-     * @param nif Thge client nif
+     * @param nif The client nif
      * @return The client balance
      * PRE: clientExists(nif)
      */
@@ -205,7 +205,7 @@ public class RentalSystem {
     /**
      * Inserts a scooter into the system
      *
-     * @param id           The scooter id
+     * @param id The scooter id
      * @param registration The scooter registration
      * PRE: searchIndexOfScooter(id)==-1
      */
