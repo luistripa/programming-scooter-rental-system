@@ -453,8 +453,7 @@ public class RentalSystem {
      * @return A string with all scooters in the system
      */
     public ScooterIterator listScooter() {
-        ScooterIterator iterator = scooters.initializeScooterIterator();
-        return iterator;
+        return scooters.initializeScooterIterator();
     }
 
     /**
@@ -463,8 +462,7 @@ public class RentalSystem {
      * @return A string with all clients
      */
     public ClientIterator listClient() {
-        ClientIterator iterator = clients.initializeIterator();
-        return iterator;
+        return clients.initializeIterator();
     }
 
     /**
