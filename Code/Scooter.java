@@ -12,7 +12,7 @@ public class Scooter {
     private static final String DEACTIVATED = "inactiva";
 
     private String scooterID, registration, state;
-    private int totalRentals, usageMinutes, usageAmount;
+    private int usageMinutes, usageAmount;
     private Client clientInUse;
     private double latitude, longitude;
 
