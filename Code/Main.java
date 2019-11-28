@@ -398,7 +398,7 @@ public class Main {
 
     private static void listClient(RentalSystem system, Scanner scanner) {
         scanner.nextLine();
-        System.out.println(system.listClient());
+        system.listClient();
     }
 
     private static void listScooter(RentalSystem system, Scanner scanner) {
