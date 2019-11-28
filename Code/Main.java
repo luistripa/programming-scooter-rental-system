@@ -412,7 +412,7 @@ public class Main {
         ScooterIterator iterator = system.listScooter();
         while (iterator.hasNext()) {
             Scooter scooter = iterator.next();
-            System.out.printf("%s: %s, %d, %d\n", scooter.getScooterRegistration(), scooter.getUsageAmount(),
+            System.out.printf("%s: %s, %d, %d\n", scooter.getScooterRegistration(), scooter.getState(), scooter.getUsageAmount(),
                     scooter.getUsageMinutes());
         }
     }
