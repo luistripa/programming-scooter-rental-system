@@ -401,7 +401,7 @@ public class Main {
         ClientIterator iterator = system.listClient();
         while (iterator.hasNext()) {
             Client client = iterator.next();
-            System.out.printf("%s: %s, %s, %d, %d, %d, %d, %d, %d, %d\n", client.getName(), client.getEmail(),
+            System.out.printf("%s: %s, %s, %d, %d, %d, %d, %d, %d, %d\n", client.getName(), client.getNif(), client.getEmail(),
                     client.getPhone(), client.getBalance(), client.getTotalMinutes(), client.getNumberRentals(),
                     client.getMaxTime(), client.getAverageMinutes(), client.getMoneySpent());
         }
