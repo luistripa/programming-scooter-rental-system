@@ -45,9 +45,8 @@ public class ScooterCollection {
     public int searchIndex(String id) {
         int pos = -1;
         for (int i = 0; i < counter && pos == -1; i++) {
-            if (scooters[i].getScooterID().equalsIgnoreCase(id)) {
+            if (scooters[i].getScooterID().equalsIgnoreCase(id))
                 pos = i;
-            }
         }
         return pos;
     }
@@ -76,9 +75,8 @@ public class ScooterCollection {
      */
     private void resize() {
         Scooter[] aux = new Scooter[scooters.length * GROWTH_FACTOR];
-        for (int i = 0; i < counter; i++) {
+        for (int i = 0; i < counter; i++)
             aux[i] = scooters[i];
-        }
         scooters = aux;
     }
 
