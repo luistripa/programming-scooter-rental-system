@@ -398,12 +398,20 @@ public class Main {
 
     private static void listClient(RentalSystem system, Scanner scanner) {
         scanner.nextLine();
-        system.listClient();
+        while (system.listClient().hasNext()) {
+        Client client = system.listClient().next();
+        System.out.printf("%s: %s, %s, %d, %d, %d, %d, %d, %d, %d", client.getName(), client.getEmail(),
+                client.getPhone(), client.getBalance(), client.getTotalMinutes(), client.getNumberRentals(),
+                client.getMaxTime(), client.getAverageMinutes(), client.getMoneySpent());
+        }
     }
 
     private static void listScooter(RentalSystem system, Scanner scanner) {
         scanner.nextLine();
-        System.out.println(system.listScooter());
+        while (system.listClient().hasNext()) {
+            Scooter scooter = system.listScooter().next();
+            System.out.printf("%")
+        }
     }
 
     private static void listDebtors(RentalSystem system, Scanner scanner) {
