@@ -422,7 +422,9 @@ public class Main {
         ClientIteratorDebtors iterator = system.listDebtors();
         while (iterator.hasNext()) {
             Client client = iterator.next();
-            System.out.printf("%s: %s, %s, %s, %d, %d, %d, %d, %d, %d\n", client.getName(), client.getNif(), client.getEmail(), client.getPhone(), client.getBalance(), client.getTotalMinutes(), client.getNumberRentals(), client.getMaxTime(), client.getAverageMinutes(), client.getMoneySpent());
+            System.out.printf("%s: %s, %s, %s, %d, %d, %d, %d, %d, %d\n", client.getName(), client.getNif(),
+                    client.getEmail(), client.getPhone(), client.getBalance(), client.getTotalMinutes(),
+                    client.getNumberRentals(), client.getMaxTime(), client.getAverageMinutes(), client.getMoneySpent());
         }
     }
 
@@ -458,7 +460,9 @@ public class Main {
             while (iterator.hasNext()) {
                 Scooter scooter = iterator.next();
                 System.out.printf("Distancia: %.6f\n", scooter.calculateDistance(latitude, longitude));
-                System.out.printf("%s: %s, %d, %d, %.6f, %.6f\n", scooter.getScooterRegistration(), scooter.getState(), scooter.getUsageAmount(), scooter.getUsageMinutes(), scooter.getLatitude(), scooter.getLongitude());
+                System.out.printf("%s: %s, %d, %d, %.6f, %.6f\n", scooter.getScooterRegistration(),
+                        scooter.getState(), scooter.getUsageAmount(), scooter.getUsageMinutes(),
+                        scooter.getLatitude(), scooter.getLongitude());
             }
         else System.out.println(NO_SCOOTER_LOCATED);
     }
