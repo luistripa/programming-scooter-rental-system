@@ -452,17 +452,9 @@ public class RentalSystem {
      * 
      * @return A string with all scooters in the system
      */
-    public String listScooter() {
-        String list = "";
+    public ScooterIterator listScooter() {
         ScooterIterator iterator = scooters.initializeScooterIterator();
-        while (iterator.hasNext()) {
-            Scooter scooter = iterator.next();
-            list += (scooter.getScooterRegistration() + ": " + scooter.getState() + ", " + scooter.getUsageAmount()
-                    + ", " + scooter.getUsageMinutes());
-            if (iterator.hasNext())
-                list += "\n";
-        }
-        return list;
+        return iterator;
     }
 
     /**
@@ -470,18 +462,9 @@ public class RentalSystem {
      * 
      * @return A string with all clients
      */
-    public String listClient() {
-        String list = "";
+    public ClientIterator listClient() {
         ClientIterator iterator = clients.initializeIterator();
-        while (iterator.hasNext()) {
-            Client client = iterator.next();
-            list += (client.getName() + ": " + client.getNif() + ", " + client.getEmail() + ", " + client.getPhone()
-                    + ", " + client.getBalance() + ", " + client.getTotalMinutes() + ", " + client.getNumberRentals()
-                    + ", " + client.getMaxTime() + ", " + client.getAverageMinutes() + ", " + client.getMoneySpent());
-            if (iterator.hasNext())
-                list += "\n";
-        }
-        return list;
+        return iterator;
     }
 
     /**
