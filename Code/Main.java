@@ -396,6 +396,12 @@ public class Main {
             System.out.println(SCOOTER_NOT_INACTIVE);
     }
 
+    /**
+     * Lists all clients in the lexicographic order of NIFs.
+     * 
+     * @param system Rental system that is being used.
+     * @param scanner Reads the user's input.
+     */
     private static void listClient(RentalSystem system, Scanner scanner) {
         scanner.nextLine();
         ClientIterator iterator = system.listClient();
@@ -407,6 +413,12 @@ public class Main {
         }
     }
 
+    /**
+     * Lists all scooters in the order of insertion in the system.
+     * 
+     * @param system Rental system that is being used.
+     * @param scanner Reads the user's input.
+     */
     private static void listScooter(RentalSystem system, Scanner scanner) {
         scanner.nextLine();
         ScooterIterator iterator = system.listScooter();
@@ -417,6 +429,13 @@ public class Main {
         }
     }
 
+    /**
+     * Lists all clients that are in debt to the system (got negative balance)
+     * The clients are listed in ascending order of balance.
+     * 
+     * @param system Rental system that is being used.
+     * @param scanner Reads the user's input.
+     */
     private static void listDebtors(RentalSystem system, Scanner scanner) {
         scanner.nextLine();
         ClientIteratorDebtors iterator = system.listDebtors();
@@ -428,6 +447,12 @@ public class Main {
         }
     }
 
+    /**
+     * Releases the scooter atributing specifying the location where it is being released.
+     * 
+     * @param system Rental system that is currently being used.
+     * @param scanner Reads the user's input.
+     */
     private static void releaseLocation(RentalSystem system, Scanner scanner) {
 
         String scooterID = scanner.next();
@@ -450,6 +475,13 @@ public class Main {
             System.out.println(SCOOTER_NOT_RENTED);
     }
 
+    /**
+     * Lists all the scooters in ascending order of distance 
+     * to the location introduced in the command.
+     * 
+     * @param system
+     * @param scanner
+     */
     private static void locateCloserScooters(RentalSystem system, Scanner scanner) {
         double latitude = scanner.nextDouble();
         double longitude = scanner.nextDouble();
