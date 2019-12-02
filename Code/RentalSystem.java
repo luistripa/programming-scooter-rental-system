@@ -385,14 +385,13 @@ public class RentalSystem {
     /**
      * Releases the scooter from the client
      *
-     * Calculates the amount of delay since the max rental time and cimputes the
+     * Calculates the amount of delay since the max rental time and computes the
      * total expense (fines included)
      *
      * @param id      The scooteid of the scooter being used
-     * @param minutes The minutes client used the scooter for
+     * @param minutes The minutes that the client used the scooter for
      */
     public void releaseScooter(String id, int minutes) {
-
         Client client = getScooterClientInUse(id);
         Scooter scooter = getScooterObject(id);
 
@@ -412,7 +411,6 @@ public class RentalSystem {
         incTotalRentals();
         addSystemBalance(expense);
         addTotalDelayMinutes(delay);
-
     }
 
     /**
@@ -494,6 +492,7 @@ public class RentalSystem {
      * Adds balance to the total money spent by clients on the system
      *
      * @param amount Amount to add to the System Balance
+     * PRE: amount != null
      */
     public void addSystemBalance(int amount) {
         systemBalance += amount;
@@ -503,6 +502,7 @@ public class RentalSystem {
      * Adds minutes to the total delay minutes of the system
      *
      * @param minutes Minutes to add to the total delay minutes of the system
+     * PRE: minutes != null
      */
     public void addTotalDelayMinutes(int minutes) {
         totalDelayMinutes += minutes;

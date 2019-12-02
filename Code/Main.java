@@ -70,6 +70,7 @@ public class Main {
      *
      * @param scanner Reads the user's input.
      * @return Option that the user wrote.
+     * PRE: scanner != null
      */
     private static String readOption(Scanner scanner) {
         return scanner.next().toUpperCase();
@@ -81,6 +82,7 @@ public class Main {
      * @param scanner Reads the user's input.
      * @param system  Rental system that is currently being used.
      * @param option  Option that the user chose to perform.
+     * PRE: system != null && scanner != null && option != null
      */
     private static void executeOption(Scanner scanner, RentalSystem system, String option) {
         switch (option) {
@@ -152,6 +154,7 @@ public class Main {
      *
      * @param scanner Reads the user's input.
      * @param system  Rental system that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void createClient(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
@@ -171,6 +174,7 @@ public class Main {
      *
      * @param scanner Reads the user's input.
      * @param system  Rental system that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void removeClient(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
@@ -190,6 +194,7 @@ public class Main {
      *
      * @param scanner Reads the user's input.
      * @param system  Rental system that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void createScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
@@ -208,6 +213,7 @@ public class Main {
      *
      * @param scanner Reads the user's input.
      * @param system  Rental system that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void showClientData(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
@@ -227,6 +233,7 @@ public class Main {
      *
      * @param scanner Reads the user's input.
      * @param system  Rental system that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void scooterRentedByClient(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
@@ -245,6 +252,7 @@ public class Main {
      *
      * @param scanner Reads the user's input.
      * @param system  Rental system that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void showScooterData(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
@@ -257,9 +265,11 @@ public class Main {
     }
 
     /**
-     *
+     * Prints the information of the Client that rented a specified Scooter.
+     * 
      * @param scanner Reads the user's input.
      * @param system  Rental system that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void clientRentedScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
@@ -278,6 +288,7 @@ public class Main {
      *
      * @param scanner Reads the user's input.
      * @param system  Rental system that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void addBalance(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
@@ -297,6 +308,7 @@ public class Main {
      *
      * @param scanner Reads the user's input.
      * @param system  Rental system that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void rentScooter(Scanner scanner, RentalSystem system) {
         String nif = scanner.next();
@@ -324,6 +336,7 @@ public class Main {
      *
      * @param scanner Reads the user's input.
      * @param system  Rental system that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void releaseScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
@@ -343,7 +356,8 @@ public class Main {
     /**
      * Prints the state of the current Rental System.
      *
-     * @param system
+     * @param system Rental System that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void systemState(RentalSystem system) {
         System.out.println("Estado actual: " + system.getTotalRentals() + ", " + system.getSystemBalance() + ", "
@@ -351,9 +365,10 @@ public class Main {
     }
 
     /**
-     * Exists the program.
+     * Exits the program.
      *
      * @param system Rental system that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void exit(RentalSystem system) {
         System.out.println(LEAVING);
@@ -365,6 +380,7 @@ public class Main {
      *
      * @param scanner Reads the user's input.
      * @param system  Rental system that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void deactivateScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
@@ -383,6 +399,7 @@ public class Main {
      *
      * @param scanner Reads the user's input.
      * @param system  Rental system that is currently being used.
+     * PRE: system != null && scanner != null
      */
     private static void reactivateScooter(Scanner scanner, RentalSystem system) {
         String scooterID = scanner.next();
@@ -399,42 +416,45 @@ public class Main {
     /**
      * Lists all clients in the lexicographic order of NIFs.
      * 
-     * @param system Rental system that is being used.
+     * @param system  Rental system that is being used.
      * @param scanner Reads the user's input.
+     * PRE: system != null && scanner != null
      */
     private static void listClient(RentalSystem system, Scanner scanner) {
         scanner.nextLine();
         ClientIterator iterator = system.listClient();
         while (iterator.hasNext()) {
             Client client = iterator.next();
-            System.out.printf("%s: %s, %s, %d, %d, %d, %d, %d, %d, %d\n", client.getName(), client.getNif(), client.getEmail(),
-                    client.getPhone(), client.getBalance(), client.getTotalMinutes(), client.getNumberRentals(),
-                    client.getMaxTime(), client.getAverageMinutes(), client.getMoneySpent());
+            System.out.printf("%s: %s, %s, %d, %d, %d, %d, %d, %d, %d\n", client.getName(), client.getNif(),
+                    client.getEmail(), client.getPhone(), client.getBalance(), client.getTotalMinutes(),
+                    client.getNumberRentals(), client.getMaxTime(), client.getAverageMinutes(), client.getMoneySpent());
         }
     }
 
     /**
      * Lists all scooters in the order of insertion in the system.
      * 
-     * @param system Rental system that is being used.
+     * @param system  Rental system that is being used.
      * @param scanner Reads the user's input.
+     * PRE: system != null && scanner != null
      */
     private static void listScooter(RentalSystem system, Scanner scanner) {
         scanner.nextLine();
         ScooterIterator iterator = system.listScooter();
         while (iterator.hasNext()) {
             Scooter scooter = iterator.next();
-            System.out.printf("%s: %s, %d, %d\n", scooter.getScooterRegistration(), scooter.getState(), scooter.getUsageAmount(),
-                    scooter.getUsageMinutes());
+            System.out.printf("%s: %s, %d, %d\n", scooter.getScooterRegistration(), scooter.getState(),
+                    scooter.getUsageAmount(), scooter.getUsageMinutes());
         }
     }
 
     /**
-     * Lists all clients that are in debt to the system (got negative balance)
-     * The clients are listed in ascending order of balance.
+     * Lists all clients that are in debt to the system (got negative balance) The
+     * clients are listed in ascending order of balance.
      * 
-     * @param system Rental system that is being used.
+     * @param system  Rental system that is being used.
      * @param scanner Reads the user's input.
+     * PRE: system != null && scanner != null
      */
     private static void listDebtors(RentalSystem system, Scanner scanner) {
         scanner.nextLine();
@@ -448,10 +468,11 @@ public class Main {
     }
 
     /**
-     * Releases the scooter atributing specifying the location where it is being released.
+     * Releases the scooter atributing specifying the location where it is being
+     * released.
      * 
-     * @param system Rental system that is currently being used.
-     * @param scanner Reads the user's input.
+     * @param system  Rental system that is currently being used.
+     * @param scanner Reads the user's input. 
      * PRE: system != null && scanner != null
      */
     private static void releaseLocation(RentalSystem system, Scanner scanner) {
@@ -477,11 +498,12 @@ public class Main {
     }
 
     /**
-     * Lists all the scooters in ascending order of distance 
-     * to the location introduced in the command.
+     * Lists all the scooters in ascending order of distance to the location
+     * introduced in the command.
      * 
-     * @param system Rental system that is currently being used.
+     * @param system  Rental system that is currently being used.
      * @param scanner Reads the user's input.
+     * PRE: system != null && scanner != null
      */
     private static void locateCloserScooters(RentalSystem system, Scanner scanner) {
         double latitude = scanner.nextDouble();
