@@ -420,6 +420,7 @@ public class RentalSystem {
      * @param minutes   The minutes client used the scooter for
      * @param latitude  The scooter latitude
      * @param longitude The scooter longitude
+     * PRE: id != null && minutes != null && latitude != null && lagitude != null
      */
     public void releaseScooter(String id, int minutes, double latitude, double longitude) {
 
