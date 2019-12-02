@@ -37,7 +37,8 @@ public class Scooter {
     /**
      * Rents the scooter
      * 
-     * @param nif The nif of the client renting the scooter
+     * @param client The client renting the scooter
+     * PRE: client != null
      */
     public void rent(Client client) {
         setState(MOVING);
@@ -45,7 +46,10 @@ public class Scooter {
     }
 
     /**
-     *
+     * Releases the scooter, increment it's amount of usages,
+     * adding the specified amount of minutes to the total minutes that it was used for,
+     * settings it's state to stop and setting it's client in use to null.
+     * 
      * @param minutes Amount of minutes that the scooter was rented for.
      * PRE: minutes >= 0 && isMoving == true
      */
@@ -56,6 +60,13 @@ public class Scooter {
         setClientInUse(null);
     }
 
+    /**
+     * Same as normal release but with latitude and longitude.
+     * 
+     * @param minutes Amount of minutes the scooter was rented for.
+     * @param latitude Latitude where the scooter was released.
+     * @param longitude Longitude where the scooter was released.
+     */
     public void release(int minutes, double latitude, double longitude) {
         incrementUsageAmount();
         addTotalMinutes(minutes);
@@ -173,6 +184,8 @@ public class Scooter {
      * @param lat1  The client latitude
      * @param long1 the client longitude
      * @return The distance between client and scooter
+     * 
+     * PRE: lat1 != null && long1 != null
      */
     public double calculateDistance(double lat1, double long1) {
         double lat2 = getLatitude();

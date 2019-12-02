@@ -7,6 +7,7 @@
 
 public class ClientIteratorDebtors {
 
+    // Instance variables
     private int counter;
     private int next;
     private Client[] clients;
