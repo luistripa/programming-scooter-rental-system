@@ -1,6 +1,6 @@
 /**
  * Handles client interation
- * 
+ *
  * @author Antonio Duarte
  * @author Luis Tripa
  */
@@ -12,10 +12,11 @@ public class ClientIterator {
     private Client[] clients;
 
     /**
-     * The class constructor
-     * 
+     * The class constructor. It creates a copy of the client collection vector without sorting it
+     *
      * @param counter
      * @param clients
+     * PRE: counter >= 0 && clients != null
      */
     public ClientIterator(int counter, Client[] clients) {
         this.counter = counter;
@@ -32,6 +33,7 @@ public class ClientIterator {
     }
 
     /**
+     * Gets the client in the next position in the vector
      *
      * @return The client object in the next position
      */

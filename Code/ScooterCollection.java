@@ -1,6 +1,6 @@
 /**
  * Handles everything related with the scooter collection
- * 
+ *
  * @author Antonio Duarte
  * @author Luis Tripa
  */
@@ -24,10 +24,10 @@ public class ScooterCollection {
 
     /**
      * Inserts a scooter into the system
-     * 
+     *
      * @param id           The scooter id
-     * @param registration The scooter registration 
-     * PRE: searchIndexOfScooter(id)==-1
+     * @param registration The scooter registration
+     * PRE: searchIndexOfScooter(id) == -1
      */
     public void addScooter(String id, String registration) {
         if (isFull())
@@ -38,9 +38,10 @@ public class ScooterCollection {
 
     /**
      * Search scooter by id. Returns -1 if not found
-     * 
+     *
      * @param id The scooter id to be searched
      * @return The position of the scooter object in the vector
+     * PRE: id != null
      */
     public int searchIndex(String id) {
         int pos = -1;
@@ -53,9 +54,10 @@ public class ScooterCollection {
 
     /**
      * Gets the scooter object
-     * 
+     *
      * @param id The scooter id
      * @return The scooter object
+     * PRE: id != null && searchIndex(id) != -1
      */
     public Scooter getScooterObject(String id) {
         return scooters[searchIndex(id)];
@@ -63,7 +65,7 @@ public class ScooterCollection {
 
     /**
      * Checks if scooters vector is full
-     * 
+     *
      * @return A boolean representing if the vector is full
      */
     private boolean isFull() {
@@ -83,7 +85,7 @@ public class ScooterCollection {
     /**
      * Initializes the scooter iterator. This iterator is based on the inserted
      * order
-     * 
+     *
      * @return The iterator object
      */
     public ScooterIterator initializeScooterIterator() {
