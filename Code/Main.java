@@ -452,6 +452,7 @@ public class Main {
      * 
      * @param system Rental system that is currently being used.
      * @param scanner Reads the user's input.
+     * PRE: system != null && scanner != null
      */
     private static void releaseLocation(RentalSystem system, Scanner scanner) {
 
