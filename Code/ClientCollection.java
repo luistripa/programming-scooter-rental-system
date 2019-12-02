@@ -23,6 +23,8 @@ public class ClientCollection {
      * 
      * @param nif The nif to be searched
      * @return The position of the client in the vector
+     * 
+     * PRE: nif != null
      */
     public int searchIndex(String nif) {
         int pos = -1;
