@@ -66,6 +66,7 @@ public class Scooter {
      * @param minutes Amount of minutes the scooter was rented for.
      * @param latitude Latitude where the scooter was released.
      * @param longitude Longitude where the scooter was released.
+     * PRE: minutes > 0 && latitude != null && longitude != null
      */
     public void release(int minutes, double latitude, double longitude) {
         incrementUsageAmount();
@@ -193,6 +194,17 @@ public class Scooter {
         return Math.sqrt(Math.pow(lat2 - lat1, 2) + Math.pow(long2 - long1, 2));
     }
 
+    /**
+     * Compares a given latitude and longitude to the latitude and longitude of a 
+     * specified scooter.
+     * 
+     * @param other Other scooter to compare the current scooter with.
+     * @param latitude Latitude to compare.
+     * @param longitude Longitude to compare.
+     * @return Whether the distance is greater than the specified latitude and longitude or not.
+     * 
+     * PRE: other != null && latitude != null && longitude != null
+     */
     public boolean distanceGreaterThan(Scooter other, double latitude, double longitude) {
         return this.calculateDistance(latitude, longitude) > other.calculateDistance(latitude, longitude);
     }

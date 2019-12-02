@@ -12,9 +12,10 @@ public class ScooterIterator {
     private Scooter[] scooters;
 
     /**
-     *
-     * @param counter
-     * @param scooters
+     * Iterator that organizes the Scooters by order of insertion.
+     * 
+     * @param counter Number of scooters to iterate.
+     * @param scooters Scooter collection to iterate.
      */
     public ScooterIterator(int counter, Scooter[] scooters) {
         this.counter = counter;

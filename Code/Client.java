@@ -104,6 +104,7 @@ public class Client {
 	 * Sets scooterInUse to the id of the scooter the client is going to use
 	 *
 	 * @param id The id of the scooter the client is going to use
+	 * PRE: scooter != null
 	 */
 	public void setScooterInUse(Scooter scooter) {
 		scooterInUse = scooter;

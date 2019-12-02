@@ -52,6 +52,7 @@ public class ScooterIteratorCloser {
      * Inserts a scooter in the iterator sorting it by distance to a given latitude and longitude.
      * 
      * @param scooter Scooter to insert.
+     * PRE: scooter != null
      */
     private void insertSort(Scooter scooter) {
         int pos = -1;
