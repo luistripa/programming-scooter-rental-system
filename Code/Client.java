@@ -1,6 +1,6 @@
 /**
  * Handles everything related with the client (balance, rentals, etc...)
- * 
+ *
  * @author Antonio Duarte
  * @author Luis Tripa
  */
@@ -16,11 +16,12 @@ public class Client {
 
 	/**
 	 * The class constructor
-	 * 
+	 *
 	 * @param nif   The client nif
 	 * @param email The client email
 	 * @param phone The client phone
 	 * @param name  The client name
+	 * PRE: !nif.equals("") && !email.equals("") && !phone.equals("") && !name.equals("")
 	 */
 	public Client(String nif, String email, int phone, String name) {
 		this.nif = nif;
@@ -39,7 +40,7 @@ public class Client {
 	 * Method that updates all client's variables when a scooter is released
 	 *
 	 * @param minutes The amount of minutes the client used the scooter for
-	 * PRE: minutes > 0
+	 * PRE: minutes > 0 && expense >= 0
 	 */
 	public void releaseScooter(int minutes, int expense) {
 		if (minutes > maxTime)
@@ -63,8 +64,8 @@ public class Client {
 
 	/**
 	 * Removes a specific amount from the client balance
-	 * 
-	 * @param amount The amount to be removed 
+	 *
+	 * @param amount The amount to be removed
 	 * PRE: amount > 0
 	 */
 	public void remBalance(int amount) {
@@ -190,7 +191,7 @@ public class Client {
 
 	/**
 	 * Checks whnether client has or has not rented a scooter
-	 * 
+	 *
 	 * @return Boolean representing if the client has rented a scooter
 	 */
 	public boolean hasRented() {
@@ -214,6 +215,7 @@ public class Client {
 	 *
 	 * @param otherClient
 	 * @return If balance of this client is greater than the other client
+	 * PRE: other != null
 	 */
 	public boolean balanceGreaterThan(Client other) {
 		return this.getBalance() > other.getBalance();
@@ -223,6 +225,7 @@ public class Client {
 	 *
 	 * @param other
 	 * @return Boolean. If this client balance is smaller than the other client
+	 * PRE: other != null
 	 */
 	public boolean nifGreaterThan(Client other) {
 		return this.getNif().compareTo(other.getNif()) > 0;
