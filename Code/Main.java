@@ -479,8 +479,8 @@ public class Main {
      * Lists all the scooters in ascending order of distance 
      * to the location introduced in the command.
      * 
-     * @param system
-     * @param scanner
+     * @param system Rental system that is currently being used.
+     * @param scanner Reads the user's input.
      */
     private static void locateCloserScooters(RentalSystem system, Scanner scanner) {
         double latitude = scanner.nextDouble();
