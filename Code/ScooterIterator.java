@@ -16,6 +16,7 @@ public class ScooterIterator {
      * 
      * @param counter Number of scooters to iterate.
      * @param scooters Scooter collection to iterate.
+     * PRE: counter >= 0 && scooters != null
      */
     public ScooterIterator(int counter, Scooter[] scooters) {
         this.counter = counter;
