@@ -18,6 +18,7 @@ public class ScooterIteratorCloser {
      * 
      * @param counter Number of Scooters to iterate
      * @param scooters Scooter collection to iterate
+     * PRE: counter >= 0 && scooters != null
      */
     public ScooterIteratorCloser(int counter, Scooter[] scooters, double latitude, double longitude) {
         this.scooters = new Scooter[counter];
@@ -69,6 +70,7 @@ public class ScooterIteratorCloser {
      * 
      * @param pos Position to insert the Scooter at.
      * @param scooter Scooter to be inserted at the given position.
+     * PRE: pos >= 0 && pos <= scooters.lenght
      */
     private void insertAt(int pos, Scooter scooter) {
         for (int i = counter - 1; i >= pos; i--)

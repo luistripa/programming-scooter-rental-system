@@ -7,6 +7,7 @@
 
 public class ClientIteratorDebtors {
 
+    // Instance variables
     private int counter;
     private int next;
     private Client[] clients;
@@ -17,6 +18,7 @@ public class ClientIteratorDebtors {
      * 
      * @param counter
      * @param clients
+     * PRE: counter > 0 && clients != null
      */
     public ClientIteratorDebtors(int counter, Client[] clients) {
         this.clients = new Client[counter];
@@ -48,6 +50,7 @@ public class ClientIteratorDebtors {
      * Inserts a client in ascending order of balance in the array
      * 
      * @param client Client that is going to be inserted in the array
+     * PRE: client != null
      */
     private void insertSort(Client client) {
         int pos = -1;
@@ -66,6 +69,7 @@ public class ClientIteratorDebtors {
      * 
      * @param pos    Position of the array
      * @param client Client that is going to be inserted in the array
+     * PRE: pos >= 0 && pos <= clients.lenght
      */
     private void insertAt(int pos, Client client) {
         for (int i = counter - 1; i >= pos; i--)

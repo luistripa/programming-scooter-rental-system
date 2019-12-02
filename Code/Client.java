@@ -21,7 +21,7 @@ public class Client {
 	 * @param email The client email
 	 * @param phone The client phone
 	 * @param name  The client name
-	 * PRE: !nif.equals("") && !email.equals("") && !phone.equals("") && !name.equals("")
+	 * PRE: nif != null && email != null && phone != null && name != null
 	 */
 	public Client(String nif, String email, int phone, String name) {
 		this.nif = nif;

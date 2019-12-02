@@ -360,7 +360,7 @@ public class RentalSystem {
      *
      * @param nif    The nif of the client
      * @param amount The amount to be added
-     * PRE: clientExists(nif) && amount > 0
+     * PRE: clientExists(nif) && amount >= 0
      */
     public void addBalance(String nif, int amount) {
         getClientObject(nif).addBalance(amount);
@@ -385,14 +385,13 @@ public class RentalSystem {
     /**
      * Releases the scooter from the client
      *
-     * Calculates the amount of delay since the max rental time and cimputes the
+     * Calculates the amount of delay since the max rental time and computes the
      * total expense (fines included)
      *
      * @param id      The scooteid of the scooter being used
-     * @param minutes The minutes client used the scooter for
+     * @param minutes The minutes that the client used the scooter for
      */
     public void releaseScooter(String id, int minutes) {
-
         Client client = getScooterClientInUse(id);
         Scooter scooter = getScooterObject(id);
 
@@ -412,7 +411,6 @@ public class RentalSystem {
         incTotalRentals();
         addSystemBalance(expense);
         addTotalDelayMinutes(delay);
-
     }
 
     /**
@@ -422,6 +420,7 @@ public class RentalSystem {
      * @param minutes   The minutes client used the scooter for
      * @param latitude  The scooter latitude
      * @param longitude The scooter longitude
+     * PRE: id != null && minutes >= 0 && latitude != null && lagitude != null
      */
     public void releaseScooter(String id, int minutes, double latitude, double longitude) {
 
@@ -494,6 +493,7 @@ public class RentalSystem {
      * Adds balance to the total money spent by clients on the system
      *
      * @param amount Amount to add to the System Balance
+     * PRE: amount != 0
      */
     public void addSystemBalance(int amount) {
         systemBalance += amount;
@@ -503,6 +503,7 @@ public class RentalSystem {
      * Adds minutes to the total delay minutes of the system
      *
      * @param minutes Minutes to add to the total delay minutes of the system
+     * PRE: minutes >= 0
      */
     public void addTotalDelayMinutes(int minutes) {
         totalDelayMinutes += minutes;
