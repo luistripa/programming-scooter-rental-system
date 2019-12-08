@@ -1,7 +1,7 @@
 from os import system, listdir
 
 # Try to compile code
-if system("(cd Code ; javac Main.java ; mv *.class ../bin)")==0:
+if system("(cd src ; javac Main.java ; mv *.class ../bin)")==0:
 	print("Files successfully compiled.")
 else:
 	print("Files failed to compile.")
